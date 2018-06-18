@@ -22,7 +22,7 @@ public class Main extends Application {
 			Parent root3 = FXMLLoader.load(getClass().getResource(SITZPLATZAUSWAHL));
 			Scene sitzplatzAuswahl = new Scene(root3);
 			startBildschirm.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(filmInfo);
+			primaryStage.setScene(startBildschirm);
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
