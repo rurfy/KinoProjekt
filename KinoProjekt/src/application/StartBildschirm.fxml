@@ -29,247 +29,751 @@
                   </ImageView>
                </children>
             </HBox>
-            <HBox>
-               <children>
-                  <Button mnemonicParsing="false" prefWidth="200.0" text="Heute" />
-                  <Button mnemonicParsing="false" prefWidth="200.0" text="Morgen" />
-                  <Button mnemonicParsing="false" prefWidth="200.0" text="Übermorgen" />
-               </children>
-            </HBox>
-            <VBox>
-               <children>
-                  <Pane prefHeight="100.0" prefWidth="600.0">
-                     <children>
-                        <HBox>
+            <TabPane tabClosingPolicy="UNAVAILABLE" tabMaxHeight="200.0" tabMaxWidth="200.0">
+              <tabs>
+                <Tab style="-fx-font-size: 20;" text="Heute">
+                  <content>
+                    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0">
                            <children>
-                              <ImageView fitHeight="100.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin></ImageView>
                               <VBox>
                                  <children>
-                                    <Label text="FilmTitel">
-                                       <VBox.margin>
-                                          <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
-                                       </VBox.margin>
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <HBox>
+                                    <Pane prefHeight="100.0" prefWidth="600.0">
                                        <children>
-                                          <Button mnemonicParsing="false" text="Zeit1">
-                                             <HBox.margin>
-                                                <Insets left="20.0" right="20.0" />
-                                             </HBox.margin>
-                                          </Button>
-                                          <Button mnemonicParsing="false" text="Zeit2">
-                                             <HBox.margin>
-                                                <Insets left="20.0" right="20.0" />
-                                             </HBox.margin>
-                                          </Button>
-                                          <Button mnemonicParsing="false" text="Zeit3">
-                                             <HBox.margin>
-                                                <Insets left="20.0" right="20.0" />
-                                             </HBox.margin>
-                                          </Button>
+                                          <HBox>
+                                             <children>
+                                                <ImageView fitHeight="100.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </ImageView>
+                                                <VBox>
+                                                   <children>
+                                                      <Label text="FilmTitel">
+                                                         <VBox.margin>
+                                                            <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                                                         </VBox.margin>
+                                                         <font>
+                                                            <Font size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <HBox>
+                                                         <children>
+                                                            <Button mnemonicParsing="false" text="Zeit1">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" text="Zeit2">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" text="Zeit3">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets left="30.0" />
+                                                   </HBox.margin>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
                                        </children>
-                                    </HBox>
+                                    </Pane>
+                                    <Pane prefHeight="100.0" prefWidth="600.0">
+                                       <children>
+                                          <HBox>
+                                             <children>
+                                                <ImageView fitHeight="100.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </ImageView>
+                                                <VBox>
+                                                   <children>
+                                                      <Label text="FilmTitel">
+                                                         <font>
+                                                            <Font size="24.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <HBox>
+                                                         <children>
+                                                            <Button mnemonicParsing="false" text="Zeit1">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" text="Zeit2">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" text="Zeit3">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets left="30.0" />
+                                                   </HBox.margin>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </Pane>
+                                    <Pane prefHeight="100.0" prefWidth="600.0">
+                                       <children>
+                                          <HBox>
+                                             <children>
+                                                <ImageView fitHeight="100.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </ImageView>
+                                                <VBox>
+                                                   <children>
+                                                      <Label text="FilmTitel">
+                                                         <font>
+                                                            <Font size="24.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <HBox>
+                                                         <children>
+                                                            <Button mnemonicParsing="false" text="Zeit1">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" text="Zeit2">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" text="Zeit3">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets left="30.0" />
+                                                   </HBox.margin>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </Pane>
+                                    <Pane prefHeight="100.0" prefWidth="600.0">
+                                       <children>
+                                          <HBox>
+                                             <children>
+                                                <ImageView fitHeight="100.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </ImageView>
+                                                <VBox>
+                                                   <children>
+                                                      <Label text="FilmTitel">
+                                                         <font>
+                                                            <Font size="24.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <HBox>
+                                                         <children>
+                                                            <Button mnemonicParsing="false" text="Zeit1">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" text="Zeit2">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" text="Zeit3">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets left="30.0" />
+                                                   </HBox.margin>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </Pane>
+                                    <Pane prefHeight="100.0" prefWidth="600.0">
+                                       <children>
+                                          <HBox>
+                                             <children>
+                                                <ImageView fitHeight="100.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </ImageView>
+                                                <VBox>
+                                                   <children>
+                                                      <Label text="FilmTitel">
+                                                         <font>
+                                                            <Font size="24.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <HBox>
+                                                         <children>
+                                                            <Button mnemonicParsing="false" text="Zeit1">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" text="Zeit2">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" text="Zeit3">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets left="30.0" />
+                                                   </HBox.margin>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </Pane>
                                  </children>
-                                 <HBox.margin>
-                                    <Insets left="30.0" />
-                                 </HBox.margin>
                               </VBox>
                            </children>
-                        </HBox>
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="100.0" prefWidth="600.0">
-                     <children>
-                        <HBox>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab style="-fx-font-size: 20;" text="Morgen">
+                  <content>
+                    <AnchorPane>
                            <children>
-                              <ImageView fitHeight="100.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin></ImageView>
                               <VBox>
                                  <children>
-                                    <Label text="FilmTitel">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                       <VBox.margin>
-                                          <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
-                                       </VBox.margin>
-                                    </Label>
-                                    <HBox>
+                                    <Pane prefHeight="100.0" prefWidth="600.0">
                                        <children>
-                                          <Button mnemonicParsing="false" text="Zeit1">
-                                             <HBox.margin>
-                                                <Insets left="20.0" right="20.0" />
-                                             </HBox.margin>
-                                          </Button>
-                                          <Button mnemonicParsing="false" text="Zeit2">
-                                             <HBox.margin>
-                                                <Insets left="20.0" right="20.0" />
-                                             </HBox.margin>
-                                          </Button>
-                                          <Button mnemonicParsing="false" text="Zeit3">
-                                             <HBox.margin>
-                                                <Insets left="20.0" right="20.0" />
-                                             </HBox.margin>
-                                          </Button>
+                                          <HBox>
+                                             <children>
+                                                <ImageView fitHeight="100.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </ImageView>
+                                                <VBox>
+                                                   <children>
+                                                      <Label text="FilmTitel">
+                                                         <font>
+                                                            <Font size="24.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <HBox>
+                                                         <children>
+                                                            <Button mnemonicParsing="false" text="Zeit1">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" text="Zeit2">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" text="Zeit3">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets left="30.0" />
+                                                   </HBox.margin>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
                                        </children>
-                                    </HBox>
+                                    </Pane>
+                                    <Pane prefHeight="100.0" prefWidth="600.0">
+                                       <children>
+                                          <HBox>
+                                             <children>
+                                                <ImageView fitHeight="100.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </ImageView>
+                                                <VBox>
+                                                   <children>
+                                                      <Label text="FilmTitel">
+                                                         <font>
+                                                            <Font size="24.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <HBox>
+                                                         <children>
+                                                            <Button mnemonicParsing="false" text="Zeit1">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" text="Zeit2">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" text="Zeit3">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets left="30.0" />
+                                                   </HBox.margin>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </Pane>
+                                    <Pane prefHeight="100.0" prefWidth="600.0">
+                                       <children>
+                                          <HBox>
+                                             <children>
+                                                <ImageView fitHeight="100.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </ImageView>
+                                                <VBox>
+                                                   <children>
+                                                      <Label text="FilmTitel">
+                                                         <font>
+                                                            <Font size="24.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <HBox>
+                                                         <children>
+                                                            <Button mnemonicParsing="false" text="Zeit1">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" text="Zeit2">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" text="Zeit3">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets left="30.0" />
+                                                   </HBox.margin>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </Pane>
+                                    <Pane prefHeight="100.0" prefWidth="600.0">
+                                       <children>
+                                          <HBox>
+                                             <children>
+                                                <ImageView fitHeight="100.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </ImageView>
+                                                <VBox>
+                                                   <children>
+                                                      <Label text="FilmTitel">
+                                                         <font>
+                                                            <Font size="24.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <HBox>
+                                                         <children>
+                                                            <Button mnemonicParsing="false" text="Zeit1">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" text="Zeit2">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" text="Zeit3">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets left="30.0" />
+                                                   </HBox.margin>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </Pane>
+                                    <Pane prefHeight="100.0" prefWidth="600.0">
+                                       <children>
+                                          <HBox>
+                                             <children>
+                                                <ImageView fitHeight="100.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </ImageView>
+                                                <VBox>
+                                                   <children>
+                                                      <Label text="FilmTitel">
+                                                         <font>
+                                                            <Font size="24.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <HBox>
+                                                         <children>
+                                                            <Button mnemonicParsing="false" text="Zeit1">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" text="Zeit2">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" text="Zeit3">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets left="30.0" />
+                                                   </HBox.margin>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </Pane>
                                  </children>
-                                 <HBox.margin>
-                                    <Insets left="30.0" />
-                                 </HBox.margin>
                               </VBox>
                            </children>
-                        </HBox>
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="100.0" prefWidth="600.0">
-                     <children>
-                        <HBox>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab style="-fx-font-size: 20;" text="Übermorgen">
+                    <content>
+                      <AnchorPane>
                            <children>
-                              <ImageView fitHeight="100.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin></ImageView>
                               <VBox>
                                  <children>
-                                    <Label text="FilmTitel">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                       <VBox.margin>
-                                          <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
-                                       </VBox.margin>
-                                    </Label>
-                                    <HBox>
+                                    <Pane prefHeight="100.0" prefWidth="600.0">
                                        <children>
-                                          <Button mnemonicParsing="false" text="Zeit1">
-                                             <HBox.margin>
-                                                <Insets left="20.0" right="20.0" />
-                                             </HBox.margin>
-                                          </Button>
-                                          <Button mnemonicParsing="false" text="Zeit2">
-                                             <HBox.margin>
-                                                <Insets left="20.0" right="20.0" />
-                                             </HBox.margin>
-                                          </Button>
-                                          <Button mnemonicParsing="false" text="Zeit3">
-                                             <HBox.margin>
-                                                <Insets left="20.0" right="20.0" />
-                                             </HBox.margin>
-                                          </Button>
+                                          <HBox>
+                                             <children>
+                                                <ImageView fitHeight="100.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </ImageView>
+                                                <VBox>
+                                                   <children>
+                                                      <Label text="FilmTitel">
+                                                         <font>
+                                                            <Font size="24.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <HBox>
+                                                         <children>
+                                                            <Button mnemonicParsing="false" text="Zeit1">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" text="Zeit2">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" text="Zeit3">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets left="30.0" />
+                                                   </HBox.margin>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
                                        </children>
-                                    </HBox>
+                                    </Pane>
+                                    <Pane prefHeight="100.0" prefWidth="600.0">
+                                       <children>
+                                          <HBox>
+                                             <children>
+                                                <ImageView fitHeight="100.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </ImageView>
+                                                <VBox>
+                                                   <children>
+                                                      <Label text="FilmTitel">
+                                                         <font>
+                                                            <Font size="24.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <HBox>
+                                                         <children>
+                                                            <Button mnemonicParsing="false" text="Zeit1">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" text="Zeit2">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" text="Zeit3">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets left="30.0" />
+                                                   </HBox.margin>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </Pane>
+                                    <Pane prefHeight="100.0" prefWidth="600.0">
+                                       <children>
+                                          <HBox>
+                                             <children>
+                                                <ImageView fitHeight="100.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </ImageView>
+                                                <VBox>
+                                                   <children>
+                                                      <Label text="FilmTitel">
+                                                         <font>
+                                                            <Font size="24.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <HBox>
+                                                         <children>
+                                                            <Button mnemonicParsing="false" text="Zeit1">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" text="Zeit2">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" text="Zeit3">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets left="30.0" />
+                                                   </HBox.margin>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </Pane>
+                                    <Pane prefHeight="100.0" prefWidth="600.0">
+                                       <children>
+                                          <HBox>
+                                             <children>
+                                                <ImageView fitHeight="100.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </ImageView>
+                                                <VBox>
+                                                   <children>
+                                                      <Label text="FilmTitel">
+                                                         <font>
+                                                            <Font size="24.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <HBox>
+                                                         <children>
+                                                            <Button mnemonicParsing="false" text="Zeit1">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" text="Zeit2">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" text="Zeit3">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets left="30.0" />
+                                                   </HBox.margin>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </Pane>
+                                    <Pane prefHeight="100.0" prefWidth="600.0">
+                                       <children>
+                                          <HBox>
+                                             <children>
+                                                <ImageView fitHeight="100.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </ImageView>
+                                                <VBox>
+                                                   <children>
+                                                      <Label text="FilmTitel">
+                                                         <font>
+                                                            <Font size="24.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <HBox>
+                                                         <children>
+                                                            <Button mnemonicParsing="false" text="Zeit1">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" text="Zeit2">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button mnemonicParsing="false" text="Zeit3">
+                                                               <HBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets left="30.0" />
+                                                   </HBox.margin>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </Pane>
                                  </children>
-                                 <HBox.margin>
-                                    <Insets left="30.0" />
-                                 </HBox.margin>
                               </VBox>
                            </children>
-                        </HBox>
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="100.0" prefWidth="600.0">
-                     <children>
-                        <HBox>
-                           <children>
-                              <ImageView fitHeight="100.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin></ImageView>
-                              <VBox>
-                                 <children>
-                                    <Label text="FilmTitel">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                       <VBox.margin>
-                                          <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
-                                       </VBox.margin>
-                                    </Label>
-                                    <HBox>
-                                       <children>
-                                          <Button mnemonicParsing="false" text="Zeit1">
-                                             <HBox.margin>
-                                                <Insets left="20.0" right="20.0" />
-                                             </HBox.margin>
-                                          </Button>
-                                          <Button mnemonicParsing="false" text="Zeit2">
-                                             <HBox.margin>
-                                                <Insets left="20.0" right="20.0" />
-                                             </HBox.margin>
-                                          </Button>
-                                          <Button mnemonicParsing="false" text="Zeit3">
-                                             <HBox.margin>
-                                                <Insets left="20.0" right="20.0" />
-                                             </HBox.margin>
-                                          </Button>
-                                       </children>
-                                    </HBox>
-                                 </children>
-                                 <HBox.margin>
-                                    <Insets left="30.0" />
-                                 </HBox.margin>
-                              </VBox>
-                           </children>
-                        </HBox>
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="100.0" prefWidth="600.0">
-                     <children>
-                        <HBox>
-                           <children>
-                              <ImageView fitHeight="100.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin></ImageView>
-                              <VBox>
-                                 <children>
-                                    <Label text="FilmTitel">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                       <VBox.margin>
-                                          <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
-                                       </VBox.margin>
-                                    </Label>
-                                    <HBox>
-                                       <children>
-                                          <Button mnemonicParsing="false" text="Zeit1">
-                                             <HBox.margin>
-                                                <Insets left="20.0" right="20.0" />
-                                             </HBox.margin>
-                                          </Button>
-                                          <Button mnemonicParsing="false" text="Zeit2">
-                                             <HBox.margin>
-                                                <Insets left="20.0" right="20.0" />
-                                             </HBox.margin>
-                                          </Button>
-                                          <Button mnemonicParsing="false" text="Zeit3">
-                                             <HBox.margin>
-                                                <Insets left="20.0" right="20.0" />
-                                             </HBox.margin>
-                                          </Button>
-                                       </children>
-                                    </HBox>
-                                 </children>
-                                 <HBox.margin>
-                                    <Insets left="30.0" />
-                                 </HBox.margin>
-                              </VBox>
-                           </children>
-                        </HBox>
-                     </children>
-                  </Pane>
-               </children>
-            </VBox>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
          </children>
       </VBox>
    </children>
