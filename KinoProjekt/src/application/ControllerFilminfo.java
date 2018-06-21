@@ -32,10 +32,25 @@ public class ControllerFilminfo implements Initializable{
 		
 	}
 	
+	@FXML
 	public void backToStartbildschirm(ActionEvent e) {
 		Stage primaryStage = (Stage) filmInfoZurueck.getScene().getWindow();
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource(STARTBILDSCHIRM));
+			root.getStylesheets().add(getClass().getResource("FilmInfo.css").toExternalForm());
+			primaryStage.setScene(new Scene(root));
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+	
+	@FXML
+	public void zurSitzplatzAuswahl(ActionEvent e) {
+		Stage primaryStage = (Stage) filmInfoZurueck.getScene().getWindow();
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource(SITZPLATZAUSWAHL));
+			root.getStylesheets().add(getClass().getResource("FilmInfo.css").toExternalForm());
 			primaryStage.setScene(new Scene(root));
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block

@@ -8,13 +8,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerSitzplatzauswahl">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerSitzplatzauswahl">
 	<children>
-		<VBox prefWidth="600.0">
+		<VBox prefWidth="1000.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
 			<children>
 				<StackPane>
 					<children>
-						<Label text="Sitzplatz auswählen" StackPane.alignment="TOP_LEFT">
+						<Label text="Sitzplatz auswählen" StackPane.alignment="CENTER_LEFT">
 							<font>
 								<Font size="24.0" />
 							</font>
@@ -22,32 +22,29 @@
 								<Insets />
 							</StackPane.margin>
 						</Label>
-						<ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_RIGHT">
+						<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_RIGHT">
 							<StackPane.margin>
 								<Insets />
 							</StackPane.margin>
 						</ImageView>
 					</children>
 					<VBox.margin>
-						<Insets left="20.0" right="20.0" top="20.0" />
+						<Insets bottom="20.0" />
 					</VBox.margin>
 				</StackPane>
-				<HBox>
-					<children>
-						<Pane prefHeight="400.0" prefWidth="400.0" />
-						<ScrollPane prefWidth="200.0" vbarPolicy="NEVER">
+            <StackPane>
+               <children>
+						<Pane maxWidth="-Infinity" prefHeight="700.0" prefWidth="700.0" StackPane.alignment="CENTER_LEFT" />
+						<ScrollPane maxWidth="-Infinity" prefWidth="280.0" vbarPolicy="NEVER" StackPane.alignment="CENTER_RIGHT">
 							<content>
 								<ComboBox promptText="Erwachsener" />
 							</content>
-							<HBox.margin>
-								<Insets left="20.0" />
-							</HBox.margin>
 						</ScrollPane>
-					</children>
-					<VBox.margin>
-						<Insets left="20.0" right="20.0" top="20.0" />
-					</VBox.margin>
-				</HBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </StackPane>
 				<StackPane prefWidth="600.0">
 					<children>
 						<Button mnemonicParsing="false" text="Zurück" StackPane.alignment="TOP_LEFT">
@@ -80,7 +77,7 @@
 						</HBox>
 					</children>
 					<VBox.margin>
-						<Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+						<Insets />
 					</VBox.margin>
 				</StackPane>
 			</children>
