@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerSitzplatzauswahl">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ControllerSitzplatzauswahl">
 	<children>
-		<VBox prefWidth="1000.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+		<VBox prefWidth="1200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
 			<children>
 				<StackPane>
 					<children>
@@ -26,6 +26,9 @@
 							<StackPane.margin>
 								<Insets />
 							</StackPane.margin>
+                     <image>
+                        <Image url="@../../../Logo_v3.png" />
+                     </image>
 						</ImageView>
 					</children>
 					<VBox.margin>
@@ -34,7 +37,14 @@
 				</StackPane>
             <StackPane>
                <children>
-						<Pane maxWidth="-Infinity" prefHeight="700.0" prefWidth="700.0" StackPane.alignment="CENTER_LEFT" />
+						<Pane maxWidth="-Infinity" StackPane.alignment="CENTER_LEFT">
+                     <children>
+                        <ImageView fitHeight="900.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Leinwand-PPT.jpg" />
+                           </image>
+                        </ImageView>
+                     </children></Pane>
 						<ScrollPane maxWidth="-Infinity" prefWidth="280.0" vbarPolicy="NEVER" StackPane.alignment="CENTER_RIGHT">
 							<content>
 								<ComboBox promptText="Erwachsener" />
@@ -47,7 +57,7 @@
             </StackPane>
 				<StackPane prefWidth="600.0">
 					<children>
-						<Button mnemonicParsing="false" text="Zurück" StackPane.alignment="TOP_LEFT">
+						<Button fx:id="sitzPlatzZurueck" mnemonicParsing="false" onAction="#zumStartBildschirm" text="Zurück" StackPane.alignment="TOP_LEFT">
 							<font>
 								<Font size="16.0" />
 							</font>
