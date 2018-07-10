@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefWidth="1040.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerStartbildschirm">
+<AnchorPane prefWidth="1040.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ControllerStartbildschirm">
 	<children>
 		<VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 			<children>
@@ -19,9 +19,9 @@
 								<Font size="24.0" />
 							</font>
 						</Label>
-						<ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
+						<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
 							<image>
-								<Image url="@../../../Logo_v2.PNG" />
+								<Image url="@../../../Logo_v3.PNG" />
 							</image>
 						</ImageView>
 					</children>
@@ -39,7 +39,7 @@
 											<content>
 												<VBox prefWidth="1000.0">
 													<children>
-														<Pane styleClass="startBildschirmFilm" onMouseClicked="#zurFilmInfo">
+														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox>
 																	<children>
@@ -63,7 +63,7 @@
 																				</Label>
 																				<HBox>
 																					<children>
-																						<Button mnemonicParsing="false" text="14:00 Uhr" onAction="#zurSitzplatzAuswahl">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="14:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>

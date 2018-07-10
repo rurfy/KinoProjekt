@@ -8,18 +8,18 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="MainPane" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerFilminfo">
+<AnchorPane fx:id="MainPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ControllerFilminfo">
    <children>
-      <VBox>
+      <VBox prefWidth="800.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
          <children>
             <StackPane fx:id="headStackPane">
                <children>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_RIGHT">
+                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_RIGHT">
                      <StackPane.margin>
                         <Insets />
                      </StackPane.margin>
                      <image>
-                        <Image url="@../../../Logo_v2.PNG" />
+                        <Image url="@../../../Logo_v3.PNG" />
                      </image>
                   </ImageView>
                   <HBox prefHeight="100.0" prefWidth="200.0">
@@ -34,7 +34,7 @@
                         </ImageView>
                         <VBox>
                            <children>
-                              <Label alignment="TOP_LEFT" text="Avatar - Pandora">
+                              <Label alignment="TOP_LEFT" text="Avatar - Aufbruch nach Pandora">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
@@ -86,9 +86,9 @@
                     <content>
                       <AnchorPane>
                            <children>
-                              <StackPane prefWidth="560.0">
+                              <StackPane prefWidth="800.0">
                                  <children>
-                                    <Button mnemonicParsing="false" text="14:00 Uhr" onAction="#zurSitzplatzAuswahl">
+                                    <Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="14:00 Uhr">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -195,7 +195,7 @@
                   <Insets />
                </VBox.margin>
             </TabPane>
-            <Button fx:id="filmInfoZurueck" mnemonicParsing="false" onAction="#backToStartbildschirm" text="Zurück">
+            <Button fx:id="filmInfoZurueck" mnemonicParsing="false" onAction="#zumStartBildschirm" text="Zurück">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
@@ -204,9 +204,6 @@
                </font>
             </Button>
          </children>
-         <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-         </padding>
       </VBox>
    </children>
 </AnchorPane>
