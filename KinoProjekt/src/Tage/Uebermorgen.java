@@ -29,7 +29,7 @@ public class Uebermorgen extends Tage {
 			String vergleich = "";
 			while (a != -1) {
 				a = in.read();
-				vergleich = vergleich + " " + a;
+				vergleich = vergleich + (char) a;
 				if (a == 13) {
 					a = in.read();
 //					System.out.println("test");

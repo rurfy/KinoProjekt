@@ -24,7 +24,7 @@ public class Morgen extends Tage{
 			String vergleich = "";
 			while (a != -1) {
 				a = in.read();
-				vergleich = vergleich + " "+a;
+				vergleich = vergleich+ (char) a;
 				if (a == 13) {
 					a = in.read();
 					if (vergleich.regionMatches(0, film.getTitel(), 0, film.getTitel().length()-1)) {

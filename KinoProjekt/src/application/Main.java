@@ -42,14 +42,12 @@ public class Main extends Application {
 		Heute heute = new Heute();
 		Film film = new Film();
 		String[] uhrzeit;
-		um.aktuellenTagPruefen();
+		uhrzeit = morgen.getUhrzeit();
 		
-//		uhrzeit = morgen.getUhrzeit();
-//		
-//		for (int i = 0; i< um.getUhrzeit().length; i++) {
-//			
-//			System.out.println(uhrzeit[i]);
-//		}
+		for (int i = 0; i< um.getUhrzeit().length; i++) {
+			
+			System.out.println(uhrzeit[i]);
+		}
 		//launch(args);
 	}
 }
