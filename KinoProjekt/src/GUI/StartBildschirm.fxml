@@ -39,7 +39,7 @@
 											<content>
 												<VBox prefWidth="1000.0">
 													<children>
-														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="avatar" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox>
 																	<children>
@@ -68,12 +68,12 @@
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="15:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="15:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="16:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
@@ -92,7 +92,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane styleClass="startBildschirmFilm">
+														<Pane id="jurassicWorld" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -116,17 +116,17 @@
 																				</Label>
 																				<HBox>
 																					<children>
-																						<Button mnemonicParsing="false" text="14:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="14:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="15:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="15:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="16:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
@@ -145,7 +145,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane styleClass="startBildschirmFilm">
+														<Pane id="findetNemo" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -169,17 +169,17 @@
 																				</Label>
 																				<HBox>
 																					<children>
-																						<Button mnemonicParsing="false" text="14:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="14:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="15:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="15:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="16:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
@@ -198,7 +198,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane styleClass="startBildschirmFilm">
+														<Pane id="ziemlichBesteFreunde" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -222,17 +222,17 @@
 																				</Label>
 																				<HBox>
 																					<children>
-																						<Button mnemonicParsing="false" text="14:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="14:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="15:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="15:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="16:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
@@ -251,7 +251,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane styleClass="startBildschirmFilm">
+														<Pane id="fiftyShadesOfGrey" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -275,17 +275,17 @@
 																				</Label>
 																				<HBox>
 																					<children>
-																						<Button mnemonicParsing="false" text="14:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="14:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="15:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="15:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="16:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
@@ -320,7 +320,7 @@
 											<content>
 												<VBox prefWidth="1000.0">
 													<children>
-														<Pane styleClass="startBildschirmFilm">
+														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox>
 																	<children>
@@ -344,17 +344,17 @@
 																				</Label>
 																				<HBox>
 																					<children>
-																						<Button mnemonicParsing="false" text="15:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="15:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="16:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="17:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="17:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
@@ -373,7 +373,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane styleClass="startBildschirmFilm">
+														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -397,17 +397,17 @@
 																				</Label>
 																				<HBox>
 																					<children>
-																						<Button mnemonicParsing="false" text="15:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="15:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="16:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="17:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="17:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
@@ -426,7 +426,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane styleClass="startBildschirmFilm">
+														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -450,17 +450,17 @@
 																				</Label>
 																				<HBox>
 																					<children>
-																						<Button mnemonicParsing="false" text="15:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="15:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="16:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="17:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="17:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
@@ -479,7 +479,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane styleClass="startBildschirmFilm">
+														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -503,17 +503,17 @@
 																				</Label>
 																				<HBox>
 																					<children>
-																						<Button mnemonicParsing="false" text="15:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="15:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="16:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="17:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="17:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
@@ -532,7 +532,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane styleClass="startBildschirmFilm">
+														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -556,17 +556,17 @@
 																				</Label>
 																				<HBox>
 																					<children>
-																						<Button mnemonicParsing="false" text="15:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="15:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="16:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="17:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="17:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
@@ -602,7 +602,7 @@
 											<content>
 												<VBox prefWidth="1000.0">
 													<children>
-														<Pane styleClass="startBildschirmFilm">
+														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox>
 																	<children>
@@ -626,17 +626,17 @@
 																				</Label>
 																				<HBox>
 																					<children>
-																						<Button mnemonicParsing="false" text="16:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="17:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="17:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="18:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="18:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
@@ -655,7 +655,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane styleClass="startBildschirmFilm">
+														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -679,17 +679,17 @@
 																				</Label>
 																				<HBox>
 																					<children>
-																						<Button mnemonicParsing="false" text="16:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="17:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="17:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="18:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="18:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
@@ -708,7 +708,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane styleClass="startBildschirmFilm">
+														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -732,17 +732,17 @@
 																				</Label>
 																				<HBox>
 																					<children>
-																						<Button mnemonicParsing="false" text="16:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="17:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="17:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="18:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="18:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
@@ -761,7 +761,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane styleClass="startBildschirmFilm">
+														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -785,17 +785,17 @@
 																				</Label>
 																				<HBox>
 																					<children>
-																						<Button mnemonicParsing="false" text="16:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="17:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="17:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="18:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="18:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
@@ -814,7 +814,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane styleClass="startBildschirmFilm">
+														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -838,17 +838,13 @@
 																				</Label>
 																				<HBox>
 																					<children>
-																						<Button mnemonicParsing="false" text="16:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="17:00 Uhr">
-																							<HBox.margin>
-																								<Insets left="20.0" right="20.0" />
-																							</HBox.margin>
-																						</Button>
-																						<Button mnemonicParsing="false" text="18:00 Uhr">
+                  																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="17:00 Uhr" />
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="18:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
