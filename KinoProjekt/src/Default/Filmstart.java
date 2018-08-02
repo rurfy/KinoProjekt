@@ -1,15 +1,15 @@
 package Default;
 
-import Tage.Tag;
+import Tage.Tage;
 
 public class Filmstart extends Film {
-	private Tag tag;
+	private Tage tag;
 
-	public Tag getTag() {
+	public Tage getTag() {
 		return tag;
 	}
 
-	public void setTag(Tag tag) {
+	public void setTag(Tage tag) {
 		this.tag = tag;
 	}
 	

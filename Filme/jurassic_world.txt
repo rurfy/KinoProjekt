@@ -1,0 +1,7 @@
+Titel: Jurassic World
+Dauer: 2.10
+FSK: 12
+Genre: Action und Science-Fiction
+Trailer: https://www.youtube.com/watch?v=QvGzqDgkJQc
+BildURL: ../../../jurassic-world.jpg
+Preis: 7.50

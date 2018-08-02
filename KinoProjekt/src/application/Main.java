@@ -1,5 +1,12 @@
 package application;
 	
+import javax.swing.plaf.synth.SynthSeparatorUI;
+
+import Default.Film;
+import Tage.Heute;
+import Tage.Morgen;
+import Tage.Tage;
+import Tage.Uebermorgen;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
@@ -30,6 +37,17 @@ public class Main extends Application {
 	}
 	
 	public static void main(String[] args) {
-		launch(args);
+		Uebermorgen um = new Uebermorgen();
+		Morgen morgen = new Morgen();
+		Heute heute = new Heute();
+		Film film = new Film();
+		String[] uhrzeit;
+		uhrzeit = morgen.getUhrzeit();
+		
+		for (int i = 0; i< um.getUhrzeit().length; i++) {
+			
+			System.out.println(uhrzeit[i]);
+		}
+		//launch(args);
 	}
 }

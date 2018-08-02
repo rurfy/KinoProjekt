@@ -41,4 +41,7 @@ public abstract class MainController implements Initializable{
 			e1.printStackTrace();
 		}
 	}
+	public void bilderAnzeigen (String fxml, Control c) {
+		
+	}
 }
