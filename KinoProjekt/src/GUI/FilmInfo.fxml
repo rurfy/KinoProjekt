@@ -24,7 +24,7 @@
                   </ImageView>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <ImageView fitHeight="300.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="bild" fitHeight="300.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -34,12 +34,12 @@
                         </ImageView>
                         <VBox>
                            <children>
-                              <Label alignment="TOP_LEFT" text="Avatar - Aufbruch nach Pandora">
+                              <Label fx:id="titel" alignment="TOP_LEFT" text="Avatar - Aufbruch nach Pandora">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label text="Genre: Science Fiction / Action">
+                              <Label fx:id="genre" text="Genre: Science Fiction / Action">
                                  <VBox.margin>
                                     <Insets top="20.0" />
                                  </VBox.margin>
@@ -47,7 +47,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <Label text="FSK 12">
+                              <Label fx:id="fsk" text="FSK 12">
                                  <VBox.margin>
                                     <Insets top="20.0" />
                                  </VBox.margin>
@@ -55,7 +55,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <Label text="Dauer: 2:45 h">
+                              <Label fx:id="dauer" text="Dauer: 2:45 h">
                                  <font>
                                     <Font size="20.0" />
                                  </font>

@@ -3,6 +3,7 @@ package Platztypen;
 public abstract class Sitzplatz {
 	private boolean belegt;
 	private int platzID;
+	
 	public boolean isBelegt() {
 		return belegt;
 	}

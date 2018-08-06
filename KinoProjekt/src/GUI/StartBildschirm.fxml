@@ -39,11 +39,11 @@
 											<content>
 												<VBox prefWidth="1000.0">
 													<children>
-														<Pane id="avatar" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane fx:id="film1" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox>
 																	<children>
-																		<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image1" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<image>
 																				<Image url="@../../../avatar_thumb.jpg" />
 																			</image>
@@ -53,7 +53,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel11" text="Avatar - Aufbruch nach Pandora">
+																				<Label fx:id="filmTitel1" text="Avatar - Aufbruch nach Pandora">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -92,7 +92,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane id="jurassicWorld" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane fx:id="film2" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -106,7 +106,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel1" text="Jurassic World">
+																				<Label fx:id="filmTitel2" text="Jurassic World">
 																					<VBox.margin>
 																						<Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
 																					</VBox.margin>
@@ -145,7 +145,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane id="findetNemo" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane fx:id="film3" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -159,7 +159,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel12" text="Findet Nemo">
+																				<Label fx:id="filmTitel13" text="Findet Nemo">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -198,7 +198,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane id="ziemlichBesteFreunde" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane fx:id="film4" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -212,7 +212,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel13" text="Ziemlich beste Freunde">
+																				<Label fx:id="filmTitel14" text="Ziemlich beste Freunde">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -251,7 +251,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane id="fiftyShadesOfGrey" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane fx:id="film5" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -265,7 +265,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel14" text="Fifty Shades of Grey - Geheimes Verlangen">
+																				<Label fx:id="filmTitel15" text="Fifty Shades of Grey - Geheimes Verlangen">
 																					<font>
 																						<Font size="24.0" />
 																					</font>

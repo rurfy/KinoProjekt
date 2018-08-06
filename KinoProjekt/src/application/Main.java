@@ -1,5 +1,12 @@
 package application;
 	
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
 import javax.swing.plaf.synth.SynthSeparatorUI;
 
 import Default.Film;
@@ -37,17 +44,8 @@ public class Main extends Application {
 	}
 	
 	public static void main(String[] args) {
-		Uebermorgen um = new Uebermorgen();
-		Morgen morgen = new Morgen();
-		Heute heute = new Heute();
-		Film film = new Film();
-		String[] uhrzeit;
-		uhrzeit = morgen.getUhrzeit();
-		
-		for (int i = 0; i< um.getUhrzeit().length; i++) {
-			
-			System.out.println(uhrzeit[i]);
-		}
-		//launch(args);
+		Tests.testen();
+		Tests.starten();
+		launch(args);
 	}
 }
