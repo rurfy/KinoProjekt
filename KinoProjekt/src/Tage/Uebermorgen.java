@@ -18,7 +18,7 @@ import Default.Film;
 public class Uebermorgen extends Tage {
 
 	private String[] uhrzeit = new String[3];
-	Film film = new Film();
+	Film film = new Film(0, null, 0, null, null, null, 0);
 	private File f = new File("Tage/uebermorgen.txt");
 
 	@Override

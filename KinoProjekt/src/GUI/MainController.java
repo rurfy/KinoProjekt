@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Control;
@@ -29,7 +30,7 @@ public abstract class MainController implements Initializable{
 	
 	public abstract void zurFilmInfo(MouseEvent e);
 	
-	public void setNewScene(String fxml, Control c) {
+	public void setNewScene(String fxml, Node c) {
 		// TODO Auto-generated method stub
 		Stage primaryStage = (Stage) c.getScene().getWindow();
 		try {
