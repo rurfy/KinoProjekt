@@ -78,6 +78,8 @@ public class ControllerStartbildschirm extends MainController implements Initial
 		try {
 			FileInputStream fis = new FileInputStream("filme.kos");
 			ObjectInputStream in = new ObjectInputStream(fis);
+			Film film = (Film) in.readObject();
+			filme.add(film);
 			initialisiereFilm(fis, in, film1);
 			initialisiereFilm(fis, in, film2);
 			initialisiereFilm(fis, in, film3);
@@ -85,7 +87,7 @@ public class ControllerStartbildschirm extends MainController implements Initial
 			initialisiereFilm(fis, in, film5);
 			in.close();
 		} 
-		catch (IOException e) {
+		catch (IOException | ClassNotFoundException e) {
 			// TODO: handle exception
 		}
 
@@ -93,7 +95,7 @@ public class ControllerStartbildschirm extends MainController implements Initial
 	
 	private void initialisiereFilm(FileInputStream fis, ObjectInputStream in, Pane p) {
 		try {
-			
+			System.out.println(p.getId());
 			Film film = (Film) in.readObject();
 			filme.add(film);
 			initFilmRec(p, film);
@@ -109,15 +111,15 @@ public class ControllerStartbildschirm extends MainController implements Initial
 				initFilmRec((Pane) node, film);
 			}
 			else if (node instanceof Label) {
-				System.out.println(p.getId());
+				System.out.println(film.getTitel());
 		        p.setId(film.getTitel());
 		        ((Label) node).setText(film.getTitel());
 		        System.out.println(p.getId());
 		    }
-//		    else if (node instanceof ImageView) {
-//				((ImageView) node).setImage(new Image(film.getBildURL()));
-//				
-//		    }
+		    else if (node instanceof ImageView) {
+				((ImageView) node).setImage(new Image(film.getBildURL()));
+				
+		    }
 		}
 	}
 	
