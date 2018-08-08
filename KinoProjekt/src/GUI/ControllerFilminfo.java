@@ -29,11 +29,11 @@ public class ControllerFilminfo extends MainController implements Initializable{
 		setNewScene(SITZPLATZAUSWAHL, filmInfoZurueck);
 	}
 
-	@Override
-	public void zurFilmInfo(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+//	@Override
+//	public void zurFilmInfo(ActionEvent e) {
+//		// TODO Auto-generated method stub
+//		
+//	}
 
 	@FXML
 	public void zumStartBildschirm(ActionEvent e) {

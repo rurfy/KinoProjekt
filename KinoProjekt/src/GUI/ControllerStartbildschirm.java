@@ -17,7 +17,9 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 public class ControllerStartbildschirm extends MainController implements Initializable{
 
@@ -59,7 +61,8 @@ public class ControllerStartbildschirm extends MainController implements Initial
 	}
 	
 	public void test1 (Pane p) {
-		for (int i = 0; i<=filme.size(); i++) {
+		//System.out.println(p.getId());
+		for (int i = 0; i<filme.size(); i++) {
 			if (p.getId().equals(filme.get(i).getTitel())) {
 				dauer.setText(Double.toString(filme.get(i).getDauer()));
 				titel.setText(filme.get(i).getTitel());
@@ -71,14 +74,16 @@ public class ControllerStartbildschirm extends MainController implements Initial
 		}
 	}
 	
-	public void init() {
+	public void inital() {
 		try {
 			FileInputStream fis = new FileInputStream("filme.kos");
 			ObjectInputStream in = new ObjectInputStream(fis);
 			initialisiereFilm(fis, in, film1);
+			//System.out.println(film1.getId());
 			initialisiereFilm(fis, in, film2);
 			initialisiereFilm(fis, in, film3);
 			initialisiereFilm(fis, in, film4);
+			film5.setId("test");
 			initialisiereFilm(fis, in, film5);
 			in.close();
 		} 
@@ -90,30 +95,38 @@ public class ControllerStartbildschirm extends MainController implements Initial
 	
 	private void initialisiereFilm(FileInputStream fis, ObjectInputStream in, Pane p) {
 		try {
+			
 			Film film = (Film) in.readObject();
 			filme.add(film);
-			//System.out.println(film.getTitel());
-			for (Node node : p.getChildren()) {
-			    if (node instanceof Label) {
-			        p.setId(film.getTitel());
-			        ((Label) node).setText(film.getTitel());
-			    }
-			    else if (node instanceof ImageView) {
-					((ImageView) node).setImage(new Image(film.getBildURL()));
-			    }
-			}
+			initFilmRec(p, film);
 		} catch (ClassNotFoundException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
+	private void initFilmRec(Pane p, Film film) {
+		for (Node node : p.getChildren()) {
+			if (node instanceof Pane || node instanceof HBox || node instanceof VBox) {
+				initFilmRec((Pane) node, film);
+			}
+			else if (node instanceof Label) {
+				System.out.println(p.getId());
+		        p.setId(film.getTitel());
+		        ((Label) node).setText(film.getTitel());
+		        System.out.println(p.getId());
+		    }
+//		    else if (node instanceof ImageView) {
+//				((ImageView) node).setImage(new Image(film.getBildURL()));
+//				
+//		    }
+		}
+	}
+	
 	@FXML
 	public void zurFilmInfo(MouseEvent e) {
-		init();
+		inital();
 		Pane p = (Pane) e.getSource();
-		//System.out.println(filme.get(0).getTitel());
-		System.out.println(filme.get(1).getTitel());
 		setNewScene(FILMINFO, filmTitel1);
 		test1(p);
 	}
@@ -125,14 +138,14 @@ public class ControllerStartbildschirm extends MainController implements Initial
 		setNewScene(SITZPLATZAUSWAHL, filmTitel1);
 	}
 	
-	@Override
-	public void zurFilmInfo(ActionEvent e) {
-		// TODO Auto-generated method stub
-		//init();
-		//Pane p = (Pane) e.getSource();
-		setNewScene(FILMINFO, filmTitel1);
-		
-	}
+//	@FXML
+//	public void zurFilmInfo(ActionEvent e) {
+//		 TODO Auto-generated method stub
+//		init();
+//		Pane p = (Pane) e.getSource();
+//		setNewScene(FILMINFO, filmTitel1);
+//		
+//	}
 	
 	@Override
 	public void zumStartBildschirm(ActionEvent e) {
