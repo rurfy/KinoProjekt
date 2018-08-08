@@ -30,7 +30,7 @@ public class ControllerSitzplatzauswahl extends MainController implements Initia
 	}
 
 	@Override
-	public void zurFilmInfo(ActionEvent e) {
+	public void back(ActionEvent e) {
 		// TODO Auto-generated method stub
 		setNewScene(FILMINFO, sitzPlatzZurueck);
 	}

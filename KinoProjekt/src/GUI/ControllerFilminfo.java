@@ -30,7 +30,7 @@ public class ControllerFilminfo extends MainController implements Initializable{
 	}
 
 	@Override
-	public void zurFilmInfo(ActionEvent e) {
+	public void back(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
