@@ -79,11 +79,9 @@ public class ControllerStartbildschirm extends MainController implements Initial
 			FileInputStream fis = new FileInputStream("filme.kos");
 			ObjectInputStream in = new ObjectInputStream(fis);
 			initialisiereFilm(fis, in, film1);
-			//System.out.println(film1.getId());
 			initialisiereFilm(fis, in, film2);
 			initialisiereFilm(fis, in, film3);
 			initialisiereFilm(fis, in, film4);
-			film5.setId("test");
 			initialisiereFilm(fis, in, film5);
 			in.close();
 		} 
