@@ -7,6 +7,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 
 public class ControllerFilminfo extends MainController implements Initializable{
@@ -23,6 +25,7 @@ public class ControllerFilminfo extends MainController implements Initializable{
 		// TODO Auto-generated method stub
 		
 	}
+	
 	
 	@FXML
 	public void zurSitzplatzAuswahl(ActionEvent e) {

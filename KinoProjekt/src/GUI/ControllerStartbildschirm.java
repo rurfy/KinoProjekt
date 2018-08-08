@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Labeled;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -29,6 +30,7 @@ public class ControllerStartbildschirm extends MainController implements Initial
 	
 	public ArrayList<Film> filme = new ArrayList<Film>();
 	
+	private String alarm = "";
 	
 	@FXML
 	private Label filmTitel1;
@@ -60,75 +62,67 @@ public class ControllerStartbildschirm extends MainController implements Initial
 		
 	}
 	
-	public void test1 (Pane p) {
-		//System.out.println(p.getId());
-		for (int i = 0; i<filme.size(); i++) {
-			if (p.getId().equals(filme.get(i).getTitel())) {
-				dauer.setText(Double.toString(filme.get(i).getDauer()));
-				titel.setText(filme.get(i).getTitel());
-				fsk.setText(Integer.toString(filme.get(i).getFsk()));
-				bild.setImage(new Image(filme.get(i).getBildURL()));
-				genre.setText(filme.get(i).getGenre());
-				System.out.println(filme.get(i).getTitel());
-			}
-		}
-	}
+//	public void test1 (String s) {
+//		//System.out.println(p.getId());
+//		for (int i = 0; i<filme.size(); i++) {
+//			if (s.equals(filme.get(i).getTitel())) {
+//				System.out.println(Double.toString(filme.get(i).getDauer()));
+//				//dauer.setText(Double.toString(filme.get(i).getDauer()));
+//				titel.setText("test");
+//				fsk.setText(Integer.toString(filme.get(i).getFsk()));
+//				bild.setImage(new Image(filme.get(i).getBildURL()));
+//				genre.setText(filme.get(i).getGenre());
+//				System.out.println("Erfolg");
+//			}
+//		}
+//	}
 	
-	public void inital() {
+	public void inital(MouseEvent e) {
 		try {
 			FileInputStream fis = new FileInputStream("filme.kos");
 			ObjectInputStream in = new ObjectInputStream(fis);
-			Film film = (Film) in.readObject();
-			filme.add(film);
-			initialisiereFilm(fis, in, film1);
-			initialisiereFilm(fis, in, film2);
-			initialisiereFilm(fis, in, film3);
-			initialisiereFilm(fis, in, film4);
-			initialisiereFilm(fis, in, film5);
+			Film filmA = (Film) in.readObject();
+			filme.add(filmA);
+			Film filmB = (Film) in.readObject();
+			filme.add(filmB);
+			Film filmC = (Film) in.readObject();
+			filme.add(filmC);
+			Film filmD = (Film) in.readObject();
+			filme.add(filmD);
+			Film filmE = (Film) in.readObject();
+			filme.add(filmE);
 			in.close();
+			Pane p = (Pane) e.getSource();
+			initFilmRec(p);
 		} 
-		catch (IOException | ClassNotFoundException e) {
+		catch (IOException | ClassNotFoundException e1) {
 			// TODO: handle exception
 		}
 
 	}
 	
-	private void initialisiereFilm(FileInputStream fis, ObjectInputStream in, Pane p) {
-		try {
-			System.out.println(p.getId());
-			Film film = (Film) in.readObject();
-			filme.add(film);
-			initFilmRec(p, film);
-		} catch (ClassNotFoundException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
-	private void initFilmRec(Pane p, Film film) {
+	private void initFilmRec(Pane p) {
 		for (Node node : p.getChildren()) {
 			if (node instanceof Pane || node instanceof HBox || node instanceof VBox) {
-				initFilmRec((Pane) node, film);
+				initFilmRec((Pane) node);
 			}
 			else if (node instanceof Label) {
-				System.out.println(film.getTitel());
-		        p.setId(film.getTitel());
-		        ((Label) node).setText(film.getTitel());
-		        System.out.println(p.getId());
+		        alarm = ((Label) node).getText();
 		    }
-		    else if (node instanceof ImageView) {
-				((ImageView) node).setImage(new Image(film.getBildURL()));
-				
-		    }
+//		    else if (node instanceof ImageView) {
+//				((ImageView) node).setImage(new Image(film.getBildURL()));
+//				
+//		    }
 		}
 	}
-	
+
 	@FXML
 	public void zurFilmInfo(MouseEvent e) {
-		inital();
-		Pane p = (Pane) e.getSource();
+		inital(e);
+		//Pane p = (Pane) e.getSource();
 		setNewScene(FILMINFO, filmTitel1);
-		test1(p);
+		//System.out.println(alarm);
+//		test1(alarm);
 	}
 	
 	@FXML
