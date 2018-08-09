@@ -10,6 +10,7 @@ import java.io.ObjectOutputStream;
 import javax.swing.plaf.synth.SynthSeparatorUI;
 
 import Default.Film;
+import GUI.ControllerSitzplatzauswahl;
 import Tage.Heute;
 import Tage.Morgen;
 import Tage.Tage;

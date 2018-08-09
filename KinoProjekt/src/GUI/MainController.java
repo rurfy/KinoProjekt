@@ -36,14 +36,20 @@ public abstract class MainController implements Initializable{
 		// TODO Auto-generated method stub
 		Stage primaryStage = (Stage) c.getScene().getWindow();
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource(fxml));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+			Parent root = loader.load();
 			root.getStylesheets().add(getClass().getResource("design.css").toExternalForm());
 			primaryStage.setScene(new Scene(root));
+			
+			ControllerSitzplatzauswahl controller = loader.<ControllerSitzplatzauswahl>getController();
+			controller.initData();
+			
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 	}
+	
 	public void bilderAnzeigen (String fxml, Control c) {
 		
 	}

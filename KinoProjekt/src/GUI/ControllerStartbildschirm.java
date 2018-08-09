@@ -70,20 +70,21 @@ public class ControllerStartbildschirm extends MainController implements Initial
 	}
 
 	
-//	public void test1 (String s) {
-//		//System.out.println(p.getId());
-//		for (int i = 0; i<filme.size(); i++) {
-//			if (s.equals(filme.get(i).getTitel())) {
-//				System.out.println(Double.toString(filme.get(i).getDauer()));
-//				//dauer.setText(Double.toString(filme.get(i).getDauer()));
-//				titel.setText("test");
-//				fsk.setText(Integer.toString(filme.get(i).getFsk()));
-//				bild.setImage(new Image(filme.get(i).getBildURL()));
-//				genre.setText(filme.get(i).getGenre());
-//				System.out.println("Erfolg");
-//			}
-//		}
-//	}
+	public void test1 (String s) {
+		//System.out.println(p.getId());
+		System.out.println(titel.getText());
+		for (int i = 0; i<filme.size(); i++) {
+			if (s.equals(filme.get(i).getTitel())) {
+				System.out.println(Double.toString(filme.get(i).getDauer()));
+				//dauer.setText(Double.toString(filme.get(i).getDauer()));
+				titel.setText("test");
+				fsk.setText(Integer.toString(filme.get(i).getFsk()));
+				bild.setImage(new Image(filme.get(i).getBildURL()));
+				genre.setText(filme.get(i).getGenre());
+				System.out.println("Erfolg");
+			}
+		}
+	}
 	
 	public void inital(MouseEvent e) {
 

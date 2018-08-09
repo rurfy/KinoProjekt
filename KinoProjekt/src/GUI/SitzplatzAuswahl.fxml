@@ -37,7 +37,7 @@
 				</StackPane>
             <StackPane>
                <children>
-						<Pane maxWidth="-Infinity" StackPane.alignment="CENTER_LEFT">
+						<Pane fx:id="sitzplaetze" maxWidth="-Infinity" StackPane.alignment="CENTER_LEFT">
                      <children>
                         <ImageView fitHeight="900.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
                            <image>
