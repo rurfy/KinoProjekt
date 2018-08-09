@@ -29,11 +29,13 @@ public class ControllerSitzplatzauswahl extends MainController implements Initia
 		//setNewScene(SITZPLATZAUSWAHL, filmInfoZurueck);
 	}
 
+
 //	@Override
 //	public void zurFilmInfo(ActionEvent e) {
 //		// TODO Auto-generated method stub
 //		setNewScene(FILMINFO, sitzPlatzZurueck);
 //	}
+
 
 	@Override
 	public void zumStartBildschirm(ActionEvent e) {

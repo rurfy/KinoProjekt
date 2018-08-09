@@ -24,7 +24,9 @@ public abstract class MainController implements Initializable{
 
 	public abstract void zurSitzplatzAuswahl(ActionEvent e);
 	
+
 	//public abstract void zurFilmInfo(ActionEvent e);
+
 	
 	public abstract void zumStartBildschirm(ActionEvent e);
 	

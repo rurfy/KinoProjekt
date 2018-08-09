@@ -48,17 +48,17 @@ public class Tests {
 				}
 		
 		//Testblock Lucas
-		Uebermorgen um = new Uebermorgen();
-		Morgen morgen = new Morgen();
-		Heute heute = new Heute();
-		String[] uhrzeit;
-		uhrzeit = morgen.getUhrzeit();
-		
-		for (int i = 0; i< um.getUhrzeit().length; i++) {
-			
-			System.out.println(uhrzeit[i]);
-		}
-		
+//		Uebermorgen um = new Uebermorgen();
+//		Morgen morgen = new Morgen();
+//		Heute heute = new Heute();
+//		String[] uhrzeit;
+//		uhrzeit = morgen.getUhrzeit();
+//		
+//		for (int i = 0; i< um.getUhrzeit().length; i++) {
+//			
+//			System.out.println(uhrzeit[i]);
+//		}
+//		
 
 	}
 	
