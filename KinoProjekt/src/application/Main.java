@@ -10,6 +10,7 @@ import java.io.ObjectOutputStream;
 import javax.swing.plaf.synth.SynthSeparatorUI;
 
 import Default.Film;
+import GUI.Controller;
 import Tage.Heute;
 import Tage.Morgen;
 import Tage.Tage;
@@ -30,7 +31,9 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/GUI/" + STARTBILDSCHIRM));	
+			//Controller controller = new Controller();
+			//controller.initialize();
+			Parent root = FXMLLoader.load(getClass().getResource("/GUI/" + "SitzplatzAuswahl.fxml"));	
 			Scene startBildschirm = new Scene(root);
 			startBildschirm.getStylesheets().add(getClass().getResource("/GUI/" + DESIGN).toExternalForm());
 			primaryStage.setScene(startBildschirm);
@@ -45,7 +48,7 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		Tests.testen();
-		Tests.starten();
+		//Tests.starten();
 		launch(args);
 	}
 }

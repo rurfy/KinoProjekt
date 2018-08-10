@@ -2,6 +2,7 @@ package GUI;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -15,6 +16,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public abstract class MainController implements Initializable{
+	
+	public final String STARTBILDSCHIRM = "StartBildschirm.fxml";
+	public final String FILMINFO = "FilmInfo.fxml";
+	public final String SITZPLATZAUSWAHL = "SitzplatzAuswahl.fxml";
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -33,17 +38,40 @@ public abstract class MainController implements Initializable{
 	public abstract void zurFilmInfo(MouseEvent e);
 	
 	public void setNewScene(String fxml, Node c) {
+
 		// TODO Auto-generated method stub
 		Stage primaryStage = (Stage) c.getScene().getWindow();
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource(fxml));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+			Parent root = loader.load();
 			root.getStylesheets().add(getClass().getResource("design.css").toExternalForm());
 			primaryStage.setScene(new Scene(root));
+			
+			setStartController(loader);
+			setFilmInfoController(loader);
+			setSitzplatzController(loader);
+				  
+			primaryStage.show();
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+	
 	}
+	
+	public void setController(FXMLLoader loader, String fxml) {
+		if (fxml.equals(STARTBILDSCHIRM)) {
+			ControllerStartbildschirm controller = loader.<ControllerStartbildschirm>getController();
+			controller.initData(clickedFilm, filme);
+		}
+	}
+	
+	public abstract void setFilmInfoController(FXMLLoader loader);
+	
+	public abstract void setSitzplatzController(FXMLLoader loader);
+	
+	//public abstract void initData(String s, ArrayList filme);
+	
 	public void bilderAnzeigen (String fxml, Control c) {
 		
 	}

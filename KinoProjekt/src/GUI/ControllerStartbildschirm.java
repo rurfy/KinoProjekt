@@ -14,8 +14,11 @@ import Default.Film;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Labeled;
@@ -25,6 +28,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class ControllerStartbildschirm extends MainController implements Initializable {
 
@@ -33,11 +37,7 @@ public class ControllerStartbildschirm extends MainController implements Initial
 
 	public ArrayList<Film> filme = new ArrayList<Film>();
 
-	
-	private String alarm = "";
-	
-
-
+	private String clickedFilm = "";
 
 	@FXML
 	private Label filmTitel1;
@@ -52,39 +52,12 @@ public class ControllerStartbildschirm extends MainController implements Initial
 	@FXML
 	private Pane film5;
 
-	@FXML
-	private Label dauer;
-	@FXML
-	private Label fsk;
-	@FXML
-	private Label titel;
-	@FXML
-	private Label genre;
-	@FXML
-	private ImageView bild;
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 
 	}
 
-	
-//	public void test1 (String s) {
-//		//System.out.println(p.getId());
-//		for (int i = 0; i<filme.size(); i++) {
-//			if (s.equals(filme.get(i).getTitel())) {
-//				System.out.println(Double.toString(filme.get(i).getDauer()));
-//				//dauer.setText(Double.toString(filme.get(i).getDauer()));
-//				titel.setText("test");
-//				fsk.setText(Integer.toString(filme.get(i).getFsk()));
-//				bild.setImage(new Image(filme.get(i).getBildURL()));
-//				genre.setText(filme.get(i).getGenre());
-//				System.out.println("Erfolg");
-//			}
-//		}
-//	}
-	
 	public void inital(MouseEvent e) {
 
 		try {
@@ -100,63 +73,51 @@ public class ControllerStartbildschirm extends MainController implements Initial
 			filme.add(filmD);
 			Film filmE = (Film) in.readObject();
 			filme.add(filmE);
+			System.out.println(filmE.getTitel());
 			in.close();
 
 			Pane p = (Pane) e.getSource();
 			initFilmRec(p);
-		} 
-		catch (IOException | ClassNotFoundException e1) {
+		} catch (IOException | ClassNotFoundException e1) {
 
 			// TODO: handle exception
 		}
 
 	}
 
-	
 	private void initFilmRec(Pane p) {
 		for (Node node : p.getChildren()) {
-			if (node instanceof Pane || node instanceof HBox || node instanceof VBox) {
+			if (node instanceof Label) {
+				clickedFilm = ((Label) node).getText();
+			} else if (node instanceof Parent) {
 				initFilmRec((Pane) node);
 
 			}
-			else if (node instanceof Label) {
-		        alarm = ((Label) node).getText();
-		    }
-//		    else if (node instanceof ImageView) {
-//				((ImageView) node).setImage(new Image(film.getBildURL()));
-//				
-//		    }
+
 		}
 	}
 
 	@FXML
 	public void zurFilmInfo(MouseEvent e) {
-
 		inital(e);
-		//Pane p = (Pane) e.getSource();
-
-		setNewScene(FILMINFO, filmTitel1);
-		//System.out.println(alarm);
-//		test1(alarm);
+		Pane p = (Pane) e.getSource();
+		setNewScene(FILMINFO, p);
 	}
 
 	@FXML
 	public void zurSitzplatzAuswahl(ActionEvent e) {
 		Button b = (Button) e.getSource();
-		System.out.println(b.getText());
-		setNewScene(SITZPLATZAUSWAHL, filmTitel1);
+		setNewScene(SITZPLATZAUSWAHL, b);
 	}
 
-	
-//	@FXML
-//	public void zurFilmInfo(ActionEvent e) {
-//		 TODO Auto-generated method stub
-//		init();
-//		Pane p = (Pane) e.getSource();
-//		setNewScene(FILMINFO, filmTitel1);
-//		
-//	}
-	
+	// @FXML
+	// public void zurFilmInfo(ActionEvent e) {
+	// TODO Auto-generated method stub
+	// init();
+	// Pane p = (Pane) e.getSource();
+	// setNewScene(FILMINFO, filmTitel1);
+	//
+	// }
 
 	@Override
 	public void zumStartBildschirm(ActionEvent e) {
@@ -164,5 +125,36 @@ public class ControllerStartbildschirm extends MainController implements Initial
 
 	}
 
+	@Override
+	public void setStartController(FXMLLoader loader) {
+		// TODO Auto-generated method stub
+		ControllerFilminfo controller = loader.<ControllerFilminfo>getController();
+		controller.initData(clickedFilm, filme);
+	}
+
+	@Override
+	public void setFilmInfoController(FXMLLoader loader) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void setSitzplatzController(FXMLLoader loader) {
+		// TODO Auto-generated method stub
+		ControllerSitzplatzauswahl controller = loader.<ControllerSitzplatzauswahl>getController();
+		controller.initData(clickedFilm, filme);
+	}
+
+	// @Override
+	// public void setSitzplatzController(FXMLLoader loader) {
+	// // TODO Auto-generated method stub
+	//
+	// }
+	//
+	// @Override
+	// public void initData() {
+	// // TODO Auto-generated method stub
+	//
+	// }
 
 }
