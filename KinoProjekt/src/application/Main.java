@@ -33,7 +33,7 @@ public class Main extends Application {
 		try {
 			//Controller controller = new Controller();
 			//controller.initialize();
-			Parent root = FXMLLoader.load(getClass().getResource("/GUI/" + "SitzplatzAuswahl.fxml"));	
+			Parent root = FXMLLoader.load(getClass().getResource("/GUI/" + "Rahmen.fxml"));	
 			Scene startBildschirm = new Scene(root);
 			startBildschirm.getStylesheets().add(getClass().getResource("/GUI/" + DESIGN).toExternalForm());
 			primaryStage.setScene(startBildschirm);

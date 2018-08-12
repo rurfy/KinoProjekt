@@ -1,19 +1,21 @@
 package GUI;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.ArrayList;
 
 import Default.Film;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
-public class Controller1 implements Initializable {
+public class Controller1 {
 
 	private Controller main;
+	
+	@FXML public AnchorPane StartBildschirmPane;
 	
 	@FXML private Label filmTitel1;
 	@FXML private Label filmTitel2;
@@ -27,16 +29,17 @@ public class Controller1 implements Initializable {
 	@FXML private Pane film5;
 	
 	public void init(Controller controller) {
-		// TODO Auto-generated method stub
 		main = controller;
+		System.out.println(main.filme.get(0).getTitel());
 	}
 	
 	@FXML
 	public void zurFilmInfo(MouseEvent e) {
-		System.out.println(main.filme.get(0).getTitel());
+		
 		for (int i = 0; i<main.filme.size(); i++) {
 			if (getFilmID(e).equals(main.filme.get(i).getTitel())) {
 				Film film = main.filme.get(i);
+				System.out.println(film.getTitel());
 				main.loadFilmInfo((Pane) e.getSource(), film);
 			}
 		}
@@ -62,13 +65,7 @@ public class Controller1 implements Initializable {
 	}
 	
 	public void zurSitzplatzAuswahl(ActionEvent e) {
-		
-	}
-
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
-		
+		main.loadSitzplatzAuswahl((Button) e.getSource());
 	}
 
 }

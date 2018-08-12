@@ -15,6 +15,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class Controller {
@@ -25,12 +27,11 @@ public class Controller {
 
 	public ArrayList<Film> filme = new ArrayList<Film>();
 
-	@FXML
-	Controller1 controller1;
-	@FXML
-	Controller2 controller2;
-	@FXML
-	Controller3 controller3;
+	@FXML private Controller1 tab1Controller; //= new Controller1();
+	@FXML private Controller2 tab2Controller;
+	@FXML private Controller3 tab3Controller;
+	
+	@FXML AnchorPane test;
 
 	@FXML
 	public void initialize() {
@@ -86,17 +87,46 @@ public class Controller {
 			// TODO: handle exception
 		}
 
-		controller1.init(this);
-		//controller2.init(this);
-		//controller3.init(this);
+		tab1Controller.init(this);
+		tab2Controller.FilmInfoPane.setVisible(false);
+		tab3Controller.SitzplatzAuswahlPane.setVisible(false);
+		tab2Controller.init(this);
+		tab3Controller.init(this);
+		
 	}
 
 	public void loadFilmInfo(Node n, Film film) {
 
-		setNewScene(FILMINFO, n);
-		controller2.init(this, film);
+		//setNewScene(FILMINFO, n);
+		//tab2Controller.init(this);
+		tab1Controller.StartBildschirmPane.setVisible(false);
+		tab2Controller.FilmInfoPane.setVisible(true);
+		tab3Controller.SitzplatzAuswahlPane.setVisible(false);
+		Stage stage = (Stage) n.getScene().getWindow();
+		stage.setWidth(tab2Controller.FilmInfoPane.getWidth() + 20);
+		stage.setHeight(tab2Controller.FilmInfoPane.getHeight() + 40);
+		tab2Controller.getData(film);
 	}
 
+	public void loadStartBildschirm(Node n) {
+		tab1Controller.StartBildschirmPane.setVisible(true);
+		tab2Controller.FilmInfoPane.setVisible(false);
+		tab3Controller.SitzplatzAuswahlPane.setVisible(false);
+
+		Stage stage = (Stage) n.getScene().getWindow();
+		stage.setWidth(tab1Controller.StartBildschirmPane.getWidth() + 20);
+		stage.setHeight(tab1Controller.StartBildschirmPane.getHeight() + 40);
+	}
+	
+	public void loadSitzplatzAuswahl(Node n) {
+		tab1Controller.StartBildschirmPane.setVisible(false);
+		tab2Controller.FilmInfoPane.setVisible(false);
+		tab3Controller.SitzplatzAuswahlPane.setVisible(true);
+
+		Stage stage = (Stage) n.getScene().getWindow();
+		stage.setWidth(tab3Controller.SitzplatzAuswahlPane.getWidth() + 20);
+		stage.setHeight(tab3Controller.SitzplatzAuswahlPane.getHeight() + 40);
+	}
 	public void setNewScene(String fxml, Node n) {
 
 		Stage primaryStage = (Stage) n.getScene().getWindow();
@@ -112,8 +142,6 @@ public class Controller {
 		}
 
 	}
+
 	
-	public void zumStartBildschirm(ActionEvent e) {
-		
-	}
 }

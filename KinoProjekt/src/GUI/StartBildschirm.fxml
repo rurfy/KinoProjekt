@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefWidth="1040.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller1">
+<AnchorPane prefWidth="1040.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller1" fx:id="StartBildschirmPane">
 	<children>
 		<VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 			<children>
@@ -159,7 +159,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel13" id="Findet Nemo" text="Findet Nemo">
+																				<Label fx:id="filmTitel3" id="Findet Nemo" text="Findet Nemo">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -212,7 +212,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel14" id="Ziemlich beste Freunde" text="Ziemlich beste Freunde">
+																				<Label fx:id="filmTitel4" id="Ziemlich beste Freunde" text="Ziemlich beste Freunde">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -265,7 +265,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel15" id="Fifty Shades of Grey - Geheimes Verlangen" text="Fifty Shades of Grey - Geheimes Verlangen">
+																				<Label fx:id="filmTitel5" id="Fifty Shades of Grey - Geheimes Verlangen" text="Fifty Shades of Grey - Geheimes Verlangen">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -334,7 +334,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel11" text="Avatar - Aufbruch nach Pandora">
+																				<Label fx:id="filmTitel1" text="Avatar - Aufbruch nach Pandora">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -387,7 +387,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel1" text="Jurassic World">
+																				<Label fx:id="filmTitel2" text="Jurassic World">
 																					<VBox.margin>
 																						<Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
 																					</VBox.margin>
@@ -440,7 +440,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel12" text="Findet Nemo">
+																				<Label fx:id="filmTitel3" text="Findet Nemo">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -493,7 +493,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel13" text="Ziemlich beste Freunde">
+																				<Label fx:id="filmTitel4" text="Ziemlich beste Freunde">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -546,7 +546,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel14" text="Fifty Shades of Grey - Geheimes Verlangen">
+																				<Label fx:id="filmTitel5" text="Fifty Shades of Grey - Geheimes Verlangen">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -616,7 +616,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel11" text="Avatar - Aufbruch nach Pandora">
+																				<Label fx:id="filmTitel1" text="Avatar - Aufbruch nach Pandora">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -669,7 +669,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel1" text="Jurassic World">
+																				<Label fx:id="filmTitel2" text="Jurassic World">
 																					<VBox.margin>
 																						<Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
 																					</VBox.margin>
@@ -722,7 +722,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel12" text="Findet Nemo">
+																				<Label fx:id="filmTitel3" text="Findet Nemo">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -775,7 +775,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel13" text="Ziemlich beste Freunde">
+																				<Label fx:id="filmTitel4" text="Ziemlich beste Freunde">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -828,7 +828,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel14" text="Fifty Shades of Grey - Geheimes Verlangen">
+																				<Label fx:id="filmTitel5" text="Fifty Shades of Grey - Geheimes Verlangen">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
