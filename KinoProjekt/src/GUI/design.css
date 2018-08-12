@@ -106,6 +106,34 @@
     -fx-text-fill: #e2e2e2;
 }
 
+.onClick {
+	-fx-padding: 5 22 5 22;   
+	-fx-border-color: #e2e2e2;
+	-fx-font-weight: bold;
+	-fx-border-width: 1;
+	-fx-background-radius: 0;
+	-fx-background-color: #828282;
+	-fx-font-size: 20px;
+	-fx-text-fill: rgb(0,198,187);
+	-fx-background-insets: 0 0 0 0, 0, 1, 2;
+}
+
+.onClick:hover {
+	-fx-background-color: rgb(10,200,10);
+}
+
+.clicked {
+	-fx-border-color: #e2e2e2;
+	-fx-border-width: 1;
+	-fx-background-radius: 0;
+	-fx-background-color: #a01010;
+	-fx-background-insets: 0 0 0 0, 0, 1, 2;
+}
+
+.clicked:hover {
+	-fx-background-color: rgb(130,130,130);
+}
+
 /****************************************************************
  
   ScrollBar Skin  
