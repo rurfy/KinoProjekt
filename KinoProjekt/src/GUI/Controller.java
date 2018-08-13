@@ -123,6 +123,7 @@ public class Controller {
 		tab2Controller.FilmInfoPane.setVisible(false);
 		tab3Controller.SitzplatzAuswahlPane.setVisible(true);
 
+		tab3Controller.generiereSitzplaetze(12, 22);
 		Stage stage = (Stage) n.getScene().getWindow();
 		stage.setWidth(tab3Controller.SitzplatzAuswahlPane.getWidth() + 20);
 		stage.setHeight(tab3Controller.SitzplatzAuswahlPane.getHeight() + 40);
