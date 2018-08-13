@@ -8,8 +8,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="MainPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ControllerFilminfo">
-   <children>
+<AnchorPane fx:id="FilmInfoPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller2">
+  <children>
       <VBox prefWidth="800.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
          <children>
             <StackPane fx:id="headStackPane">
@@ -24,7 +24,7 @@
                   </ImageView>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <ImageView fitHeight="300.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="bild" fitHeight="300.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -34,12 +34,12 @@
                         </ImageView>
                         <VBox>
                            <children>
-                              <Label alignment="TOP_LEFT" text="Avatar - Aufbruch nach Pandora">
+                              <Label fx:id="titel" alignment="TOP_LEFT" text="Avatar - Aufbruch nach Pandora">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label text="Genre: Science Fiction / Action">
+                              <Label fx:id="genre" text="Genre: Science Fiction / Action">
                                  <VBox.margin>
                                     <Insets top="20.0" />
                                  </VBox.margin>
@@ -47,7 +47,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <Label text="FSK 12">
+                              <Label fx:id="fsk" text="FSK 12">
                                  <VBox.margin>
                                     <Insets top="20.0" />
                                  </VBox.margin>
@@ -55,7 +55,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <Label text="Dauer: 2:45 h">
+                              <Label fx:id="dauer" text="Dauer: 2:45 h">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -93,7 +93,7 @@
                                           <Font size="20.0" />
                                        </font>
                                     </Button>
-                                    <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="16:00 Uhr" StackPane.alignment="CENTER_RIGHT">
+                                    <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr" StackPane.alignment="CENTER_RIGHT">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -101,7 +101,7 @@
                                           <Insets />
                                        </StackPane.margin>
                                     </Button>
-                                    <Button mnemonicParsing="false" text="10:00 Uhr" StackPane.alignment="CENTER_LEFT">
+                                    <Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="10:00 Uhr" StackPane.alignment="CENTER_LEFT">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -122,14 +122,14 @@
                   <content>
                     <AnchorPane>
                            <children>
-                              <StackPane prefWidth="560.0">
+                              <StackPane prefWidth="800.0">
                                  <children>
-                                    <Button mnemonicParsing="false" text="15:00 Uhr">
+                                    <Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="15:00 Uhr">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
                                     </Button>
-                                    <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="18:00 Uhr" StackPane.alignment="CENTER_RIGHT">
+                                    <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="18:00 Uhr" StackPane.alignment="CENTER_RIGHT">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -137,7 +137,7 @@
                                           <Insets />
                                        </StackPane.margin>
                                     </Button>
-                                    <Button mnemonicParsing="false" text="12:00 Uhr" StackPane.alignment="CENTER_LEFT">
+                                    <Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="12:00 Uhr" StackPane.alignment="CENTER_LEFT">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -147,7 +147,7 @@
                                     </Button>
                                  </children>
                                  <padding>
-                                    <Insets left="20.0" right="20.0" top="20.0" />
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </padding>
                               </StackPane>
                            </children>
@@ -158,14 +158,14 @@
                   <content>
                     <AnchorPane>
                            <children>
-                              <StackPane prefWidth="560.0">
+                              <StackPane prefWidth="800.0">
                                  <children>
-                                    <Button mnemonicParsing="false" text="14:00 Uhr">
+                                    <Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="14:00 Uhr">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
                                     </Button>
-                                    <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="17:00 Uhr" StackPane.alignment="CENTER_RIGHT">
+                                    <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="17:00 Uhr" StackPane.alignment="CENTER_RIGHT">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -173,7 +173,7 @@
                                           <Insets />
                                        </StackPane.margin>
                                     </Button>
-                                    <Button mnemonicParsing="false" text="11:00 Uhr" StackPane.alignment="CENTER_LEFT">
+                                    <Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="11:00 Uhr" StackPane.alignment="CENTER_LEFT">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -183,7 +183,7 @@
                                     </Button>
                                  </children>
                                  <padding>
-                                    <Insets left="20.0" right="20.0" top="20.0" />
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </padding>
                               </StackPane>
                            </children>
@@ -205,5 +205,5 @@
             </Button>
          </children>
       </VBox>
-   </children>
+   </children> 
 </AnchorPane>
