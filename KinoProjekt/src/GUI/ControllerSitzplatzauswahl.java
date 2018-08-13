@@ -66,8 +66,7 @@ public class ControllerSitzplatzauswahl extends MainController implements Initia
 		Sitzplatz platz = new Sitzplatz();
 		Stage primaryStage = (Stage) sitzPlatzZurueck.getScene().getWindow();
 //		int abstand = 30;			
-
-		
+		Node c;
 		for (int i = 0; i < reihe; i++) {
 			
 //			if (i == 4) {
@@ -76,8 +75,7 @@ public class ControllerSitzplatzauswahl extends MainController implements Initia
 //				abstand = abstand + 30;
 //			}
 			for (int j = 0; j < spalte; j++) {
-				System.out.println(i+" "+j);
-				platz.erstelleSitzplatz(i,j, primaryStage);
+				platz.erstelleSitzplatz(i,j, primaryStage, sitzplaetze);
 //				platz[i][j] = new Button();
 //				platz[i][j].setPrefSize(25, 25);
 //				platz[i][j].setMinSize(25, 25);
