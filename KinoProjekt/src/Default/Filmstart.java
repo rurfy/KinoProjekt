@@ -1,15 +1,21 @@
 package Default;
 
-import Tage.Tag;
+import Tage.Tage;
 
-public class Filmstart extends Film {
-	private Tag tag;
+public class Filmstart extends Film{
+	
+	public Filmstart(double dauer, String titel, int fsk, String genre, String trailer, String bildURL, double preis) {
+		super(dauer, titel, fsk, genre, trailer, bildURL, preis);
+		// TODO Auto-generated constructor stub
+	}
 
-	public Tag getTag() {
+	private Tage tag;
+
+	public Tage getTag() {
 		return tag;
 	}
 
-	public void setTag(Tag tag) {
+	public void setTag(Tage tag) {
 		this.tag = tag;
 	}
 	

@@ -1,0 +1,7 @@
+Titel: Fifty Shades of Grey- geheimes Verlangen
+Dauer: 2.05
+FSK: 16
+Genre: Liebesfilm und Drama
+Trailer: https://www.youtube.com/watch?v=H1r_SFh8in0
+BildURL: ../../../fifty-shades-of-grey_thumb.jpg
+Preis: 9
