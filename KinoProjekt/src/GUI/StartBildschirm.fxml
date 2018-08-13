@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefWidth="1040.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ControllerStartbildschirm">
+<AnchorPane prefWidth="1040.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller1" fx:id="StartBildschirmPane">
 	<children>
 		<VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 			<children>
@@ -39,11 +39,11 @@
 											<content>
 												<VBox prefWidth="1000.0">
 													<children>
-														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane fx:id="film1" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox>
 																	<children>
-																		<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image1" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<image>
 																				<Image url="@../../../avatar_thumb.jpg" />
 																			</image>
@@ -53,7 +53,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel11" text="Avatar - Aufbruch nach Pandora">
+																				<Label fx:id="filmTitel1" id="Avatar - Aufbruch nach Pandora" text="Avatar - Aufbruch nach Pandora">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -68,12 +68,12 @@
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="15:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="15:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="16:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
@@ -92,7 +92,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane styleClass="startBildschirmFilm">
+														<Pane fx:id="film2" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -106,7 +106,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel1" text="Jurassic World">
+																				<Label fx:id="filmTitel2" id="Jurassic World" text="Jurassic World">
 																					<VBox.margin>
 																						<Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
 																					</VBox.margin>
@@ -116,17 +116,17 @@
 																				</Label>
 																				<HBox>
 																					<children>
-																						<Button mnemonicParsing="false" text="14:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="14:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="15:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="15:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="16:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
@@ -145,7 +145,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane styleClass="startBildschirmFilm">
+														<Pane fx:id="film3" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -159,7 +159,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel12" text="Findet Nemo">
+																				<Label fx:id="filmTitel3" id="Findet Nemo" text="Findet Nemo">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -169,17 +169,17 @@
 																				</Label>
 																				<HBox>
 																					<children>
-																						<Button mnemonicParsing="false" text="14:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="14:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="15:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="15:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="16:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
@@ -198,7 +198,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane styleClass="startBildschirmFilm">
+														<Pane fx:id="film4" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -212,7 +212,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel13" text="Ziemlich beste Freunde">
+																				<Label fx:id="filmTitel4" id="Ziemlich beste Freunde" text="Ziemlich beste Freunde">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -222,17 +222,17 @@
 																				</Label>
 																				<HBox>
 																					<children>
-																						<Button mnemonicParsing="false" text="14:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="14:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="15:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="15:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="16:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
@@ -251,7 +251,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane styleClass="startBildschirmFilm">
+														<Pane fx:id="film5" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -265,7 +265,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel14" text="Fifty Shades of Grey - Geheimes Verlangen">
+																				<Label fx:id="filmTitel5" id="Fifty Shades of Grey - Geheimes Verlangen" text="Fifty Shades of Grey - Geheimes Verlangen">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -275,17 +275,17 @@
 																				</Label>
 																				<HBox>
 																					<children>
-																						<Button mnemonicParsing="false" text="14:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="14:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="15:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="15:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="16:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
@@ -320,7 +320,7 @@
 											<content>
 												<VBox prefWidth="1000.0">
 													<children>
-														<Pane styleClass="startBildschirmFilm">
+														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox>
 																	<children>
@@ -334,7 +334,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel11" text="Avatar - Aufbruch nach Pandora">
+																				<Label fx:id="filmTitel1" text="Avatar - Aufbruch nach Pandora">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -344,17 +344,17 @@
 																				</Label>
 																				<HBox>
 																					<children>
-																						<Button mnemonicParsing="false" text="15:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="15:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="16:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="17:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="17:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
@@ -373,7 +373,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane styleClass="startBildschirmFilm">
+														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -387,7 +387,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel1" text="Jurassic World">
+																				<Label fx:id="filmTitel2" text="Jurassic World">
 																					<VBox.margin>
 																						<Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
 																					</VBox.margin>
@@ -397,17 +397,17 @@
 																				</Label>
 																				<HBox>
 																					<children>
-																						<Button mnemonicParsing="false" text="15:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="15:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="16:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="17:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="17:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
@@ -426,7 +426,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane styleClass="startBildschirmFilm">
+														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -440,7 +440,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel12" text="Findet Nemo">
+																				<Label fx:id="filmTitel3" text="Findet Nemo">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -450,17 +450,17 @@
 																				</Label>
 																				<HBox>
 																					<children>
-																						<Button mnemonicParsing="false" text="15:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="15:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="16:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="17:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="17:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
@@ -479,7 +479,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane styleClass="startBildschirmFilm">
+														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -493,7 +493,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel13" text="Ziemlich beste Freunde">
+																				<Label fx:id="filmTitel4" text="Ziemlich beste Freunde">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -503,17 +503,17 @@
 																				</Label>
 																				<HBox>
 																					<children>
-																						<Button mnemonicParsing="false" text="15:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="15:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="16:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="17:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="17:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
@@ -532,7 +532,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane styleClass="startBildschirmFilm">
+														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -546,7 +546,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel14" text="Fifty Shades of Grey - Geheimes Verlangen">
+																				<Label fx:id="filmTitel5" text="Fifty Shades of Grey - Geheimes Verlangen">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -556,17 +556,17 @@
 																				</Label>
 																				<HBox>
 																					<children>
-																						<Button mnemonicParsing="false" text="15:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="15:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="16:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="17:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="17:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
@@ -602,7 +602,7 @@
 											<content>
 												<VBox prefWidth="1000.0">
 													<children>
-														<Pane styleClass="startBildschirmFilm">
+														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox>
 																	<children>
@@ -616,7 +616,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel11" text="Avatar - Aufbruch nach Pandora">
+																				<Label fx:id="filmTitel1" text="Avatar - Aufbruch nach Pandora">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -626,17 +626,17 @@
 																				</Label>
 																				<HBox>
 																					<children>
-																						<Button mnemonicParsing="false" text="16:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="17:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="17:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="18:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="18:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
@@ -655,7 +655,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane styleClass="startBildschirmFilm">
+														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -669,7 +669,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel1" text="Jurassic World">
+																				<Label fx:id="filmTitel2" text="Jurassic World">
 																					<VBox.margin>
 																						<Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
 																					</VBox.margin>
@@ -679,17 +679,17 @@
 																				</Label>
 																				<HBox>
 																					<children>
-																						<Button mnemonicParsing="false" text="16:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="17:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="17:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="18:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="18:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
@@ -708,7 +708,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane styleClass="startBildschirmFilm">
+														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -722,7 +722,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel12" text="Findet Nemo">
+																				<Label fx:id="filmTitel3" text="Findet Nemo">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -732,17 +732,17 @@
 																				</Label>
 																				<HBox>
 																					<children>
-																						<Button mnemonicParsing="false" text="16:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="17:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="17:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="18:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="18:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
@@ -761,7 +761,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane styleClass="startBildschirmFilm">
+														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -775,7 +775,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel13" text="Ziemlich beste Freunde">
+																				<Label fx:id="filmTitel4" text="Ziemlich beste Freunde">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -785,17 +785,17 @@
 																				</Label>
 																				<HBox>
 																					<children>
-																						<Button mnemonicParsing="false" text="16:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="17:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="17:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="18:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="18:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
@@ -814,7 +814,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane styleClass="startBildschirmFilm">
+														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -828,7 +828,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel14" text="Fifty Shades of Grey - Geheimes Verlangen">
+																				<Label fx:id="filmTitel5" text="Fifty Shades of Grey - Geheimes Verlangen">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -838,17 +838,13 @@
 																				</Label>
 																				<HBox>
 																					<children>
-																						<Button mnemonicParsing="false" text="16:00 Uhr">
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button mnemonicParsing="false" text="17:00 Uhr">
-																							<HBox.margin>
-																								<Insets left="20.0" right="20.0" />
-																							</HBox.margin>
-																						</Button>
-																						<Button mnemonicParsing="false" text="18:00 Uhr">
+                  																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="17:00 Uhr" />
+																						<Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="18:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
