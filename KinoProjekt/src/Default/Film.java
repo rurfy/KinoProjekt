@@ -29,7 +29,6 @@ public class Film implements Serializable {
 		this.trailer = trailer;
 		this.bildURL = bildURL;
 		this.preis = preis;
-		
 
 	}
 
