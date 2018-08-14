@@ -3,6 +3,7 @@ package GUI;
 import java.util.ArrayList;
 
 import Default.Film;
+import Default.Filmstart;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -28,9 +29,57 @@ public class Controller1 {
 	@FXML private Pane film4;
 	@FXML private Pane film5;
 	
-	public void init(Controller controller) {
+	@FXML private Button film1heute1;	
+	@FXML private Button film1heute2;	
+	@FXML private Button film1heute3;	
+	@FXML private Button film2heute1;	
+	@FXML private Button film2heute2;	
+	@FXML private Button film2heute3;	
+	@FXML private Button film3heute1;	
+	@FXML private Button film3heute2;	
+	@FXML private Button film3heute3;	
+	@FXML private Button film4heute1;	
+	@FXML private Button film4heute2;	
+	@FXML private Button film4heute3;	
+	@FXML private Button film5heute1;	
+	@FXML private Button film5heute2;	
+	@FXML private Button film5heute3;	
+	@FXML private Button film1morgen1;	
+	@FXML private Button film1morgen2;	
+	@FXML private Button film1morgen3;	
+	@FXML private Button film2morgen1;	
+	@FXML private Button film2morgen2;	
+	@FXML private Button film2morgen3;	
+	@FXML private Button film3morgen1;	
+	@FXML private Button film3morgen2;	
+	@FXML private Button film3morgen3;	
+	@FXML private Button film4morgen1;	
+	@FXML private Button film4morgen2;	
+	@FXML private Button film4morgen3;	
+	@FXML private Button film5morgen1;	
+	@FXML private Button film5morgen2;	
+	@FXML private Button film5morgen3;	
+	@FXML private Button film1uebermorgen1;
+	@FXML private Button film1uebermorgen2;
+	@FXML private Button film1uebermorgen3;
+	@FXML private Button film2uebermorgen1;
+	@FXML private Button film2uebermorgen2;
+	@FXML private Button film2uebermorgen3;
+	@FXML private Button film3uebermorgen1;
+	@FXML private Button film3uebermorgen2;
+	@FXML private Button film3uebermorgen3;
+	@FXML private Button film4uebermorgen1;
+	@FXML private Button film4uebermorgen2;
+	@FXML private Button film4uebermorgen3;
+	@FXML private Button film5uebermorgen1;
+	@FXML private Button film5uebermorgen2;
+	@FXML private Button film5uebermorgen3;
+
+	//private Filmstart filmA;
+	
+	public void init(Controller controller, Filmstart film1, Filmstart film2, Filmstart film3, Filmstart film4, Filmstart film5) {
 		main = controller;
-		System.out.println(main.filme.get(0).getTitel());
+		//film1heute1.setText(film1.getHeute().getUhrzeit1().getUhrzeit());
 	}
 	
 	@FXML
@@ -38,7 +87,7 @@ public class Controller1 {
 		
 		for (int i = 0; i<main.filme.size(); i++) {
 			if (getFilmID(e).equals(main.filme.get(i).getTitel())) {
-				Film film = main.filme.get(i);
+				Filmstart film = main.filme.get(i);
 				System.out.println(film.getTitel());
 				main.loadFilmInfo((Pane) e.getSource(), film);
 			}
