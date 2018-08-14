@@ -402,7 +402,7 @@
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button fx:id="film2morgen2"mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
+																						<Button fx:id="film2morgen2" mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>

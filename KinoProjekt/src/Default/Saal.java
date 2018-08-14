@@ -9,7 +9,7 @@ public class Saal implements Serializable{
 	private Filmstart[] start;
 	private Sitzplatz[][] platz;
 	
-	public Saal(int saalnummer, Sitzplatz[][] sitzplatze) {
+	public Saal(int saalnummer, Sitzplatz[][] sitzplatze, int reihe, int spalte) {
 		this.saalnummer = saalnummer;
 		this.platz = sitzplatze;
 	}

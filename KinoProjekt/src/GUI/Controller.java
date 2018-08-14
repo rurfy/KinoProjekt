@@ -45,8 +45,8 @@ public class Controller {
 
 		System.out.println("App gestartet");
 		
-		Saal saal1 = new Saal(1, new Sitzplatz[12][22]);
-		Saal saal2 = new Saal(2, new Sitzplatz[12][22]);
+		Saal saal1 = new Saal(1, new Sitzplatz[12][22], 0, 0);
+		Saal saal2 = new Saal(2, new Sitzplatz[12][22], 0, 0);
 		Uhrzeit test = new Uhrzeit("13.00", saal1);
 		Heute heute = new Heute(test,test,test);
 		
