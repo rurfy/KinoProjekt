@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="FilmInfoPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller2">
+  <children>
+      <VBox prefWidth="800.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+         <children>
+            <StackPane fx:id="headStackPane">
+               <children>
+                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_RIGHT">
+                     <StackPane.margin>
+                        <Insets />
+                     </StackPane.margin>
+                     <image>
+                        <Image url="@../../../Logo_v3.PNG" />
+                     </image>
+                  </ImageView>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="bild" fitHeight="300.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@../../../avatar_thumb.jpg" />
+                           </image>
+                        </ImageView>
+                        <VBox>
+                           <children>
+                              <Label fx:id="titel" alignment="TOP_LEFT" text="Avatar - Aufbruch nach Pandora">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="genre" text="Genre: Science Fiction / Action">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="fsk" text="FSK 12">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="dauer" text="Dauer: 2:45 h">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="20.0" top="20.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <ImageView fitHeight="130.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="BOTTOM_RIGHT">
+                     <StackPane.margin>
+                        <Insets />
+                     </StackPane.margin>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </StackPane>
+            <TabPane tabClosingPolicy="UNAVAILABLE" tabMaxHeight="200.0" tabMaxWidth="200.0">
+              <tabs>
+                  <Tab style="-fx-font-size: 20;" text="Heute">
+                    <content>
+                      <AnchorPane>
+                           <children>
+                              <StackPane prefWidth="800.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="14:00 Uhr">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Button>
+                                    <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr" StackPane.alignment="CENTER_RIGHT">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <StackPane.margin>
+                                          <Insets />
+                                       </StackPane.margin>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="10:00 Uhr" StackPane.alignment="CENTER_LEFT">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <StackPane.margin>
+                                          <Insets />
+                                       </StackPane.margin>
+                                    </Button>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </padding>
+                              </StackPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                <Tab style="-fx-font-size: 20;" text="Morgen">
+                  <content>
+                    <AnchorPane>
+                           <children>
+                              <StackPane prefWidth="800.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="15:00 Uhr">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Button>
+                                    <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="18:00 Uhr" StackPane.alignment="CENTER_RIGHT">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <StackPane.margin>
+                                          <Insets />
+                                       </StackPane.margin>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="12:00 Uhr" StackPane.alignment="CENTER_LEFT">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <StackPane.margin>
+                                          <Insets />
+                                       </StackPane.margin>
+                                    </Button>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </padding>
+                              </StackPane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab style="-fx-font-size: 20;" text="Übermorgen">
+                  <content>
+                    <AnchorPane>
+                           <children>
+                              <StackPane prefWidth="800.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="14:00 Uhr">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Button>
+                                    <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="17:00 Uhr" StackPane.alignment="CENTER_RIGHT">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <StackPane.margin>
+                                          <Insets />
+                                       </StackPane.margin>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="11:00 Uhr" StackPane.alignment="CENTER_LEFT">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <StackPane.margin>
+                                          <Insets />
+                                       </StackPane.margin>
+                                    </Button>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </padding>
+                              </StackPane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </TabPane>
+            <Button fx:id="filmInfoZurueck" mnemonicParsing="false" onAction="#zumStartBildschirm" text="Zurück">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </children> 
+</AnchorPane>

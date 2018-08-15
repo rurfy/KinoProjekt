@@ -1,18 +1,17 @@
 package Platztypen;
 
-public abstract class Sitzplatz {
+import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
+
+public abstract class Sitzplatz extends Button{
 	private boolean belegt;
-	private int platzID;
+	
 	public boolean isBelegt() {
 		return belegt;
 	}
 	public void setBelegt(boolean belegt) {
 		this.belegt = belegt;
 	}
-	public int getPlatzID() {
-		return platzID;
-	}
-	public void setPlatzID(int platzID) {
-		this.platzID = platzID;
-	}
+	
+	public abstract void erstelleSitzplatz(int i, int j, Pane sitzplaetze) ;
 }
