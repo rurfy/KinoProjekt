@@ -1,7 +1,9 @@
 package Default;
 
+import Platztypen.Sitzplatz;
+
 public class AufrufListener {
 	
-	 public void kundeErstellt() {}
+	 public void kundeErstellt(Sitzplatz platz) {}
 	 
 }

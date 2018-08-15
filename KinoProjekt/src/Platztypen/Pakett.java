@@ -26,28 +26,6 @@ import javafx.scene.layout.Pane;
 		getStyleClass().removeAll("button");
 		getStyleClass().add("onClick");
 		//Saal saal1 = new Saal(platz,i,j);
-//		setOnAction(new EventHandler<ActionEvent>() {
-//		
-//			@Override
-//			public void handle(ActionEvent e) {
-//				// TODO Auto-generated method stub
-//				Pakett platz = (Pakett) e.getSource();
-//				if(isBelegt()) {
-//					platz.getStyleClass().removeAll("clicked");
-//					platz.getStyleClass().add("onClick");
-//					platz.setBelegt(false);
-//				} else {
-//					platz.getStyleClass().removeAll("onClick");
-//					platz.getStyleClass().add("clicked");
-//					platz.setBelegt(true);
-//					Kunde kunde = new Kunde(platz, 0);
-//					listener.kundeErstellt();
-//					kunde.createNewComboBox();
-//					//vermeideLuecken(platz,i,j);
-//				}
-//			}
-//			
-//		});
 		sitzplaetze.getChildren().add(this);		
 	}
 	

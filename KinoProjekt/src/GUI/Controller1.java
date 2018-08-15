@@ -1,5 +1,6 @@
 package GUI;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import Default.Film;
@@ -8,6 +9,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -74,12 +77,37 @@ public class Controller1 {
 	@FXML private Button film5uebermorgen1;
 	@FXML private Button film5uebermorgen2;
 	@FXML private Button film5uebermorgen3;
+	
+	@FXML private ImageView image1;
+	@FXML private ImageView image2;
+	@FXML private ImageView image3;
+	@FXML private ImageView image4;
+	@FXML private ImageView image5;
 
 	//private Filmstart filmA;
 	
 	public void init(Controller controller, Filmstart film1, Filmstart film2, Filmstart film3, Filmstart film4, Filmstart film5) {
 		main = controller;
 		//film1heute1.setText(film1.getHeute().getUhrzeit1().getUhrzeit());
+	}
+	
+	public void loadData() {
+		Filmstart film = main.filme.get(1);
+		File file = new File("@" + film.getBildURL());
+		image1.setImage(new Image(file.toURI().toString()));
+		filmTitel1.setText(film.getTitel());
+		film1heute1.setText(film.getHeute().getUhrzeit1().getUhrzeit() + " Uhr");
+		film1heute2.setText(film.getHeute().getUhrzeit2().getUhrzeit() + " Uhr");
+		film1heute3.setText(film.getHeute().getUhrzeit3().getUhrzeit() + " Uhr");
+		film1morgen1.setText(film.getMorgen().getUhrzeit1().getUhrzeit() + " Uhr");
+		film1morgen2.setText(film.getMorgen().getUhrzeit2().getUhrzeit() + " Uhr");
+		film1morgen3.setText(film.getMorgen().getUhrzeit3().getUhrzeit() + " Uhr");
+		film1uebermorgen1.setText(film.getUebermorgen().getUhrzeit1().getUhrzeit() + " Uhr");
+		film1uebermorgen2.setText(film.getUebermorgen().getUhrzeit2().getUhrzeit() + " Uhr");
+		film1uebermorgen3.setText(film.getUebermorgen().getUhrzeit3().getUhrzeit() + " Uhr");
+		for (int i = 0; i < main.filme.size(); i++) {
+			
+		}
 	}
 	
 	@FXML

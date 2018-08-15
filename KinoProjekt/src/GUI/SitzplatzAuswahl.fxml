@@ -14,14 +14,6 @@
 			<children>
 				<StackPane>
 					<children>
-						<Label text="Sitzplatz auswählen" StackPane.alignment="CENTER_LEFT">
-							<font>
-								<Font size="24.0" />
-							</font>
-							<StackPane.margin>
-								<Insets />
-							</StackPane.margin>
-						</Label>
 						<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_RIGHT">
 							<StackPane.margin>
 								<Insets />
@@ -30,6 +22,48 @@
 								<Image url="@../../../Logo_v3.png" />
 							</image>
 						</ImageView>
+                  <VBox>
+                     <children>
+      						<Label text="Sitzplatz auswählen">
+      							<font>
+      								<Font size="24.0" />
+      							</font>
+      						</Label>
+                        <HBox alignment="BOTTOM_LEFT" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="filmName" text="filmName">
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="tag" text="Tag">
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="uhrzeit" text="Uhrzeit">
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="saal" text="Saal">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
 					</children>
 					<VBox.margin>
 						<Insets bottom="20.0" />
@@ -46,9 +80,9 @@
 								</ImageView>
 							</children>
 						</Pane>
-						<ScrollPane maxWidth="-Infinity" vbarPolicy="NEVER" StackPane.alignment="CENTER_RIGHT">
+						<ScrollPane hbarPolicy="NEVER" maxWidth="-Infinity" vbarPolicy="ALWAYS" StackPane.alignment="CENTER_RIGHT">
 							<content>
-								<VBox fx:id="comboContainer" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="265.0" />
+								<VBox fx:id="comboContainer" prefWidth="265.0" />
 							</content>
 						</ScrollPane>
 					</children>
@@ -68,7 +102,7 @@
 						</Button>
 						<HBox maxWidth="-Infinity" StackPane.alignment="TOP_RIGHT">
 							<children>
-								<Button mnemonicParsing="false" text="Auswahl zurücksetzen">
+								<Button mnemonicParsing="false" onAction="#auswahlZurueck" text="Auswahl zurücksetzen">
 									<font>
 										<Font size="16.0" />
 									</font>
@@ -76,7 +110,7 @@
 										<Insets right="20.0" />
 									</HBox.margin>
 								</Button>
-								<Button mnemonicParsing="false" text="Reservierung abschließen">
+								<Button mnemonicParsing="false" onAction="#zurReservierung" text="Reservierung abschließen">
 									<font>
 										<Font size="16.0" />
 									</font>

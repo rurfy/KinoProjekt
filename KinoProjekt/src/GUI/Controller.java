@@ -84,10 +84,9 @@ public class Controller {
 		filme.add(fiftyShades);
 				
 		tab1Controller.init(this, avatar, jurassic, fiftyShades, nemo, freunde);
-		tab2Controller.FilmInfoPane.setVisible(false);
-		tab3Controller.SitzplatzAuswahlPane.setVisible(false);
 		tab2Controller.init(this);
 		tab3Controller.init(this);
+		loadStartBildschirm();
 		
 	}
 
@@ -100,12 +99,20 @@ public class Controller {
 		stage.setHeight(tab2Controller.FilmInfoPane.getHeight() + 40);
 		tab2Controller.getData(film);
 	}
+	
+	public void loadStartBildschirm() {
+		tab1Controller.StartBildschirmPane.setVisible(true);
+		tab2Controller.FilmInfoPane.setVisible(false);
+		tab3Controller.SitzplatzAuswahlPane.setVisible(false);
+		tab1Controller.loadData();
+	}
 
 	public void loadStartBildschirm(Node n) {
 		tab1Controller.StartBildschirmPane.setVisible(true);
 		tab2Controller.FilmInfoPane.setVisible(false);
 		tab3Controller.SitzplatzAuswahlPane.setVisible(false);
-
+		tab1Controller.loadData();
+		
 		Stage stage = (Stage) n.getScene().getWindow();
 		stage.setWidth(tab1Controller.StartBildschirmPane.getWidth() + 20);
 		stage.setHeight(tab1Controller.StartBildschirmPane.getHeight() + 40);

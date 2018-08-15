@@ -96,7 +96,7 @@
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
-																		<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image2" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<HBox.margin>
 																				<Insets />
 																			</HBox.margin>
@@ -149,7 +149,7 @@
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
-																		<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image3" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<image>
 																				<Image url="@../../../findet-nemo_thumb.jpg" />
 																			</image>
@@ -202,7 +202,7 @@
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
-																		<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image4" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<image>
 																				<Image url="@../../../ziemlich-beste-freunde_thumb.jpg" />
 																			</image>
@@ -255,7 +255,7 @@
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
-																		<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image5" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<image>
 																				<Image url="@../../../fifty-shades-of-grey_thumb.jpg" />
 																			</image>
@@ -320,11 +320,11 @@
 											<content>
 												<VBox prefWidth="1000.0">
 													<children>
-														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane fx:id="film1" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox>
 																	<children>
-																		<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image1" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<image>
 																				<Image url="@../../../avatar_thumb.jpg" />
 																			</image>
@@ -377,7 +377,7 @@
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
-																		<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image2" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<HBox.margin>
 																				<Insets />
 																			</HBox.margin>
@@ -430,7 +430,7 @@
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
-																		<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image3" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<image>
 																				<Image url="@../../../findet-nemo_thumb.jpg" />
 																			</image>
@@ -483,7 +483,7 @@
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
-																		<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image4" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<image>
 																				<Image url="@../../../ziemlich-beste-freunde_thumb.jpg" />
 																			</image>
@@ -536,7 +536,7 @@
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
-																		<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image5" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<image>
 																				<Image url="@../../../fifty-shades-of-grey_thumb.jpg" />
 																			</image>
@@ -602,11 +602,11 @@
 											<content>
 												<VBox prefWidth="1000.0">
 													<children>
-														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane fx:id="film1" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox>
 																	<children>
-																		<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image1" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<image>
 																				<Image url="@../../../avatar_thumb.jpg" />
 																			</image>
@@ -659,7 +659,7 @@
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
-																		<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image2" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<HBox.margin>
 																				<Insets />
 																			</HBox.margin>
@@ -712,7 +712,7 @@
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
-																		<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image3" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<image>
 																				<Image url="@../../../findet-nemo_thumb.jpg" />
 																			</image>
@@ -765,7 +765,7 @@
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
-																		<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image4" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<image>
 																				<Image url="@../../../ziemlich-beste-freunde_thumb.jpg" />
 																			</image>
@@ -818,7 +818,7 @@
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
-																		<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image5" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<image>
 																				<Image url="@../../../fifty-shades-of-grey_thumb.jpg" />
 																			</image>
