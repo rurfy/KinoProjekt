@@ -83,14 +83,14 @@ public class Controller {
 		filme.add(freunde);
 		filme.add(fiftyShades);
 				
-		tab1Controller.init(this, avatar, jurassic, fiftyShades, nemo, freunde);
+		tab1Controller.init(this);
 		tab2Controller.init(this);
 		tab3Controller.init(this);
 		loadStartBildschirm();
 		
 	}
 
-	public void loadFilmInfo(Node n, Film film) {
+	public void loadFilmInfo(Node n, Filmstart film) {
 		tab1Controller.StartBildschirmPane.setVisible(false);
 		tab2Controller.FilmInfoPane.setVisible(true);
 		tab3Controller.SitzplatzAuswahlPane.setVisible(false);

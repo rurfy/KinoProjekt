@@ -4,6 +4,7 @@ import java.io.File;
 import java.text.DecimalFormat;
 
 import Default.Film;
+import Default.Filmstart;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -31,8 +32,7 @@ public class Controller2 {
 		
 	}
 	
-	public void getData(Film film) {
-		System.out.println(film.getTitel());
+	public void getData(Filmstart film) {
 		//Daten vom ausgewählten Film laden
 		DecimalFormat df = new DecimalFormat("#.00");
 		dauer.setText("Dauer: " + df.format(film.getDauer()) + " h");
