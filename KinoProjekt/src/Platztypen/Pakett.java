@@ -17,38 +17,38 @@ import javafx.scene.layout.Pane;
 	}
  	@Override
 	public void erstelleSitzplatz(int i, int j, Pane sitzplaetze) {
-		Pakett platz = new Pakett();
-		platz.setPrefSize(25, 25);
-		platz.setMinSize(25, 25);
-		platz.setMaxSize(25, 25);
-		platz.setLayoutX(130 + j * 30);
-		platz.setLayoutY(82 + i *30);
-		platz.setId("Reihe: "+i+", Platz: "+j);
-		platz.getStyleClass().removeAll("button");
-		platz.getStyleClass().add("onClick");
+		setPrefSize(25, 25);
+		setMinSize(25, 25);
+		setMaxSize(25, 25);
+		setLayoutX(130 + j * 30);
+		setLayoutY(82 + i *30);
+		setId("Reihe: "+i+", Platz: "+j);
+		getStyleClass().removeAll("button");
+		getStyleClass().add("onClick");
 		//Saal saal1 = new Saal(platz,i,j);
-		platz.setOnAction(new EventHandler<ActionEvent>() {
-		
-			@Override
-			public void handle(ActionEvent e) {
-				// TODO Auto-generated method stub
-				if(platz.isBelegt()) {
-					platz.getStyleClass().removeAll("clicked");
-					platz.getStyleClass().add("onClick");
-					platz.setBelegt(false);
-					Kunde kunde = new Kunde(platz, 0);
-					listener.kundeErstellt();
-					kunde.createNewComboBox();
-				} else {
-					platz.getStyleClass().removeAll("onClick");
-					platz.getStyleClass().add("clicked");
-					platz.setBelegt(true);
-					vermeideLuecken(platz,i,j);
-				}
-			}
-			
-		});
-		sitzplaetze.getChildren().add(platz);		
+//		setOnAction(new EventHandler<ActionEvent>() {
+//		
+//			@Override
+//			public void handle(ActionEvent e) {
+//				// TODO Auto-generated method stub
+//				Pakett platz = (Pakett) e.getSource();
+//				if(isBelegt()) {
+//					platz.getStyleClass().removeAll("clicked");
+//					platz.getStyleClass().add("onClick");
+//					platz.setBelegt(false);
+//				} else {
+//					platz.getStyleClass().removeAll("onClick");
+//					platz.getStyleClass().add("clicked");
+//					platz.setBelegt(true);
+//					Kunde kunde = new Kunde(platz, 0);
+//					listener.kundeErstellt();
+//					kunde.createNewComboBox();
+//					//vermeideLuecken(platz,i,j);
+//				}
+//			}
+//			
+//		});
+		sitzplaetze.getChildren().add(this);		
 	}
 	
 	private void vermeideLuecken(Pakett platz, int i, int j) {
