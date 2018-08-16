@@ -13,14 +13,14 @@ import Tage.Morgen;
 import Tage.Tage;
 import Tage.Uebermorgen;
 
-public class Filmstart extends Film implements Serializable{
+public class Filmstart extends Film implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private Heute heute;
 	private Morgen morgen;
 	private Uebermorgen uebermorgen;
-	
+
 	public Filmstart(double dauer, String titel, int fsk, String genre, String trailer, String bildURL, double preis, Heute heute, Morgen morgen, Uebermorgen uebermorgen) {
 		super(dauer, titel, fsk, genre, trailer, bildURL, preis);
 		this.heute = heute;
@@ -29,25 +29,14 @@ public class Filmstart extends Film implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public void writeFilm() {
-		File f = new File(this.getTitel() + ".kos");
-		if (!f.exists()) { // Nur wenn die Datei noch nicht erstellt wurde
-			try {
-				f.createNewFile();
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			}
-			try {
-				FileOutputStream fs = new FileOutputStream(this.getTitel() + ".kos");
-				ObjectOutputStream out = new ObjectOutputStream(fs);
-				out.writeObject(this);
-				out.close();
-			} catch (IOException e) {
-				System.out.println("Datei konnte nicht gefunden werden.");
-			}
+	public void writeFilm(File f, ObjectOutputStream out) {
+		try {
+			out.writeObject(this);
+		} catch (IOException e) {
+			System.out.println("Datei konnte nicht gefunden werden.");
 		}
 	}
-	
+
 	public Heute getHeute() {
 		return heute;
 	}

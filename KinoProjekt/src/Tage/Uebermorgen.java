@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Serializable;
 import java.nio.charset.Charset;
 import java.util.Calendar;
 import java.util.Date;
@@ -15,7 +16,7 @@ import java.util.TimeZone;
 
 import Default.Film;
 
-public class Uebermorgen extends Tage {
+public class Uebermorgen extends Tage implements Serializable{
 
 	public Uebermorgen(Uhrzeit uhrzeit1, Uhrzeit uhrzeit2, Uhrzeit uhrzeit3) {
 		super(uhrzeit1, uhrzeit2, uhrzeit3);

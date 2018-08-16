@@ -55,17 +55,6 @@ public class Controller1 {
 	private Label filmTitel5uebermorgen;
 
 	@FXML
-	private Pane film1;
-	@FXML
-	private Pane film2;
-	@FXML
-	private Pane film3;
-	@FXML
-	private Pane film4;
-	@FXML
-	private Pane film5;
-
-	@FXML
 	private Button film1heute1;
 	@FXML
 	private Button film1heute2;

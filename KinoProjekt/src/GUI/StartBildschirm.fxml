@@ -39,7 +39,7 @@
 											<content>
 												<VBox prefWidth="1000.0">
 													<children>
-														<Pane fx:id="film1" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="film1" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox>
 																	<children>
@@ -92,7 +92,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane fx:id="film2" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="film2" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -145,7 +145,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane fx:id="film3" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="film3" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -198,7 +198,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane fx:id="film4" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="film4" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -251,7 +251,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane fx:id="film5" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="film5" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -320,7 +320,7 @@
 											<content>
 												<VBox prefWidth="1000.0">
 													<children>
-														<Pane fx:id="film1" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="film1" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox>
 																	<children>
@@ -426,7 +426,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="film3" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -479,7 +479,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="film4" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -532,7 +532,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="film5" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -602,7 +602,7 @@
 											<content>
 												<VBox prefWidth="1000.0">
 													<children>
-														<Pane fx:id="film1" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="film1" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox>
 																	<children>
@@ -655,7 +655,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="film2" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -708,7 +708,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="film3" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -761,7 +761,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="film4" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
@@ -814,7 +814,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="film5" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>

@@ -6,7 +6,7 @@ import Default.Kunde;
 import Platztypen.Komfort;
 import Platztypen.Loge;
 import Platztypen.Pakett;
-
+import Platztypen.Sitzplatz;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -31,10 +31,14 @@ public class Controller3 {
 	private Pane sitzplaetze;
 	@FXML
 	private VBox comboContainer;
-	@FXML private Label filmName;
-	@FXML private Label saal;
-	@FXML private Label uhrzeit;
-	@FXML private Label tag;
+	@FXML
+	private Label filmName;
+	@FXML
+	private Label saal;
+	@FXML
+	private Label uhrzeit;
+	@FXML
+	private Label tag;
 
 	private ArrayList<Kunde> kundenListe = new ArrayList<Kunde>();
 
@@ -44,13 +48,14 @@ public class Controller3 {
 	}
 
 	public void zumStartBildschirm(ActionEvent e) {
+		removeAllItems();
 		main.loadStartBildschirm((Button) e.getSource());
 	}
 
 	EventHandler<ActionEvent> buttonClick = new EventHandler<ActionEvent>() {
 		@Override
 		public void handle(ActionEvent e) {
-			Pakett platz = (Pakett) e.getSource();
+			Sitzplatz platz = (Sitzplatz) e.getSource();
 			if (platz.isBelegt()) {
 				platz.getStyleClass().removeAll("clicked");
 				platz.getStyleClass().add("onClick");
@@ -83,25 +88,27 @@ public class Controller3 {
 					pakettplatz.erstelleSitzplatz(i, j, sitzplaetze);
 				} else if (i >= 4 && i < 8) {
 					Loge logenplatz = new Loge();
+					logenplatz.addEventHandler(ActionEvent.ACTION, buttonClick);
 					logenplatz.erstelleSitzplatz(i, j, sitzplaetze);
 				} else {
 					Komfort komfortplatz = new Komfort();
+					komfortplatz.addEventHandler(ActionEvent.ACTION, buttonClick);
 					komfortplatz.erstelleSitzplatz(i, j, sitzplaetze);
 				}
 			}
 
 		}
 	}
-	
+
 	public Boolean setComboBoxValues() {
 		for (int i = 0; i < kundenListe.size(); i++) {
 			if (kundenListe.get(i).getComboBox().getValue() != null) {
 				switch (kundenListe.get(i).getComboBox().getValue()) {
 				case "Erwachsener":
-						kundenListe.get(i).setErmaessigung(0);
+					kundenListe.get(i).setErmaessigung(0);
 					break;
 				case "Kind":
-						kundenListe.get(i).setErmaessigung(2);
+					kundenListe.get(i).setErmaessigung(2);
 					break;
 				}
 				;
@@ -113,15 +120,21 @@ public class Controller3 {
 		}
 		return true;
 	}
-	
+
 	public void zurReservierung(ActionEvent e) {
-		if (setComboBoxValues()) {
-			System.out.println("Ich hab Spaß :)");
+		
+		if (!kundenListe.isEmpty()) {
+			if (setComboBoxValues()) {
+				System.out.println("Ich hab Spaß :)");
+			} 
 		}
-		else System.out.println("Kein Spaß :(");
+		else {
+			Alert alert = new Alert(AlertType.WARNING, "Sie haben keine Sitzplätze ausgewählt");
+			alert.showAndWait();
+		}
 	}
 
-	public void auswahlZurueck(ActionEvent e) {
+	public void removeAllItems() {
 		for (int i = kundenListe.size() - 1; i >= 0; i--) {
 			kundenListe.get(i).getPlatz().getStyleClass().removeAll("clicked");
 			kundenListe.get(i).getPlatz().getStyleClass().add("onClick");
@@ -129,6 +142,10 @@ public class Controller3 {
 			kundenListe.get(i).removeComboBox(comboContainer);
 			kundenListe.remove(i);
 		}
+	}
+
+	public void auswahlZurueck(ActionEvent e) {
+		removeAllItems();
 	}
 
 }

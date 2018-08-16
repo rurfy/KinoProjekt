@@ -15,19 +15,6 @@ import javafx.scene.layout.Pane;
  	public void setAufpreis(int aufpreis) {
 		this.aufpreis = aufpreis;
 	}
- 	@Override
-	public void erstelleSitzplatz(int i, int j, Pane sitzplaetze) {
-		setPrefSize(25, 25);
-		setMinSize(25, 25);
-		setMaxSize(25, 25);
-		setLayoutX(130 + j * 30);
-		setLayoutY(82 + i *30);
-		setId("Reihe: "+i+", Platz: "+j);
-		getStyleClass().removeAll("button");
-		getStyleClass().add("onClick");
-		//Saal saal1 = new Saal(platz,i,j);
-		sitzplaetze.getChildren().add(this);		
-	}
 	
 	private void vermeideLuecken(Pakett platz, int i, int j) {
 		// TODO Auto-generated method stub				
@@ -45,5 +32,11 @@ import javafx.scene.layout.Pane;
 	private AufrufListener listener = new AufrufListener();
 	public void setAufrufListener(AufrufListener lis) {
 	    listener = lis;
+	}
+	@Override
+	public void setPosition(int i, int j) {
+		// TODO Auto-generated method stub
+		setLayoutX(130 + j * 30);
+		setLayoutY(82 + i *30);
 	}
 }
