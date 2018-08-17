@@ -1,11 +1,13 @@
 package Platztypen;
 
+import java.io.Serializable;
+
 import Default.Kunde;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.layout.Pane;
 
-public class Loge extends Sitzplatz{
+public class Loge extends Sitzplatz implements Serializable{
 	private int aufpreis = 2;
 
 	public int getAufpreis() {

@@ -1,5 +1,6 @@
 package Platztypen;
- import Default.AufrufListener;
+ import java.io.Serializable;
+
 import Default.Kunde;
 import Default.Saal;
 import javafx.event.ActionEvent;
@@ -7,7 +8,7 @@ import javafx.event.EventHandler;
 import javafx.scene.layout.Pane;
 
 
- public class Pakett extends Sitzplatz{
+ public class Pakett extends Sitzplatz implements Serializable{
 	private int aufpreis=0;
  	public int getAufpreis() {
 		return aufpreis;
@@ -29,10 +30,6 @@ import javafx.scene.layout.Pane;
 		}
  	}
 	
-	private AufrufListener listener = new AufrufListener();
-	public void setAufrufListener(AufrufListener lis) {
-	    listener = lis;
-	}
 	@Override
 	public void setPosition(int i, int j) {
 		// TODO Auto-generated method stub

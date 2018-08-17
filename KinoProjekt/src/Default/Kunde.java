@@ -60,9 +60,4 @@ public class Kunde {
 		this.rabatt = rabatt;
 	}
 	
-	private AufrufListener listener = new AufrufListener();
-	public void setAufrufListener(AufrufListener lis) {
-	    listener = lis;
-	}
-	
 }

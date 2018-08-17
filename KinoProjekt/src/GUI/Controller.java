@@ -2,14 +2,11 @@ package GUI;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-
-import javax.swing.plaf.synth.SynthSpinnerUI;
 
 import Default.Filmstart;
 import Default.Saal;
@@ -18,11 +15,9 @@ import Tage.Heute;
 import Tage.Morgen;
 import Tage.Uebermorgen;
 import Tage.Uhrzeit;
+
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -69,7 +64,7 @@ public class Controller {
 		Stage stage = (Stage) n.getScene().getWindow();
 		stage.setWidth(tab2Controller.FilmInfoPane.getWidth() + 20);
 		stage.setHeight(tab2Controller.FilmInfoPane.getHeight() + 40);
-		tab2Controller.getData(film);
+		tab2Controller.initData(film);
 	}
 
 	public void loadStartBildschirm() {
@@ -90,11 +85,11 @@ public class Controller {
 		stage.setHeight(tab1Controller.StartBildschirmPane.getHeight() + 40);
 	}
 
-	public void loadSitzplatzAuswahl(Node n) {
+	public void loadSitzplatzAuswahl(Node n, Filmstart film, String uhrzeit, String tag) {
 		tab1Controller.StartBildschirmPane.setVisible(false);
 		tab2Controller.FilmInfoPane.setVisible(false);
 		tab3Controller.SitzplatzAuswahlPane.setVisible(true);
-
+		tab3Controller.initData(film, uhrzeit, tag);
 		tab3Controller.generiereSitzplaetze(12, 22);
 		Stage stage = (Stage) n.getScene().getWindow();
 		stage.setWidth(tab3Controller.SitzplatzAuswahlPane.getWidth() + 20);
@@ -161,7 +156,6 @@ public class Controller {
 				freunde.writeFilm(f, out);
 				out.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

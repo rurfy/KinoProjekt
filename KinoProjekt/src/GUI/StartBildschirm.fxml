@@ -373,7 +373,7 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="film2" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>

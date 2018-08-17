@@ -1,11 +1,13 @@
 package Platztypen;
 
+import java.io.Serializable;
+
 import Default.Kunde;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.layout.Pane;
 
-public class Komfort extends Sitzplatz{
+public class Komfort extends Sitzplatz implements Serializable{
 	private int aufpreis = 4;
 
 	public int getAufpreis() {

@@ -1,15 +1,15 @@
 package GUI;
 
 import java.io.File;
-import java.util.ArrayList;
 
-import Default.Film;
 import Default.Filmstart;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TabPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -182,21 +182,16 @@ public class Controller1 {
 	}
 
 	public void loadData() {
-		Components film1Comp = new Components(image1heute, image1morgen, image1uebermorgen, filmTitel1heute, filmTitel1morgen, filmTitel1uebermorgen,
-				film1heute1, film1heute2, film1heute3, film1morgen1, film1morgen2, film1morgen3, film1uebermorgen1, film1uebermorgen2,
-				film1uebermorgen3);
-		Components film2Comp = new Components(image2heute, image2morgen, image2uebermorgen, filmTitel2heute, filmTitel2morgen, filmTitel2uebermorgen,
-				film2heute1, film2heute2, film2heute3, film2morgen1, film2morgen2, film2morgen3, film2uebermorgen1, film2uebermorgen2,
-				film2uebermorgen3);
-		Components film3Comp = new Components(image3heute, image3morgen, image3uebermorgen, filmTitel3heute, filmTitel3morgen, filmTitel3uebermorgen,
-				film3heute1, film3heute2, film3heute3, film3morgen1, film3morgen2, film3morgen3, film3uebermorgen1, film3uebermorgen2,
-				film3uebermorgen3);
-		Components film4Comp = new Components(image4heute, image4morgen, image4uebermorgen, filmTitel4heute, filmTitel4morgen, filmTitel4uebermorgen,
-				film4heute1, film4heute2, film4heute3, film4morgen1, film4morgen2, film4morgen3, film4uebermorgen1, film4uebermorgen2,
-				film4uebermorgen3);
-		Components film5Comp = new Components(image5heute, image5morgen, image5uebermorgen, filmTitel5heute, filmTitel5morgen, filmTitel5uebermorgen,
-				film5heute1, film5heute2, film5heute3, film5morgen1, film5morgen2, film5morgen3, film5uebermorgen1, film5uebermorgen2,
-				film5uebermorgen3);
+		Components film1Comp = new Components(image1heute, image1morgen, image1uebermorgen, filmTitel1heute, filmTitel1morgen, filmTitel1uebermorgen, film1heute1, film1heute2, film1heute3,
+				film1morgen1, film1morgen2, film1morgen3, film1uebermorgen1, film1uebermorgen2, film1uebermorgen3);
+		Components film2Comp = new Components(image2heute, image2morgen, image2uebermorgen, filmTitel2heute, filmTitel2morgen, filmTitel2uebermorgen, film2heute1, film2heute2, film2heute3,
+				film2morgen1, film2morgen2, film2morgen3, film2uebermorgen1, film2uebermorgen2, film2uebermorgen3);
+		Components film3Comp = new Components(image3heute, image3morgen, image3uebermorgen, filmTitel3heute, filmTitel3morgen, filmTitel3uebermorgen, film3heute1, film3heute2, film3heute3,
+				film3morgen1, film3morgen2, film3morgen3, film3uebermorgen1, film3uebermorgen2, film3uebermorgen3);
+		Components film4Comp = new Components(image4heute, image4morgen, image4uebermorgen, filmTitel4heute, filmTitel4morgen, filmTitel4uebermorgen, film4heute1, film4heute2, film4heute3,
+				film4morgen1, film4morgen2, film4morgen3, film4uebermorgen1, film4uebermorgen2, film4uebermorgen3);
+		Components film5Comp = new Components(image5heute, image5morgen, image5uebermorgen, filmTitel5heute, filmTitel5morgen, filmTitel5uebermorgen, film5heute1, film5heute2, film5heute3,
+				film5morgen1, film5morgen2, film5morgen3, film5uebermorgen1, film5uebermorgen2, film5uebermorgen3);
 		loadFilmData(film1Comp, 0);
 		loadFilmData(film2Comp, 1);
 		loadFilmData(film3Comp, 2);
@@ -228,15 +223,11 @@ public class Controller1 {
 	@FXML
 	public void zurFilmInfo(MouseEvent e) {
 
-		for (int i = 0; i < main.filme.size(); i++) {
-			if (getFilmID(e).equals(main.filme.get(i).getTitel())) {
-				main.loadFilmInfo((Pane) e.getSource(), main.filme.get(i));
-			}
-		}
+		main.loadFilmInfo((Pane) e.getSource(), getClickedFilm(e));
+
 	}
 
-	public String getFilmID(MouseEvent e) {
-		Pane p = (Pane) e.getSource();
+	public String getFilmID(Pane p) {
 		switch (p.getId()) {
 		case "film1":
 			return filmTitel1heute.getText();
@@ -254,8 +245,44 @@ public class Controller1 {
 		}
 	}
 
+	public Pane getPaneID(ActionEvent e) {
+		Node n = (Node) e.getSource();
+		Pane p = (Pane) n.getParent().getParent().getParent().getParent();
+		return p;
+	}
+
+	public Filmstart getClickedFilm(ActionEvent e) {
+		for (int i = 0; i < main.filme.size(); i++) {
+			if (getFilmID(getPaneID(e)).equals(main.filme.get(i).getTitel())) {
+				return main.filme.get(i);
+			}
+		}
+		return null;
+	}
+
+	public Filmstart getClickedFilm(MouseEvent e) {
+		for (int i = 0; i < main.filme.size(); i++) {
+			if (getFilmID((Pane) e.getSource()).equals(main.filme.get(i).getTitel())) {
+				return main.filme.get(i);
+			}
+		}
+		return null;
+	}
+
+	public String getTabID(ActionEvent e) {
+		Node n = (Node) e.getSource();
+		while (!(n instanceof TabPane)) {
+			n = n.getParent();
+		}
+		TabPane tab = (TabPane) n;
+
+		return tab.getSelectionModel().getSelectedItem().getText();
+	}
+
 	public void zurSitzplatzAuswahl(ActionEvent e) {
-		main.loadSitzplatzAuswahl((Button) e.getSource());
+
+		Button b = (Button) e.getSource();
+		main.loadSitzplatzAuswahl((Button) e.getSource(), getClickedFilm(e), b.getText(), getTabID(e));
 	}
 
 }
@@ -278,9 +305,8 @@ class Components {
 	Button uebermorgen2;
 	Button uebermorgen3;
 
-	public Components(ImageView imageheute, ImageView imagemorgen, ImageView imageuebermorgen, Label titelheute, Label titelmorgen,
-			Label titeluebermorgen, Button heute1, Button heute2, Button heute3, Button morgen1, Button morgen2, Button morgen3, Button uebermorgen1,
-			Button uebermorgen2, Button uebermorgen3) {
+	public Components(ImageView imageheute, ImageView imagemorgen, ImageView imageuebermorgen, Label titelheute, Label titelmorgen, Label titeluebermorgen, Button heute1, Button heute2, Button heute3,
+			Button morgen1, Button morgen2, Button morgen3, Button uebermorgen1, Button uebermorgen2, Button uebermorgen3) {
 		this.imageheute = imageheute;
 		this.imagemorgen = imagemorgen;
 		this.imageuebermorgen = imageuebermorgen;

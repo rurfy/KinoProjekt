@@ -1,7 +1,15 @@
 package GUI;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
+import Default.Filmstart;
 import Default.Kunde;
 import Platztypen.Komfort;
 import Platztypen.Loge;
@@ -41,10 +49,19 @@ public class Controller3 {
 	private Label tag;
 
 	private ArrayList<Kunde> kundenListe = new ArrayList<Kunde>();
+	private Filmstart film;
+	private File belegung = new File("belegung.kos");
 
 	public void init(Controller controller) {
 		main = controller;
 		comboContainer.setFillWidth(true);
+	}
+
+	public void initData(Filmstart film, String uhrzeit, String tag) {
+		this.film = film;
+		filmName.setText(film.getTitel());
+		this.uhrzeit.setText(uhrzeit);
+		this.tag.setText(tag);
 	}
 
 	public void zumStartBildschirm(ActionEvent e) {
@@ -98,6 +115,59 @@ public class Controller3 {
 			}
 
 		}
+		getBelegtePlaetze();
+
+	}
+
+	public void getBelegtePlaetze() {
+
+		if (belegung.exists()) {
+			try {
+				FileInputStream fis = new FileInputStream(belegung);
+				ObjectInputStream ois = new ObjectInputStream(fis);
+				Sitzplatz platz = (Sitzplatz) ois.readObject();
+				while (platz != null) {
+					Sitzplatz alterPlatz = (Sitzplatz) sitzplaetze.lookup("#" + platz.getId());
+					alterPlatz.removeEventHandler(ActionEvent.ACTION, buttonClick);
+					alterPlatz.getStyleClass().removeAll("onClick");
+					alterPlatz.getStyleClass().add("clicked");
+					alterPlatz.setBelegt(true);
+					platz = (Sitzplatz) ois.readObject();
+				}
+				ois.close();
+				fis.close();
+			} catch (IOException | ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+	}
+	
+	public void speichereSitzplatzDaten() {
+		FileOutputStream fos;
+		if (!belegung.exists()) {
+			try {
+				belegung.createNewFile();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		try {
+			fos = new FileOutputStream(belegung, true);
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			for (int i = 0; i < kundenListe.size(); i--) {
+				Sitzplatz platz = kundenListe.get(i).getPlatz();
+				oos.writeObject(platz);
+			}
+			oos.writeObject(null); // Markiert EOF
+			oos.close();
+			fos.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public Boolean setComboBoxValues() {
@@ -121,14 +191,15 @@ public class Controller3 {
 		return true;
 	}
 
+
 	public void zurReservierung(ActionEvent e) {
-		
+
 		if (!kundenListe.isEmpty()) {
 			if (setComboBoxValues()) {
 				System.out.println("Ich hab Spaß :)");
-			} 
-		}
-		else {
+				speichereSitzplatzDaten();
+			}
+		} else {
 			Alert alert = new Alert(AlertType.WARNING, "Sie haben keine Sitzplätze ausgewählt");
 			alert.showAndWait();
 		}
