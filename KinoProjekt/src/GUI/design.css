@@ -75,6 +75,19 @@
     -fx-font-size: 20px;
 }
 
+.label2{
+  -fx-text-fill: rgb(0,198,187);
+  -fx-font-weight: bold;
+    -fx-font-size: 20px;
+}
+
+.label2:hover{
+  -fx-text-fill: rgb(200,50,100);
+  -fx-font-weight: bold;
+  -fx-underline: true;
+    -fx-font-size: 20px;
+}
+
 .startBildschirmFilm {
 	-fx-background-color: #3c3c3c;
 }
