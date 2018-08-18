@@ -4,10 +4,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.Serializable;
 
 import Default.Film;
 
-public class Heute extends Tage{
+public class Heute extends Tage implements Serializable{
 
 	private Uhrzeit uhrzeit1;
 	private Uhrzeit uhrzeit2;

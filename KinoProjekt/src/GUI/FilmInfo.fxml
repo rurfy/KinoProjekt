@@ -82,7 +82,7 @@
             </StackPane>
             <TabPane tabClosingPolicy="UNAVAILABLE" tabMaxHeight="200.0" tabMaxWidth="200.0">
               <tabs>
-                  <Tab style="-fx-font-size: 20;" text="Heute">
+                  <Tab style="-fx-font-size: 20;" text="Heute" id="heute">
                     <content>
                       <AnchorPane>
                            <children>
@@ -118,7 +118,7 @@
                         </AnchorPane>
                     </content>
                   </Tab>
-                <Tab style="-fx-font-size: 20;" text="Morgen">
+                <Tab style="-fx-font-size: 20;" text="Morgen" id="morgen">
                   <content>
                     <AnchorPane>
                            <children>
@@ -154,7 +154,7 @@
                         </AnchorPane>
                   </content>
                 </Tab>
-                <Tab style="-fx-font-size: 20;" text="Übermorgen">
+                <Tab style="-fx-font-size: 20;" text="Übermorgen" id="uebermorgen">
                   <content>
                     <AnchorPane>
                            <children>

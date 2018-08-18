@@ -4,10 +4,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.Serializable;
 
 import Default.Film;
 
-public class Morgen extends Tage{
+public class Morgen extends Tage implements Serializable{
 
 	public Morgen(Uhrzeit uhrzeit1, Uhrzeit uhrzeit2, Uhrzeit uhrzeit3) {
 		super(uhrzeit1, uhrzeit2, uhrzeit3);

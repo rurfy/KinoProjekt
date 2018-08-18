@@ -8,28 +8,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="SitzplatzAuswahlPane"
-	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="GUI.Controller3">
+<AnchorPane fx:id="SitzplatzAuswahlPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller3">
 	<children>
-		<VBox prefWidth="1200.0" AnchorPane.bottomAnchor="20.0"
-			AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0"
-			AnchorPane.topAnchor="20.0">
+		<VBox prefWidth="1200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
 			<children>
 				<StackPane>
 					<children>
-						<Label text="Sitzplatz auswählen"
-							StackPane.alignment="CENTER_LEFT">
-							<font>
-								<Font size="24.0" />
-							</font>
-							<StackPane.margin>
-								<Insets />
-							</StackPane.margin>
-						</Label>
-						<ImageView fitHeight="100.0" fitWidth="100.0"
-							pickOnBounds="true" preserveRatio="true"
-							StackPane.alignment="TOP_RIGHT">
+						<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_RIGHT">
 							<StackPane.margin>
 								<Insets />
 							</StackPane.margin>
@@ -37,6 +22,48 @@
 								<Image url="@../../../Logo_v3.png" />
 							</image>
 						</ImageView>
+                  <VBox>
+                     <children>
+      						<Label text="Sitzplatz auswählen">
+      							<font>
+      								<Font size="24.0" />
+      							</font>
+      						</Label>
+                        <HBox alignment="BOTTOM_LEFT" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="filmName" text="filmName">
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="tag" text="Tag">
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="uhrzeit" text="Uhrzeit">
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="saal" text="Saal">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
 					</children>
 					<VBox.margin>
 						<Insets bottom="20.0" />
@@ -44,24 +71,18 @@
 				</StackPane>
 				<StackPane>
 					<children>
-						<Pane fx:id="sitzplaetze" maxWidth="-Infinity"
-							StackPane.alignment="CENTER_LEFT">
+						<Pane fx:id="sitzplaetze" maxWidth="-Infinity" StackPane.alignment="CENTER_LEFT">
 							<children>
-								<ImageView fitHeight="900.0" fitWidth="900.0"
-									pickOnBounds="true" preserveRatio="true">
+								<ImageView fitHeight="900.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
 									<image>
 										<Image url="@../../../Leinwand-PPT.jpg" />
 									</image>
 								</ImageView>
 							</children>
 						</Pane>
-						<ScrollPane maxWidth="-Infinity" prefWidth="280.0"
-							vbarPolicy="NEVER" StackPane.alignment="CENTER_RIGHT">
+						<ScrollPane hbarPolicy="NEVER" maxWidth="-Infinity" vbarPolicy="ALWAYS" StackPane.alignment="CENTER_RIGHT">
 							<content>
-								<VBox fx:id="comboContainer"
-									maxHeight="1.7976931348623157E308"
-									maxWidth="1.7976931348623157E308" prefHeight="200.0"
-									prefWidth="100.0" />
+								<VBox fx:id="comboContainer" prefWidth="265.0" />
 							</content>
 						</ScrollPane>
 					</children>
@@ -71,9 +92,7 @@
 				</StackPane>
 				<StackPane prefWidth="600.0">
 					<children>
-						<Button fx:id="sitzPlatzZurueck" mnemonicParsing="false"
-							onAction="#zumStartBildschirm" text="Zurück"
-							StackPane.alignment="TOP_LEFT">
+						<Button fx:id="sitzPlatzZurueck" mnemonicParsing="false" onAction="#zumStartBildschirm" text="Zurück" StackPane.alignment="TOP_LEFT">
 							<font>
 								<Font size="16.0" />
 							</font>
@@ -83,8 +102,7 @@
 						</Button>
 						<HBox maxWidth="-Infinity" StackPane.alignment="TOP_RIGHT">
 							<children>
-								<Button mnemonicParsing="false"
-									text="Auswahl zurücksetzen">
+								<Button mnemonicParsing="false" onAction="#auswahlZurueck" text="Auswahl zurücksetzen">
 									<font>
 										<Font size="16.0" />
 									</font>
@@ -92,8 +110,7 @@
 										<Insets right="20.0" />
 									</HBox.margin>
 								</Button>
-								<Button mnemonicParsing="false"
-									text="Reservierung abschließen">
+								<Button mnemonicParsing="false" onAction="#zurReservierung" text="Reservierung abschließen">
 									<font>
 										<Font size="16.0" />
 									</font>
