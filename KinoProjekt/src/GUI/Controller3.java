@@ -1,5 +1,6 @@
 package GUI;
 
+import java.awt.Point;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -62,6 +63,7 @@ public class Controller3 {
 		filmName.setText(film.getTitel());
 		this.uhrzeit.setText(uhrzeit);
 		this.tag.setText(tag);
+		generiereSitzplaetze(12, 22);
 	}
 
 	public void zumStartBildschirm(ActionEvent e) {
@@ -97,6 +99,8 @@ public class Controller3 {
 
 	public void generiereSitzplaetze(int reihe, int spalte) {
 
+		getBelegtePlaetze();
+		
 		for (int i = 0; i < reihe; i++) {
 			for (int j = 0; j < spalte; j++) {
 				if (i < 4) {
@@ -115,24 +119,19 @@ public class Controller3 {
 			}
 
 		}
-		getBelegtePlaetze();
 
 	}
 
 	public void getBelegtePlaetze() {
-
 		if (belegung.exists()) {
 			try {
 				FileInputStream fis = new FileInputStream(belegung);
 				ObjectInputStream ois = new ObjectInputStream(fis);
-				Sitzplatz platz = (Sitzplatz) ois.readObject();
-				while (platz != null) {
-					Sitzplatz alterPlatz = (Sitzplatz) sitzplaetze.lookup("#" + platz.getId());
-					alterPlatz.removeEventHandler(ActionEvent.ACTION, buttonClick);
-					alterPlatz.getStyleClass().removeAll("onClick");
-					alterPlatz.getStyleClass().add("clicked");
-					alterPlatz.setBelegt(true);
-					platz = (Sitzplatz) ois.readObject();
+				int size = ois.readInt();
+				for (int i = 0; i < size; i++) {
+					
+					//System.out.println(platz.getId());
+					System.out.println(ois.readObject());
 				}
 				ois.close();
 				fis.close();
@@ -155,13 +154,12 @@ public class Controller3 {
 			}
 		}
 		try {
-			fos = new FileOutputStream(belegung, true);
+			fos = new FileOutputStream(belegung);
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			for (int i = 0; i < kundenListe.size(); i--) {
-				Sitzplatz platz = kundenListe.get(i).getPlatz();
-				oos.writeObject(platz);
+			oos.writeInt(kundenListe.size());
+			for (int i = 0; i < kundenListe.size(); i++) {
+				oos.writeObject(kundenListe.get(i).getPlatz().getPlatzierung());
 			}
-			oos.writeObject(null); // Markiert EOF
 			oos.close();
 			fos.close();
 		} catch (IOException e) {
