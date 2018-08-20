@@ -1,5 +1,6 @@
 package GUI;
 
+import java.awt.Point;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -8,6 +9,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 import Default.Filmstart;
 import Default.Kunde;
@@ -50,7 +52,7 @@ public class Controller3 {
 
 	private ArrayList<Kunde> kundenListe = new ArrayList<Kunde>();
 	private Filmstart film;
-	private File belegung = new File("belegung.kos");
+	private File belegung;
 
 	public void init(Controller controller) {
 		main = controller;
@@ -62,6 +64,8 @@ public class Controller3 {
 		filmName.setText(film.getTitel());
 		this.uhrzeit.setText(uhrzeit);
 		this.tag.setText(tag);
+		belegung = new File("belegung" + film.getTitel() + uhrzeit + tag + ".kos");
+		generiereSitzplaetze(12, 22);
 	}
 
 	public void zumStartBildschirm(ActionEvent e) {
@@ -97,53 +101,80 @@ public class Controller3 {
 
 	public void generiereSitzplaetze(int reihe, int spalte) {
 
+		List<Point> belegtePlaetze = getBelegtePlaetze();
 		for (int i = 0; i < reihe; i++) {
 			for (int j = 0; j < spalte; j++) {
 				if (i < 4) {
 					Pakett pakettplatz = new Pakett();
-					pakettplatz.addEventHandler(ActionEvent.ACTION, buttonClick);
+					if (!isBelegt(i, j, belegtePlaetze)) {
+						pakettplatz.addEventHandler(ActionEvent.ACTION, buttonClick);
+					} else {
+						pakettplatz.getStyleClass().removeAll("onClick");
+						pakettplatz.getStyleClass().add("clicked");
+						pakettplatz.setBelegt(true);
+					}
 					pakettplatz.erstelleSitzplatz(i, j, sitzplaetze);
 				} else if (i >= 4 && i < 8) {
 					Loge logenplatz = new Loge();
-					logenplatz.addEventHandler(ActionEvent.ACTION, buttonClick);
+					if (!isBelegt(i, j, belegtePlaetze)) {
+						logenplatz.addEventHandler(ActionEvent.ACTION, buttonClick);
+					} else {
+						logenplatz.getStyleClass().removeAll("onClick");
+						logenplatz.getStyleClass().add("clicked");
+						logenplatz.setBelegt(true);
+					}
 					logenplatz.erstelleSitzplatz(i, j, sitzplaetze);
 				} else {
 					Komfort komfortplatz = new Komfort();
-					komfortplatz.addEventHandler(ActionEvent.ACTION, buttonClick);
+					if (!isBelegt(i, j, belegtePlaetze)) {
+						komfortplatz.addEventHandler(ActionEvent.ACTION, buttonClick);
+					} else {
+						komfortplatz.getStyleClass().removeAll("onClick");
+						komfortplatz.getStyleClass().add("clicked");
+						komfortplatz.setBelegt(true);
+					}
 					komfortplatz.erstelleSitzplatz(i, j, sitzplaetze);
 				}
 			}
 
 		}
-		getBelegtePlaetze();
 
 	}
 
-	public void getBelegtePlaetze() {
-
+	public List<Point> getBelegtePlaetze() {
 		if (belegung.exists()) {
 			try {
 				FileInputStream fis = new FileInputStream(belegung);
 				ObjectInputStream ois = new ObjectInputStream(fis);
-				Sitzplatz platz = (Sitzplatz) ois.readObject();
-				while (platz != null) {
-					Sitzplatz alterPlatz = (Sitzplatz) sitzplaetze.lookup("#" + platz.getId());
-					alterPlatz.removeEventHandler(ActionEvent.ACTION, buttonClick);
-					alterPlatz.getStyleClass().removeAll("onClick");
-					alterPlatz.getStyleClass().add("clicked");
-					alterPlatz.setBelegt(true);
-					platz = (Sitzplatz) ois.readObject();
+				int size = ois.readInt();
+				List<Point> list = new ArrayList<Point>();
+				for (int i = 0; i < size; i++) {
+					list.add((Point) ois.readObject());
 				}
 				ois.close();
 				fis.close();
+				return list;
 			} catch (IOException | ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				return null;
 			}
 		}
+		return null;
 
 	}
-	
+
+	public Boolean isBelegt(int zeile, int spalte, List<Point> list) {
+		if (list != null) {
+			for (int i = 0; i < list.size(); i++) {
+				if ((int) list.get(i).getX() == zeile && (int) list.get(i).getY() == spalte) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
 	public void speichereSitzplatzDaten() {
 		FileOutputStream fos;
 		if (!belegung.exists()) {
@@ -155,13 +186,12 @@ public class Controller3 {
 			}
 		}
 		try {
-			fos = new FileOutputStream(belegung, true);
+			fos = new FileOutputStream(belegung);
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			for (int i = 0; i < kundenListe.size(); i--) {
-				Sitzplatz platz = kundenListe.get(i).getPlatz();
-				oos.writeObject(platz);
+			oos.writeInt(kundenListe.size());
+			for (int i = 0; i < kundenListe.size(); i++) {
+				oos.writeObject(kundenListe.get(i).getPlatz().getPlatzierung());
 			}
-			oos.writeObject(null); // Markiert EOF
 			oos.close();
 			fos.close();
 		} catch (IOException e) {
@@ -190,7 +220,6 @@ public class Controller3 {
 		}
 		return true;
 	}
-
 
 	public void zurReservierung(ActionEvent e) {
 
