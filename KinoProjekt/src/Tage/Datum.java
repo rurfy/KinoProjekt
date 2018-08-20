@@ -10,8 +10,10 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.TextStyle;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class Datum implements Serializable{
 	
@@ -47,6 +49,7 @@ public class Datum implements Serializable{
 	private LocalTime time;
 	private LocalDate date;
 	private String tag;
+	private String wochenTag;
 	
 	public Datum(String tag, String uhrzeit) {
 		
@@ -66,6 +69,7 @@ public class Datum implements Serializable{
 		this.time = LocalTime.parse(uhrzeit);
 	}
 	
+	
 	public void compareDates(LocalDate date) {
 		
 		if (date.isEqual(LocalDate.now())) {
@@ -81,6 +85,7 @@ public class Datum implements Serializable{
 			this.tag = "Uebermorgen";
 		}
 	}
+	
 	
 	public static LocalDate readDate() {
 		File f = new File("heute.kos");
@@ -102,6 +107,29 @@ public class Datum implements Serializable{
 	}
 	
 	public static void writeDate(LocalDate date) {
+		File f = new File("heute.kos");
+		FileOutputStream fos;
+		if (!f.exists()) {
+			try {
+				f.createNewFile();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		try {
+			fos = new FileOutputStream(f);
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(date);
+			oos.close();
+			fos.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void writeDate(Datum date) {
 		File f = new File("heute.kos");
 		FileOutputStream fos;
 		if (!f.exists()) {

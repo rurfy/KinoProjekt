@@ -7,7 +7,9 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
+import java.time.format.TextStyle;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import Default.Film;
 import Default.Filmstart;
@@ -54,14 +56,23 @@ public class Controller {
 		LocalDate lastStart = Datum.readDate();
 		if (lastStart.isEqual(LocalDate.now())) {
 			System.out.println("Alles Safe");
+			System.out.println(lastStart.getDayOfWeek().getDisplayName(TextStyle.FULL_STANDALONE, Locale.GERMANY));
 		}
 		else {
 			System.out.println("Daten ändern");
+			//System.out.println(lastStart.getDayOfWeek().getDisplayName(TextStyle.SHORT_STANDALONE, Locale.GERMANY));
+			for (int i = 0; i < 3; i++) {
+				film1.remove(0);
+				film2.remove(0);
+				film3.remove(0);
+				film4.remove(0);
+				film5.remove(0);
+			}
 		}
 
 		alleFilmdatenSpeichern();
 		alleFilmdatenAbrufen();
-
+		
 		tab1Controller.init(this);
 		tab2Controller.init(this);
 		tab3Controller.init(this);
@@ -127,6 +138,10 @@ public class Controller {
 		Stage stage = (Stage) n.getScene().getWindow();
 		stage.setWidth(tab3Controller.SitzplatzAuswahlPane.getWidth() + 20);
 		stage.setHeight(tab3Controller.SitzplatzAuswahlPane.getHeight() + 40);
+	}
+	
+	public void readRythmus() {
+		
 	}
 	
 	public void alleFilmdatenSpeichern() {
