@@ -16,6 +16,7 @@ public abstract class Sitzplatz extends Button implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private boolean belegt;
 	private Point platzierung;
+	//private int offset = 82;
 	
 	public Point getPlatzierung() {
 		return platzierung;

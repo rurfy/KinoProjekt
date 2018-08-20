@@ -44,8 +44,8 @@ public class Controller {
 	@FXML
 	AnchorPane test;
 	
-	Saal saal1 = new Saal(1, new Sitzplatz[12][22], 4, 4, 4);
-	Saal saal2 = new Saal(2, new Sitzplatz[12][22], 6, 4, 2);
+	Saal saal1 = new Saal(1, new Sitzplatz[12][22], 4, 4, 4, "../../../Saal1.jpg");
+	Saal saal2 = new Saal(2, new Sitzplatz[12][22], 5, 5, 2, "../../../Saal2.jpg");
 
 	@FXML
 	public void initialize() {
@@ -105,14 +105,14 @@ public class Controller {
 		tab1Controller.StartBildschirmPane.setVisible(true);
 		tab2Controller.FilmInfoPane.setVisible(false);
 		tab3Controller.SitzplatzAuswahlPane.setVisible(false);
-		tab1Controller.loadData();
+		tab1Controller.initData();
 	}
 
 	public void loadStartBildschirm(Node n) {
 		tab1Controller.StartBildschirmPane.setVisible(true);
 		tab2Controller.FilmInfoPane.setVisible(false);
 		tab3Controller.SitzplatzAuswahlPane.setVisible(false);
-		tab1Controller.loadData();
+		tab1Controller.initData();
 
 		Stage stage = (Stage) n.getScene().getWindow();
 		stage.setWidth(tab1Controller.StartBildschirmPane.getWidth() + 20);

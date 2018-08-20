@@ -183,7 +183,7 @@ public class Controller1 {
 
 	}
 
-	public void loadData() {
+	public void initData() {
 		Components film1Comp = new Components(image1heute, image1morgen, image1uebermorgen, filmTitel1heute, filmTitel1morgen, filmTitel1uebermorgen, film1heute1, film1heute2, film1heute3,
 				film1morgen1, film1morgen2, film1morgen3, film1uebermorgen1, film1uebermorgen2, film1uebermorgen3);
 		Components film2Comp = new Components(image2heute, image2morgen, image2uebermorgen, filmTitel2heute, filmTitel2morgen, filmTitel2uebermorgen, film2heute1, film2heute2, film2heute3,

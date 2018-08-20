@@ -6,6 +6,29 @@ import Platztypen.Sitzplatz;
 
 public class Saal implements Serializable{
 	
+	private int saalnummer;
+	private int reihenPakett, reihenLoge, reihenKomfort;
+	private Filmstart[] start;
+	private Sitzplatz[][] platz;
+	private String backgroundURL;
+	
+	public Saal(int saalnummer, Sitzplatz[][] sitzplatze, int reihenPakett, int reihenLoge, int reihenKomfort, String background) {
+		this.saalnummer = saalnummer;
+		this.platz = sitzplatze;
+		this.reihenKomfort = reihenKomfort;
+		this.reihenLoge = reihenLoge;
+		this.reihenPakett = reihenPakett;
+		this.backgroundURL = background;
+	}
+	
+	public String getBackgroundURL() {
+		return backgroundURL;
+	}
+
+	public void setBackgroundURL(String backgroundURL) {
+		this.backgroundURL = backgroundURL;
+	}
+	
 	public int getReihenPakett() {
 		return reihenPakett;
 	}
@@ -28,18 +51,6 @@ public class Saal implements Serializable{
 
 	public void setReihenKomfort(int reihenKomfort) {
 		this.reihenKomfort = reihenKomfort;
-	}
-	private int saalnummer;
-	private int reihenPakett, reihenLoge, reihenKomfort;
-	private Filmstart[] start;
-	private Sitzplatz[][] platz;
-	
-	public Saal(int saalnummer, Sitzplatz[][] sitzplatze, int reihenPakett, int reihenLoge, int reihenKomfort) {
-		this.saalnummer = saalnummer;
-		this.platz = sitzplatze;
-		this.reihenKomfort = reihenKomfort;
-		this.reihenLoge = reihenLoge;
-		this.reihenPakett = reihenPakett;
 	}
 	
 	public Filmstart[] getStart() {

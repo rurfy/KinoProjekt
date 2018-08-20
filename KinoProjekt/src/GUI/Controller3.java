@@ -24,6 +24,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -49,6 +51,8 @@ public class Controller3 {
 	private Label uhrzeit;
 	@FXML
 	private Label tag;
+	@FXML
+	private ImageView saalBackground;
 
 	private ArrayList<Kunde> kundenListe = new ArrayList<Kunde>();
 	private Filmstart film;
@@ -60,11 +64,16 @@ public class Controller3 {
 	}
 
 	public void initData(Filmstart film) {
+
+		sitzplaetze.getChildren().clear();
 		this.film = film;
 		filmName.setText(film.getTitel());
 		uhrzeit.setText(film.getDate().getTime().toString());
 		tag.setText(film.getDate().getTag());
 		saal.setText("Saal " + film.getSaal().getSaalnummer());
+		File file = new File("@" + film.getSaal().getBackgroundURL());
+		saalBackground.setImage(new Image(file.toURI().toString()));
+		sitzplaetze.getChildren().add(saalBackground);
 		belegung = new File("belegung" + film.getTitel() + uhrzeit + tag + ".kos");
 		generiereSitzplaetze(12, 22);
 	}
@@ -105,7 +114,7 @@ public class Controller3 {
 		List<Point> belegtePlaetze = getBelegtePlaetze();
 		for (int i = 0; i < reihe; i++) {
 			for (int j = 0; j < spalte; j++) {
-				if (i < 4) {
+				if (i < film.getSaal().getReihenPakett()) {
 					Pakett pakettplatz = new Pakett();
 					if (!isBelegt(i, j, belegtePlaetze)) {
 						pakettplatz.addEventHandler(ActionEvent.ACTION, buttonClick);
@@ -115,7 +124,7 @@ public class Controller3 {
 						pakettplatz.setBelegt(true);
 					}
 					pakettplatz.erstelleSitzplatz(i, j, sitzplaetze);
-				} else if (i >= 4 && i < 8) {
+				} else if (i >= film.getSaal().getReihenPakett() && i < (film.getSaal().getReihenPakett() + film.getSaal().getReihenLoge())) {
 					Loge logenplatz = new Loge();
 					if (!isBelegt(i, j, belegtePlaetze)) {
 						logenplatz.addEventHandler(ActionEvent.ACTION, buttonClick);
