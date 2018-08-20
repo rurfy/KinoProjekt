@@ -9,9 +9,6 @@ import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 
 import Default.Film;
-import Tage.Heute;
-import Tage.Morgen;
-import Tage.Uebermorgen;
 
 public class Tests {
 

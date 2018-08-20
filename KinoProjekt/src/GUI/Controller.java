@@ -14,10 +14,6 @@ import Default.Filmstart;
 import Default.Saal;
 import Platztypen.Sitzplatz;
 import Tage.Datum;
-import Tage.Heute;
-import Tage.Morgen;
-import Tage.Uebermorgen;
-import Tage.Uhrzeit;
 
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -62,9 +58,7 @@ public class Controller {
 		else {
 			System.out.println("Daten ändern");
 		}
-		
-		//safeFilme();
-		//initFilme();
+
 		alleFilmdatenSpeichern();
 		alleFilmdatenAbrufen();
 

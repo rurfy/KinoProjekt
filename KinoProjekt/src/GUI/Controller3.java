@@ -64,6 +64,7 @@ public class Controller3 {
 		filmName.setText(film.getTitel());
 		uhrzeit.setText(film.getDate().getTime().toString());
 		tag.setText(film.getDate().getTag());
+		saal.setText("Saal " + film.getSaal().getSaalnummer());
 		belegung = new File("belegung" + film.getTitel() + uhrzeit + tag + ".kos");
 		generiereSitzplaetze(12, 22);
 	}

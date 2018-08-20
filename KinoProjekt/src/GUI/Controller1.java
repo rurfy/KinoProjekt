@@ -213,13 +213,21 @@ public class Controller1 {
 		comp.heute1.setText(filme.get(0).getDate().getTime() + " Uhr");
 		comp.heute1.setUserData(filme.get(0));
 		comp.heute2.setText(filme.get(1).getDate().getTime() + " Uhr");
+		comp.heute2.setUserData(filme.get(1));
 		comp.heute3.setText(filme.get(2).getDate().getTime() + " Uhr");
+		comp.heute3.setUserData(filme.get(2));
 		comp.morgen1.setText(filme.get(3).getDate().getTime() + " Uhr");
+		comp.morgen1.setUserData(filme.get(3));
 		comp.morgen2.setText(filme.get(4).getDate().getTime() + " Uhr");
+		comp.morgen2.setUserData(filme.get(4));
 		comp.morgen3.setText(filme.get(5).getDate().getTime() + " Uhr");
+		comp.morgen3.setUserData(filme.get(5));
 		comp.uebermorgen1.setText(filme.get(6).getDate().getTime() + " Uhr");
+		comp.uebermorgen1.setUserData(filme.get(6));
 		comp.uebermorgen2.setText(filme.get(7).getDate().getTime() + " Uhr");
+		comp.uebermorgen2.setUserData(filme.get(7));
 		comp.uebermorgen3.setText(filme.get(8).getDate().getTime() + " Uhr");
+		comp.uebermorgen3.setUserData(filme.get(8));
 	}
 
 	@FXML
