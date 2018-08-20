@@ -75,7 +75,7 @@
 							<children>
 								<ImageView fitHeight="900.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../../../Leinwand-PPT.jpg" />
+										<Image url="@../../../Saal1.jpg" />
 									</image>
 								</ImageView>
 							</children>
