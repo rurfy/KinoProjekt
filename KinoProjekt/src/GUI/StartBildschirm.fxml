@@ -39,11 +39,11 @@
 											<content>
 												<VBox prefWidth="1000.0">
 													<children>
-														<Pane fx:id="film1" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="film1" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox>
 																	<children>
-																		<ImageView fx:id="image1" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image1heute" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<image>
 																				<Image url="@../../../avatar_thumb.jpg" />
 																			</image>
@@ -53,7 +53,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel1" id="Avatar - Aufbruch nach Pandora" text="Avatar - Aufbruch nach Pandora">
+																				<Label fx:id="filmTitel1heute" id="Avatar - Aufbruch nach Pandora" text="Avatar - Aufbruch nach Pandora">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -92,11 +92,11 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane fx:id="film2" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="film2" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
-																		<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image2heute" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<HBox.margin>
 																				<Insets />
 																			</HBox.margin>
@@ -106,7 +106,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel2" id="Jurassic World" text="Jurassic World">
+																				<Label fx:id="filmTitel2heute" id="Jurassic World" text="Jurassic World">
 																					<VBox.margin>
 																						<Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
 																					</VBox.margin>
@@ -145,11 +145,11 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane fx:id="film3" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="film3" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
-																		<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image3heute" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<image>
 																				<Image url="@../../../findet-nemo_thumb.jpg" />
 																			</image>
@@ -159,7 +159,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel3" id="Findet Nemo" text="Findet Nemo">
+																				<Label fx:id="filmTitel3heute" id="Findet Nemo" text="Findet Nemo">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -198,11 +198,11 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane fx:id="film4" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="film4" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
-																		<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image4heute" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<image>
 																				<Image url="@../../../ziemlich-beste-freunde_thumb.jpg" />
 																			</image>
@@ -212,7 +212,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel4" id="Ziemlich beste Freunde" text="Ziemlich beste Freunde">
+																				<Label fx:id="filmTitel4heute" id="Ziemlich beste Freunde" text="Ziemlich beste Freunde">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -251,11 +251,11 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane fx:id="film5" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="film5" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
-																		<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image5heute" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<image>
 																				<Image url="@../../../fifty-shades-of-grey_thumb.jpg" />
 																			</image>
@@ -265,7 +265,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel5" id="Fifty Shades of Grey - Geheimes Verlangen" text="Fifty Shades of Grey - Geheimes Verlangen">
+																				<Label fx:id="filmTitel5heute" id="Fifty Shades of Grey - Geheimes Verlangen" text="Fifty Shades of Grey - Geheimes Verlangen">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -280,12 +280,12 @@
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button fx:id="film5heute1" mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="15:00 Uhr">
+																						<Button fx:id="film5heute2" mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="15:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
 																						</Button>
-																						<Button fx:id="film5heute1" mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
+																						<Button fx:id="film5heute3" mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr">
 																							<HBox.margin>
 																								<Insets left="20.0" right="20.0" />
 																							</HBox.margin>
@@ -320,11 +320,11 @@
 											<content>
 												<VBox prefWidth="1000.0">
 													<children>
-														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="film1" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox>
 																	<children>
-																		<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image1morgen" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<image>
 																				<Image url="@../../../avatar_thumb.jpg" />
 																			</image>
@@ -334,7 +334,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel1" text="Avatar - Aufbruch nach Pandora">
+																				<Label fx:id="filmTitel1morgen" text="Avatar - Aufbruch nach Pandora">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -373,11 +373,11 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="film2" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
-																		<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image2morgen" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<HBox.margin>
 																				<Insets />
 																			</HBox.margin>
@@ -387,7 +387,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel2" text="Jurassic World">
+																				<Label fx:id="filmTitel2morgen" text="Jurassic World">
 																					<VBox.margin>
 																						<Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
 																					</VBox.margin>
@@ -426,11 +426,11 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="film3" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
-																		<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image3morgen" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<image>
 																				<Image url="@../../../findet-nemo_thumb.jpg" />
 																			</image>
@@ -440,7 +440,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel3" text="Findet Nemo">
+																				<Label fx:id="filmTitel3morgen" text="Findet Nemo">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -479,11 +479,11 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="film4" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
-																		<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image4morgen" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<image>
 																				<Image url="@../../../ziemlich-beste-freunde_thumb.jpg" />
 																			</image>
@@ -493,7 +493,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel4" text="Ziemlich beste Freunde">
+																				<Label fx:id="filmTitel4morgen" text="Ziemlich beste Freunde">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -532,11 +532,11 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="film5" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
-																		<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image5morgen" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<image>
 																				<Image url="@../../../fifty-shades-of-grey_thumb.jpg" />
 																			</image>
@@ -546,7 +546,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel5" text="Fifty Shades of Grey - Geheimes Verlangen">
+																				<Label fx:id="filmTitel5morgen" text="Fifty Shades of Grey - Geheimes Verlangen">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -602,11 +602,11 @@
 											<content>
 												<VBox prefWidth="1000.0">
 													<children>
-														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="film1" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox>
 																	<children>
-																		<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image1uebermorgen" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<image>
 																				<Image url="@../../../avatar_thumb.jpg" />
 																			</image>
@@ -616,7 +616,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel1" text="Avatar - Aufbruch nach Pandora">
+																				<Label fx:id="filmTitel1uebermorgen" text="Avatar - Aufbruch nach Pandora">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -655,11 +655,11 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="film2" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
-																		<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image2uebermorgen" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<HBox.margin>
 																				<Insets />
 																			</HBox.margin>
@@ -669,7 +669,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel2" text="Jurassic World">
+																				<Label fx:id="filmTitel2uebermorgen" text="Jurassic World">
 																					<VBox.margin>
 																						<Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
 																					</VBox.margin>
@@ -708,11 +708,11 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="film3" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
-																		<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image3uebermorgen" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<image>
 																				<Image url="@../../../findet-nemo_thumb.jpg" />
 																			</image>
@@ -722,7 +722,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel3" text="Findet Nemo">
+																				<Label fx:id="filmTitel3uebermorgen" text="Findet Nemo">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -761,11 +761,11 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="film4" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
-																		<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image4uebermorgen" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<image>
 																				<Image url="@../../../ziemlich-beste-freunde_thumb.jpg" />
 																			</image>
@@ -775,7 +775,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel4" text="Ziemlich beste Freunde">
+																				<Label fx:id="filmTitel4uebermorgen" text="Ziemlich beste Freunde">
 																					<font>
 																						<Font size="24.0" />
 																					</font>
@@ -814,11 +814,11 @@
 																</HBox>
 															</children>
 														</Pane>
-														<Pane onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
+														<Pane id="film5" onMouseClicked="#zurFilmInfo" styleClass="startBildschirmFilm">
 															<children>
 																<HBox prefHeight="100.0">
 																	<children>
-																		<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+																		<ImageView fx:id="image5uebermorgen" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
 																			<image>
 																				<Image url="@../../../fifty-shades-of-grey_thumb.jpg" />
 																			</image>
@@ -828,7 +828,7 @@
 																		</ImageView>
 																		<VBox>
 																			<children>
-																				<Label fx:id="filmTitel5" text="Fifty Shades of Grey - Geheimes Verlangen">
+																				<Label fx:id="filmTitel5uebermorgen" text="Fifty Shades of Grey - Geheimes Verlangen">
 																					<font>
 																						<Font size="24.0" />
 																					</font>

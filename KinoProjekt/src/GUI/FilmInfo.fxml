@@ -10,7 +10,7 @@
 
 <AnchorPane fx:id="FilmInfoPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller2">
   <children>
-      <VBox prefWidth="800.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+      <VBox prefWidth="900.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
          <children>
             <StackPane fx:id="headStackPane">
                <children>
@@ -32,7 +32,7 @@
                               <Image url="@../../../avatar_thumb.jpg" />
                            </image>
                         </ImageView>
-                        <VBox>
+                        <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="650.0">
                            <children>
                               <Label fx:id="titel" alignment="TOP_LEFT" text="Avatar - Aufbruch nach Pandora">
                                  <font>
@@ -49,7 +49,7 @@
                               </Label>
                               <Label fx:id="fsk" text="FSK 12">
                                  <VBox.margin>
-                                    <Insets top="20.0" />
+                                    <Insets top="10.0" />
                                  </VBox.margin>
                                  <font>
                                     <Font size="20.0" />
@@ -60,9 +60,37 @@
                                     <Font size="20.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets top="20.0" />
+                                    <Insets top="10.0" />
                                  </VBox.margin>
                               </Label>
+                              <Label fx:id="grundpreis" text="Grundpreis: 9€">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox maxWidth="1.7976931348623157E308">
+                                 <children>
+                                    <Label text="Trailer:  ">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label fx:id="trailer" maxWidth="1.7976931348623157E308" onMouseClicked="#hyperlink" text="Trailer: ">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </HBox>
                            </children>
                            <HBox.margin>
                               <Insets left="20.0" top="20.0" />
@@ -70,11 +98,6 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <ImageView fitHeight="130.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="BOTTOM_RIGHT">
-                     <StackPane.margin>
-                        <Insets />
-                     </StackPane.margin>
-                  </ImageView>
                </children>
                <VBox.margin>
                   <Insets bottom="20.0" />
@@ -86,14 +109,14 @@
                     <content>
                       <AnchorPane>
                            <children>
-                              <StackPane prefWidth="800.0">
+                              <StackPane prefWidth="900.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="14:00 Uhr">
+                                    <Button fx:id="uhrzeit2" mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="14:00 Uhr">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
                                     </Button>
-                                    <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr" StackPane.alignment="CENTER_RIGHT">
+                                    <Button fx:id="uhrzeit3" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="16:00 Uhr" StackPane.alignment="CENTER_RIGHT">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -101,7 +124,7 @@
                                           <Insets />
                                        </StackPane.margin>
                                     </Button>
-                                    <Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="10:00 Uhr" StackPane.alignment="CENTER_LEFT">
+                                    <Button fx:id="uhrzeit1" mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="10:00 Uhr" StackPane.alignment="CENTER_LEFT">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -124,12 +147,12 @@
                            <children>
                               <StackPane prefWidth="800.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="15:00 Uhr">
+                                    <Button fx:id="uhrzeit5" mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="15:00 Uhr">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
                                     </Button>
-                                    <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="18:00 Uhr" StackPane.alignment="CENTER_RIGHT">
+                                    <Button fx:id="uhrzeit6" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="18:00 Uhr" StackPane.alignment="CENTER_RIGHT">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -137,7 +160,7 @@
                                           <Insets />
                                        </StackPane.margin>
                                     </Button>
-                                    <Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="12:00 Uhr" StackPane.alignment="CENTER_LEFT">
+                                    <Button fx:id="uhrzeit4" mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="12:00 Uhr" StackPane.alignment="CENTER_LEFT">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -160,12 +183,12 @@
                            <children>
                               <StackPane prefWidth="800.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="14:00 Uhr">
+                                    <Button fx:id="uhrzeit8" mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="14:00 Uhr">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
                                     </Button>
-                                    <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="17:00 Uhr" StackPane.alignment="CENTER_RIGHT">
+                                    <Button fx:id="uhrzeit9" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="17:00 Uhr" StackPane.alignment="CENTER_RIGHT">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -173,7 +196,7 @@
                                           <Insets />
                                        </StackPane.margin>
                                     </Button>
-                                    <Button mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="11:00 Uhr" StackPane.alignment="CENTER_LEFT">
+                                    <Button fx:id="uhrzeit7" mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="11:00 Uhr" StackPane.alignment="CENTER_LEFT">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
