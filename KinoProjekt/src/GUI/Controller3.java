@@ -59,11 +59,11 @@ public class Controller3 {
 		comboContainer.setFillWidth(true);
 	}
 
-	public void initData(Filmstart film, String uhrzeit, String tag) {
+	public void initData(Filmstart film) {
 		this.film = film;
 		filmName.setText(film.getTitel());
-		this.uhrzeit.setText(uhrzeit);
-		this.tag.setText(tag);
+		uhrzeit.setText(film.getDate().getTime().toString());
+		tag.setText(film.getDate().getTag());
 		belegung = new File("belegung" + film.getTitel() + uhrzeit + tag + ".kos");
 		generiereSitzplaetze(12, 22);
 	}

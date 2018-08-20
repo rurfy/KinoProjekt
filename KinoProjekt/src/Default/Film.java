@@ -11,7 +11,7 @@ public class Film implements Serializable {
 	/**
 	 * 
 	 */
-	//private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
 	private double dauer;
 	private String titel = "";
@@ -30,6 +30,10 @@ public class Film implements Serializable {
 		this.bildURL = bildURL;
 		this.preis = preis;
 
+	}
+	
+	public Film() {
+		
 	}
 
 	public double getDauer() {

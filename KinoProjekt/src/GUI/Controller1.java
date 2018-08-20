@@ -1,7 +1,9 @@
 package GUI;
 
 import java.io.File;
+import java.util.ArrayList;
 
+import Default.Film;
 import Default.Filmstart;
 
 import javafx.event.ActionEvent;
@@ -192,32 +194,32 @@ public class Controller1 {
 				film4morgen1, film4morgen2, film4morgen3, film4uebermorgen1, film4uebermorgen2, film4uebermorgen3);
 		Components film5Comp = new Components(image5heute, image5morgen, image5uebermorgen, filmTitel5heute, filmTitel5morgen, filmTitel5uebermorgen, film5heute1, film5heute2, film5heute3,
 				film5morgen1, film5morgen2, film5morgen3, film5uebermorgen1, film5uebermorgen2, film5uebermorgen3);
-		loadFilmData(film1Comp, 0);
-		loadFilmData(film2Comp, 1);
-		loadFilmData(film3Comp, 2);
-		loadFilmData(film4Comp, 3);
-		loadFilmData(film5Comp, 4);
+		loadFilmData(film1Comp, main.film1);
+		loadFilmData(film2Comp, main.film2);
+		loadFilmData(film3Comp, main.film3);
+		loadFilmData(film4Comp, main.film4);
+		loadFilmData(film5Comp, main.film5);
 
 	}
 
-	public void loadFilmData(Components comp, int i) {
-		Filmstart film = main.filme.get(i);
-		File file = new File("@" + film.getBildURL());
+	public void loadFilmData(Components comp, ArrayList<Filmstart> filme) {
+		File file = new File("@" + filme.get(0).getBildURL());
 		comp.imageheute.setImage(new Image(file.toURI().toString()));
 		comp.imagemorgen.setImage(new Image(file.toURI().toString()));
 		comp.imageuebermorgen.setImage(new Image(file.toURI().toString()));
-		comp.titelheute.setText(film.getTitel());
-		comp.titelmorgen.setText(film.getTitel());
-		comp.titeluebermorgen.setText(film.getTitel());
-		comp.heute1.setText(film.getHeute().getUhrzeit1().getUhrzeit() + " Uhr");
-		comp.heute2.setText(film.getHeute().getUhrzeit2().getUhrzeit() + " Uhr");
-		comp.heute3.setText(film.getHeute().getUhrzeit3().getUhrzeit() + " Uhr");
-		comp.morgen1.setText(film.getMorgen().getUhrzeit1().getUhrzeit() + " Uhr");
-		comp.morgen2.setText(film.getMorgen().getUhrzeit2().getUhrzeit() + " Uhr");
-		comp.morgen3.setText(film.getMorgen().getUhrzeit3().getUhrzeit() + " Uhr");
-		comp.uebermorgen1.setText(film.getUebermorgen().getUhrzeit1().getUhrzeit() + " Uhr");
-		comp.uebermorgen2.setText(film.getUebermorgen().getUhrzeit2().getUhrzeit() + " Uhr");
-		comp.uebermorgen3.setText(film.getUebermorgen().getUhrzeit3().getUhrzeit() + " Uhr");
+		comp.titelheute.setText(filme.get(0).getTitel());
+		comp.titelmorgen.setText(filme.get(0).getTitel());
+		comp.titeluebermorgen.setText(filme.get(0).getTitel());
+		comp.heute1.setText(filme.get(0).getDate().getTime() + " Uhr");
+		comp.heute1.setUserData(filme.get(0));
+		comp.heute2.setText(filme.get(1).getDate().getTime() + " Uhr");
+		comp.heute3.setText(filme.get(2).getDate().getTime() + " Uhr");
+		comp.morgen1.setText(filme.get(3).getDate().getTime() + " Uhr");
+		comp.morgen2.setText(filme.get(4).getDate().getTime() + " Uhr");
+		comp.morgen3.setText(filme.get(5).getDate().getTime() + " Uhr");
+		comp.uebermorgen1.setText(filme.get(6).getDate().getTime() + " Uhr");
+		comp.uebermorgen2.setText(filme.get(7).getDate().getTime() + " Uhr");
+		comp.uebermorgen3.setText(filme.get(8).getDate().getTime() + " Uhr");
 	}
 
 	@FXML
@@ -251,7 +253,7 @@ public class Controller1 {
 		return p;
 	}
 
-	public Filmstart getClickedFilm(ActionEvent e) {
+	public Film getClickedFilm(ActionEvent e) {
 		for (int i = 0; i < main.filme.size(); i++) {
 			if (getFilmID(getPaneID(e)).equals(main.filme.get(i).getTitel())) {
 				return main.filme.get(i);
@@ -260,7 +262,7 @@ public class Controller1 {
 		return null;
 	}
 
-	public Filmstart getClickedFilm(MouseEvent e) {
+	public Film getClickedFilm(MouseEvent e) {
 		for (int i = 0; i < main.filme.size(); i++) {
 			if (getFilmID((Pane) e.getSource()).equals(main.filme.get(i).getTitel())) {
 				return main.filme.get(i);
@@ -280,9 +282,9 @@ public class Controller1 {
 	}
 
 	public void zurSitzplatzAuswahl(ActionEvent e) {
-
 		Button b = (Button) e.getSource();
-		main.loadSitzplatzAuswahl((Button) e.getSource(), getClickedFilm(e), b.getText(), getTabID(e));
+
+		main.loadSitzplatzAuswahl((Button) e.getSource(), (Filmstart) b.getUserData());
 	}
 
 }

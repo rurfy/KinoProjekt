@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
+import Default.Film;
 import Default.Filmstart;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -43,7 +45,7 @@ public class Controller2 {
 	@FXML Button uhrzeit8;
 	@FXML Button uhrzeit9;
 	
-	private Filmstart film;
+	private Film film;
 	
 	
 	public void init(Controller controller) {
@@ -52,8 +54,7 @@ public class Controller2 {
 		
 	}
 	
-	public void initData(Filmstart film) {
-		//Daten vom ausgewählten Film laden
+	public void initData(Film film, ArrayList<Filmstart> filme) {
 		this.film = film;
 		DecimalFormat df = new DecimalFormat("#.00");
 		dauer.setText("Dauer: " + df.format(film.getDauer()) + " h");
@@ -65,15 +66,24 @@ public class Controller2 {
 		trailer.getStyleClass().removeAll("label");
 		trailer.getStyleClass().add("label2");
 		trailer.setText(film.getTrailer());
-		uhrzeit1.setText(film.getHeute().getUhrzeit1().getUhrzeit()+" Uhr");
-		uhrzeit2.setText(film.getHeute().getUhrzeit2().getUhrzeit()+" Uhr");
-		uhrzeit3.setText(film.getHeute().getUhrzeit3().getUhrzeit()+" Uhr");
-		uhrzeit4.setText(film.getMorgen().getUhrzeit1().getUhrzeit()+" Uhr");
-		uhrzeit5.setText(film.getMorgen().getUhrzeit2().getUhrzeit()+" Uhr");
-		uhrzeit6.setText(film.getMorgen().getUhrzeit3().getUhrzeit()+" Uhr");
-		uhrzeit7.setText(film.getUebermorgen().getUhrzeit1().getUhrzeit()+" Uhr");
-		uhrzeit8.setText(film.getUebermorgen().getUhrzeit2().getUhrzeit()+" Uhr");
-		uhrzeit9.setText(film.getUebermorgen().getUhrzeit3().getUhrzeit()+" Uhr");
+		uhrzeit1.setText(filme.get(0).getDate().getTime()+" Uhr");
+		uhrzeit1.setUserData(filme.get(0));
+		uhrzeit2.setText(filme.get(1).getDate().getTime()+" Uhr");
+		uhrzeit2.setUserData(filme.get(1));
+		uhrzeit3.setText(filme.get(2).getDate().getTime()+" Uhr");
+		uhrzeit3.setUserData(filme.get(2));
+		uhrzeit4.setText(filme.get(3).getDate().getTime()+" Uhr");
+		uhrzeit4.setUserData(filme.get(3));
+		uhrzeit5.setText(filme.get(4).getDate().getTime()+" Uhr");
+		uhrzeit5.setUserData(filme.get(4));
+		uhrzeit6.setText(filme.get(5).getDate().getTime()+" Uhr");
+		uhrzeit6.setUserData(filme.get(5));
+		uhrzeit7.setText(filme.get(6).getDate().getTime()+" Uhr");
+		uhrzeit7.setUserData(filme.get(6));
+		uhrzeit8.setText(filme.get(7).getDate().getTime()+" Uhr");
+		uhrzeit8.setUserData(filme.get(7));
+		uhrzeit9.setText(filme.get(8).getDate().getTime()+" Uhr");
+		uhrzeit9.setUserData(filme.get(8));
 	}
 	
 	public String getTabID(ActionEvent e) {
@@ -88,7 +98,7 @@ public class Controller2 {
 	
 	public void zurSitzplatzAuswahl(ActionEvent e) {
 		Button b = (Button) e.getSource();
-		main.loadSitzplatzAuswahl((Button) e.getSource(), film, b.getText(), getTabID(e));
+		main.loadSitzplatzAuswahl(b, (Filmstart) b.getUserData());
 	}
 	
 	public void zumStartBildschirm(ActionEvent e) {

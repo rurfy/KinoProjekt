@@ -5,13 +5,41 @@ import java.io.Serializable;
 import Platztypen.Sitzplatz;
 
 public class Saal implements Serializable{
+	
+	public int getReihenPakett() {
+		return reihenPakett;
+	}
+
+	public void setReihenPakett(int reihenPakett) {
+		this.reihenPakett = reihenPakett;
+	}
+
+	public int getReihenLoge() {
+		return reihenLoge;
+	}
+
+	public void setReihenLoge(int reihenLoge) {
+		this.reihenLoge = reihenLoge;
+	}
+
+	public int getReihenKomfort() {
+		return reihenKomfort;
+	}
+
+	public void setReihenKomfort(int reihenKomfort) {
+		this.reihenKomfort = reihenKomfort;
+	}
 	private int saalnummer;
+	private int reihenPakett, reihenLoge, reihenKomfort;
 	private Filmstart[] start;
 	private Sitzplatz[][] platz;
 	
-	public Saal(int saalnummer, Sitzplatz[][] sitzplatze, int reihe, int spalte) {
+	public Saal(int saalnummer, Sitzplatz[][] sitzplatze, int reihenPakett, int reihenLoge, int reihenKomfort) {
 		this.saalnummer = saalnummer;
 		this.platz = sitzplatze;
+		this.reihenKomfort = reihenKomfort;
+		this.reihenLoge = reihenLoge;
+		this.reihenPakett = reihenPakett;
 	}
 	
 	public Filmstart[] getStart() {

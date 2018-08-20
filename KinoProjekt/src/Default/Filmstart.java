@@ -8,6 +8,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
+import Tage.Datum;
 import Tage.Heute;
 import Tage.Morgen;
 import Tage.Tage;
@@ -20,6 +21,8 @@ public class Filmstart extends Film implements Serializable {
 	private Heute heute;
 	private Morgen morgen;
 	private Uebermorgen uebermorgen;
+	private Datum date;
+	private Saal saal;
 
 	public Filmstart(double dauer, String titel, int fsk, String genre, String trailer, String bildURL, double preis, Heute heute, Morgen morgen, Uebermorgen uebermorgen) {
 		super(dauer, titel, fsk, genre, trailer, bildURL, preis);
@@ -28,6 +31,12 @@ public class Filmstart extends Film implements Serializable {
 		this.uebermorgen = uebermorgen;
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Filmstart(Film film, Datum date, Saal saal) {
+		super(film.getDauer(), film.getTitel(), film.getFsk(), film.getGenre(), film.getTrailer(), film.getBildURL(), film.getPreis());
+		this.date = date;
+		this.saal = saal;
+	}
 
 	public void writeFilm(File f, ObjectOutputStream out) {
 		try {
@@ -35,6 +44,22 @@ public class Filmstart extends Film implements Serializable {
 		} catch (IOException e) {
 			System.out.println("Datei konnte nicht gefunden werden.");
 		}
+	}
+
+	public Datum getDate() {
+		return date;
+	}
+
+	public void setDate(Datum date) {
+		this.date = date;
+	}
+
+	public Saal getSaal() {
+		return saal;
+	}
+
+	public void setSaal(Saal saal) {
+		this.saal = saal;
 	}
 
 	public Heute getHeute() {
