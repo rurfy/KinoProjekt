@@ -13,6 +13,7 @@ import java.util.List;
 
 import Default.Filmstart;
 import Default.Kunde;
+import Default.Reservierung;
 import Platztypen.Komfort;
 import Platztypen.Loge;
 import Platztypen.Parkett;
@@ -238,8 +239,9 @@ public class Controller3 {
 
 		if (!kundenListe.isEmpty()) {
 			if (setComboBoxValues()) {
-				System.out.println("Ich hab Spaﬂ :)");
+				Reservierung res = new Reservierung(film, kundenListe);
 				speichereSitzplatzDaten();
+				res.speicherReservierung();
 			}
 		} else {
 			Alert alert = new Alert(AlertType.WARNING, "Sie haben keine Sitzpl‰tze ausgew‰hlt");

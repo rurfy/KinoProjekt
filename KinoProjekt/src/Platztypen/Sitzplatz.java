@@ -54,5 +54,7 @@ public abstract class Sitzplatz extends Button implements Serializable{
 		}
 	}
 	
+	public abstract int getAufpreis();
+	
 	public abstract void setPosition(int i, int j);
 }

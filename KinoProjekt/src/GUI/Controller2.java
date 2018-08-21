@@ -77,6 +77,7 @@ public class Controller2 {
 		File file = new File("@" + film.getBildURL());
 		bild.setImage(new Image(file.toURI().toString()));
 		genre.setText("Genre: " + film.getGenre());
+		grundpreis.setText("Grundpreis: "+df.format(film.getPreis())+" €");
 		trailer.getStyleClass().removeAll("label");
 		trailer.getStyleClass().add("label2");
 		trailer.setText(film.getTrailer());
