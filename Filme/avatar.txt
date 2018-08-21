@@ -1,7 +1,0 @@
-Titel: Avatar - Aufbruch nach Pandorra
-Dauer: 2.42
-FSK: 12
-Genre: Action und Fantasy
-Trailer: https://www.youtube.com/watch?v=EzETGqZN6dU
-BildURL: ../../../avatar_thumb.jpg
-Preis: 10

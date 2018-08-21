@@ -1,7 +1,0 @@
-Titel: ziemlich beste Freunde
-Dauer: 1.53
-FSK: 6
-Genre: Komödie und Drama
-Trailer: https://www.youtube.com/watch?v=MYqzxrqY98E
-BildURL: ../../../ziemlich-beste-freunde_thumb.jpg
-Preis: 8

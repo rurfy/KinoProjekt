@@ -1,7 +1,0 @@
-Titel: Findet Nemo
-Dauer: 1.40
-FSK: 0
-Genre: Animation und Kinder/Familie
-Trailer: https://www.youtube.com/watch?v=9F-TxJt0HMA
-BildURL: ../../../findet-nemo_thumb.jpg
-Preis: 8.50

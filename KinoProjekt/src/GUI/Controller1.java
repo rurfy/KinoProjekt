@@ -8,10 +8,8 @@ import Default.Filmstart;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TabPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -22,8 +20,9 @@ public class Controller1 {
 
 	private Controller main;
 
+	// Elemente der Scene
 	@FXML
-	public AnchorPane StartBildschirmPane;
+	private AnchorPane StartBildschirmPane;
 
 	@FXML
 	private Label filmTitel1heute;
@@ -178,12 +177,12 @@ public class Controller1 {
 	@FXML
 	private ImageView image5uebermorgen;
 
-	public void init(Controller controller) {
+	void init(Controller controller) { // Initialisiert den Controller
 		main = controller;
 
 	}
 
-	public void initData() {
+	void initData() { // Initialisiert alle Daten der 5 Filme
 		Components film1Comp = new Components(image1heute, image1morgen, image1uebermorgen, filmTitel1heute, filmTitel1morgen, filmTitel1uebermorgen, film1heute1, film1heute2, film1heute3,
 				film1morgen1, film1morgen2, film1morgen3, film1uebermorgen1, film1uebermorgen2, film1uebermorgen3);
 		Components film2Comp = new Components(image2heute, image2morgen, image2uebermorgen, filmTitel2heute, filmTitel2morgen, filmTitel2uebermorgen, film2heute1, film2heute2, film2heute3,
@@ -202,7 +201,7 @@ public class Controller1 {
 
 	}
 
-	public void loadFilmData(Components comp, ArrayList<Filmstart> filme) {
+	private void loadFilmData(Components comp, ArrayList<Filmstart> filme) { // Initialisierung der Daten für einen Film
 		File file = new File("@" + filme.get(0).getBildURL());
 		comp.imageheute.setImage(new Image(file.toURI().toString()));
 		comp.imagemorgen.setImage(new Image(file.toURI().toString()));
@@ -231,13 +230,20 @@ public class Controller1 {
 	}
 
 	@FXML
-	public void zurFilmInfo(MouseEvent e) {
+	private void zurSitzplatzAuswahl(ActionEvent e) { // Bei Auswahl einer Uhrzeit zum nächsten Bildschirm weiterleiten
+		Button b = (Button) e.getSource();
+
+		main.loadSitzplatzAuswahl((Button) e.getSource(), (Filmstart) b.getUserData());
+	}
+
+	@FXML
+	private void zurFilmInfo(MouseEvent e) { // Bei Auswahl eines Films zum nächsten Bildschirm weiterleiten
 
 		main.loadFilmInfo((Pane) e.getSource(), getClickedFilm(e));
 
 	}
 
-	public String getFilmID(Pane p) {
+	private String getFilmID(Pane p) { // Gibt den FilmTitel zurück
 		switch (p.getId()) {
 		case "film1":
 			return filmTitel1heute.getText();
@@ -249,28 +255,11 @@ public class Controller1 {
 			return filmTitel4heute.getText();
 		case "film5":
 			return filmTitel5heute.getText();
-
-		default:
-			return "Fehler";
-		}
-	}
-
-	public Pane getPaneID(ActionEvent e) {
-		Node n = (Node) e.getSource();
-		Pane p = (Pane) n.getParent().getParent().getParent().getParent();
-		return p;
-	}
-
-	public Film getClickedFilm(ActionEvent e) {
-		for (int i = 0; i < main.filme.size(); i++) {
-			if (getFilmID(getPaneID(e)).equals(main.filme.get(i).getTitel())) {
-				return main.filme.get(i);
-			}
 		}
 		return null;
 	}
 
-	public Film getClickedFilm(MouseEvent e) {
+	private Film getClickedFilm(MouseEvent e) { // Gibt den ausgewählten Film zurück
 		for (int i = 0; i < main.filme.size(); i++) {
 			if (getFilmID((Pane) e.getSource()).equals(main.filme.get(i).getTitel())) {
 				return main.filme.get(i);
@@ -279,25 +268,17 @@ public class Controller1 {
 		return null;
 	}
 
-	public String getTabID(ActionEvent e) {
-		Node n = (Node) e.getSource();
-		while (!(n instanceof TabPane)) {
-			n = n.getParent();
-		}
-		TabPane tab = (TabPane) n;
-
-		return tab.getSelectionModel().getSelectedItem().getText();
+	public AnchorPane getStartBildschirmPane() {
+		return StartBildschirmPane;
 	}
 
-	public void zurSitzplatzAuswahl(ActionEvent e) {
-		Button b = (Button) e.getSource();
-
-		main.loadSitzplatzAuswahl((Button) e.getSource(), (Filmstart) b.getUserData());
+	public void setStartBildschirmPane(AnchorPane startBildschirmPane) {
+		StartBildschirmPane = startBildschirmPane;
 	}
 
 }
 
-class Components {
+class Components { // Fasst alle Komponenten eines Filmes zusammen
 
 	ImageView imageheute;
 	ImageView imagemorgen;
@@ -315,7 +296,7 @@ class Components {
 	Button uebermorgen2;
 	Button uebermorgen3;
 
-	public Components(ImageView imageheute, ImageView imagemorgen, ImageView imageuebermorgen, Label titelheute, Label titelmorgen, Label titeluebermorgen, Button heute1, Button heute2, Button heute3,
+	Components(ImageView imageheute, ImageView imagemorgen, ImageView imageuebermorgen, Label titelheute, Label titelmorgen, Label titeluebermorgen, Button heute1, Button heute2, Button heute3,
 			Button morgen1, Button morgen2, Button morgen3, Button uebermorgen1, Button uebermorgen2, Button uebermorgen3) {
 		this.imageheute = imageheute;
 		this.imagemorgen = imagemorgen;
