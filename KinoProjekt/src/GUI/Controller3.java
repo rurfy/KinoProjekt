@@ -74,7 +74,7 @@ public class Controller3 {
 		File file = new File("@" + film.getSaal().getBackgroundURL());
 		saalBackground.setImage(new Image(file.toURI().toString()));
 		sitzplaetze.getChildren().add(saalBackground);
-		belegung = new File("belegung" + film.getTitel() + uhrzeit + tag + ".kos");
+		belegung = new File("belegung" + film.getTitel() + film.getDate().getTime() + film.getDate().getTag() + ".kos");
 		generiereSitzplaetze(12, 22);
 	}
 
@@ -195,11 +195,15 @@ public class Controller3 {
 			}
 		}
 		try {
-			fos = new FileOutputStream(belegung);
+			fos = new FileOutputStream(belegung, true);
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			List<Point> belegtePlaetze = getBelegtePlaetze();
 			oos.writeInt(kundenListe.size());
 			for (int i = 0; i < kundenListe.size(); i++) {
 				oos.writeObject(kundenListe.get(i).getPlatz().getPlatzierung());
+			}
+			for (int i = 0; i < belegtePlaetze.size(); i++) {
+				oos.writeObject(belegtePlaetze.get(i));
 			}
 			oos.close();
 			fos.close();
