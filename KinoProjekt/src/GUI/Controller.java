@@ -53,6 +53,10 @@ public class Controller {
 	public void initialize() {
 
 		System.out.println("App gestartet");
+		
+		alleFilmdatenSpeichern();
+		alleFilmdatenAbrufen();
+		
 		LocalDate lastStart = Datum.readDate();
 		if (lastStart.isEqual(LocalDate.now())) {
 			System.out.println("Alles Safe");
@@ -69,9 +73,6 @@ public class Controller {
 				film5.remove(0);
 			}
 		}
-
-		alleFilmdatenSpeichern();
-		alleFilmdatenAbrufen();
 		
 		tab1Controller.init(this);
 		tab2Controller.init(this);

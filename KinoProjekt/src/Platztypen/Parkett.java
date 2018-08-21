@@ -8,27 +8,15 @@ import javafx.event.EventHandler;
 import javafx.scene.layout.Pane;
 
 
- public class Pakett extends Sitzplatz implements Serializable{
-	private int aufpreis=0;
+ public class Parkett extends Sitzplatz implements Serializable{
+	
+	 private int aufpreis=0;
  	public int getAufpreis() {
 		return aufpreis;
 	}
  	public void setAufpreis(int aufpreis) {
 		this.aufpreis = aufpreis;
 	}
-	
-	private void vermeideLuecken(Pakett platz, int i, int j) {
-		// TODO Auto-generated method stub				
-		platz.setId("Reihe: "+i+", Platz: "+j+1);
-		Saal saal1 = null;
-		
-		if (platz.isBelegt()==false) {
-			platz.setId("Reihe: "+i+", Platz: "+j+(-1));
-			if(platz.isBelegt()==true) {
-				System.out.println("test");
-			}
-		}
- 	}
 	
 	@Override
 	public void setPosition(int i, int j) {

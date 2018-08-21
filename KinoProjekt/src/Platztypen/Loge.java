@@ -17,12 +17,6 @@ public class Loge extends Sitzplatz implements Serializable{
 	public void setAufpreis(int aufpreis) {
 		this.aufpreis = aufpreis;
 	}
-	
-
-	private void vermeideLuecken(Loge platz, int i, int j) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void setPosition(int i, int j) {

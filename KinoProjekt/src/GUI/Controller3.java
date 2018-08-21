@@ -15,7 +15,7 @@ import Default.Filmstart;
 import Default.Kunde;
 import Platztypen.Komfort;
 import Platztypen.Loge;
-import Platztypen.Pakett;
+import Platztypen.Parkett;
 import Platztypen.Sitzplatz;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -104,7 +104,6 @@ public class Controller3 {
 				Kunde kunde = new Kunde(platz, 0);
 				kundenListe.add(kunde);
 				comboContainer.getChildren().add(kunde.createNewComboBox(platz.getId()));
-				// vermeideLuecken(platz,i,j);
 			}
 		}
 	};
@@ -115,7 +114,7 @@ public class Controller3 {
 		for (int i = 0; i < reihe; i++) {
 			for (int j = 0; j < spalte; j++) {
 				if (i < film.getSaal().getReihenPakett()) {
-					Pakett pakettplatz = new Pakett();
+					Parkett pakettplatz = new Parkett();
 					if (!isBelegt(i, j, belegtePlaetze)) {
 						pakettplatz.addEventHandler(ActionEvent.ACTION, buttonClick);
 					} else {
