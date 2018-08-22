@@ -57,6 +57,7 @@ public class Controller3 {
 	private ArrayList<Kunde> kundenListe = new ArrayList<Kunde>();
 	private Filmstart film;
 	private File belegung;
+	private List<Point> belegtePlaetze;
 
 	void init(Controller controller) { // Initialisiert den Controller
 		main = controller;
@@ -73,7 +74,8 @@ public class Controller3 {
 		File file = new File("@" + film.getDate().getSaal().getBackgroundURL());
 		saalBackground.setImage(new Image(file.toURI().toString()));
 		sitzplaetze.getChildren().add(saalBackground);
-		belegung = new File("belegung" + film.getTitel() + film.getDate().getTime() + film.getDate().getTag() + ".kos");
+		belegung = new File("belegung" + film.getTitel() + film.getDate().getTime() + film.getDate().getWochenTag() + ".kos");
+		belegtePlaetze = getBelegtePlaetze();
 		generiereSitzplaetze(12, 22);
 	}
 
@@ -110,7 +112,6 @@ public class Controller3 {
 
 	private void generiereSitzplaetze(int reihe, int spalte) { // Generiert alle Sitzplätze
 
-		List<Point> belegtePlaetze = getBelegtePlaetze();
 		for (int i = 0; i < reihe; i++) {
 			for (int j = 0; j < spalte; j++) {
 				if (i < film.getDate().getSaal().getReihenPakett()) {
@@ -184,7 +185,7 @@ public class Controller3 {
 		return false;
 	}
 
-	private void speichereSitzplatzDaten() { // Speichert die ausgewählten Plätze ab
+	private void speichereSitzplatzDaten() { // Speichert die ausgewählten Plätze und bereits belegte ab
 		FileOutputStream fos;
 		if (!belegung.exists()) {
 			try {
@@ -195,15 +196,20 @@ public class Controller3 {
 			}
 		}
 		try {
-			fos = new FileOutputStream(belegung, true);
+			fos = new FileOutputStream(belegung, false);
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			List<Point> belegtePlaetze = getBelegtePlaetze();
-			oos.writeInt(kundenListe.size());
+			if (belegtePlaetze != null) {
+				int size = kundenListe.size() + belegtePlaetze.size();
+				oos.writeInt(size);
+				for (int i = 0; i < belegtePlaetze.size(); i++) {
+					oos.writeObject(belegtePlaetze.get(i));
+				}
+			}
+			else {
+				oos.writeInt(kundenListe.size());
+			}
 			for (int i = 0; i < kundenListe.size(); i++) {
 				oos.writeObject(kundenListe.get(i).getPlatz().getPlatzierung());
-			}
-			for (int i = 0; i < belegtePlaetze.size(); i++) {
-				oos.writeObject(belegtePlaetze.get(i));
 			}
 			oos.close();
 			fos.close();
