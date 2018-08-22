@@ -13,9 +13,10 @@ import java.util.List;
 
 import Default.Filmstart;
 import Default.Kunde;
+import Default.Reservierung;
 import Platztypen.Komfort;
 import Platztypen.Loge;
-import Platztypen.Pakett;
+import Platztypen.Parkett;
 import Platztypen.Sitzplatz;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -24,6 +25,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -49,6 +52,8 @@ public class Controller3 {
 	private Label uhrzeit;
 	@FXML
 	private Label tag;
+	@FXML
+	private ImageView saalBackground;
 
 	private ArrayList<Kunde> kundenListe = new ArrayList<Kunde>();
 	private Filmstart film;
@@ -59,12 +64,18 @@ public class Controller3 {
 		comboContainer.setFillWidth(true);
 	}
 
-	public void initData(Filmstart film, String uhrzeit, String tag) {
+	public void initData(Filmstart film) {
+
+		sitzplaetze.getChildren().clear();
 		this.film = film;
 		filmName.setText(film.getTitel());
-		this.uhrzeit.setText(uhrzeit);
-		this.tag.setText(tag);
-		belegung = new File("belegung" + film.getTitel() + uhrzeit + tag + ".kos");
+		uhrzeit.setText(film.getDate().getTime().toString());
+		tag.setText(film.getDate().getTag());
+		saal.setText("Saal " + film.getSaal().getSaalnummer());
+		File file = new File("@" + film.getSaal().getBackgroundURL());
+		saalBackground.setImage(new Image(file.toURI().toString()));
+		sitzplaetze.getChildren().add(saalBackground);
+		belegung = new File("belegung" + film.getTitel() + film.getDate().getTime() + film.getDate().getTag() + ".kos");
 		generiereSitzplaetze(12, 22);
 	}
 
@@ -94,7 +105,6 @@ public class Controller3 {
 				Kunde kunde = new Kunde(platz, 0);
 				kundenListe.add(kunde);
 				comboContainer.getChildren().add(kunde.createNewComboBox(platz.getId()));
-				// vermeideLuecken(platz,i,j);
 			}
 		}
 	};
@@ -104,8 +114,8 @@ public class Controller3 {
 		List<Point> belegtePlaetze = getBelegtePlaetze();
 		for (int i = 0; i < reihe; i++) {
 			for (int j = 0; j < spalte; j++) {
-				if (i < 4) {
-					Pakett pakettplatz = new Pakett();
+				if (i < film.getSaal().getReihenPakett()) {
+					Parkett pakettplatz = new Parkett();
 					if (!isBelegt(i, j, belegtePlaetze)) {
 						pakettplatz.addEventHandler(ActionEvent.ACTION, buttonClick);
 					} else {
@@ -114,7 +124,7 @@ public class Controller3 {
 						pakettplatz.setBelegt(true);
 					}
 					pakettplatz.erstelleSitzplatz(i, j, sitzplaetze);
-				} else if (i >= 4 && i < 8) {
+				} else if (i >= film.getSaal().getReihenPakett() && i < (film.getSaal().getReihenPakett() + film.getSaal().getReihenLoge())) {
 					Loge logenplatz = new Loge();
 					if (!isBelegt(i, j, belegtePlaetze)) {
 						logenplatz.addEventHandler(ActionEvent.ACTION, buttonClick);
@@ -186,11 +196,15 @@ public class Controller3 {
 			}
 		}
 		try {
-			fos = new FileOutputStream(belegung);
+			fos = new FileOutputStream(belegung, true);
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			List<Point> belegtePlaetze = getBelegtePlaetze();
 			oos.writeInt(kundenListe.size());
 			for (int i = 0; i < kundenListe.size(); i++) {
 				oos.writeObject(kundenListe.get(i).getPlatz().getPlatzierung());
+			}
+			for (int i = 0; i < belegtePlaetze.size(); i++) {
+				oos.writeObject(belegtePlaetze.get(i));
 			}
 			oos.close();
 			fos.close();
@@ -225,8 +239,9 @@ public class Controller3 {
 
 		if (!kundenListe.isEmpty()) {
 			if (setComboBoxValues()) {
-				System.out.println("Ich hab Spaß :)");
+				Reservierung res = new Reservierung(film, kundenListe);
 				speichereSitzplatzDaten();
+				res.speicherReservierung();
 			}
 		} else {
 			Alert alert = new Alert(AlertType.WARNING, "Sie haben keine Sitzplätze ausgewählt");

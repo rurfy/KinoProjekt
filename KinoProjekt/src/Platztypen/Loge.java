@@ -2,12 +2,11 @@ package Platztypen;
 
 import java.io.Serializable;
 
-import Default.Kunde;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.layout.Pane;
-
 public class Loge extends Sitzplatz implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int aufpreis = 2;
 
 	public int getAufpreis() {
@@ -16,12 +15,6 @@ public class Loge extends Sitzplatz implements Serializable{
 
 	public void setAufpreis(int aufpreis) {
 		this.aufpreis = aufpreis;
-	}
-	
-
-	private void vermeideLuecken(Loge platz, int i, int j) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override

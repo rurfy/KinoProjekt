@@ -73,7 +73,7 @@
 					<children>
 						<Pane fx:id="sitzplaetze" maxWidth="-Infinity" StackPane.alignment="CENTER_LEFT">
 							<children>
-								<ImageView fitHeight="900.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
+								<ImageView fx:id="saalBackground" fitHeight="900.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
 									<image>
 										<Image url="@../../../Saal1.jpg" />
 									</image>

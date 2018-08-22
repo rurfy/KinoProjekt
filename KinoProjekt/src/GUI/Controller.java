@@ -6,119 +6,126 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.time.LocalDate;
+import java.time.format.TextStyle;
 import java.util.ArrayList;
+import java.util.Locale;
 
+import Default.Film;
 import Default.Filmstart;
 import Default.Saal;
 import Platztypen.Sitzplatz;
-import Tage.Heute;
-import Tage.Morgen;
-import Tage.Uebermorgen;
-import Tage.Uhrzeit;
+import Tage.Datum;
 
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class Controller {
 
-	public final String STARTBILDSCHIRM = "StartBildschirm.fxml";
-	public final String FILMINFO = "FilmInfo.fxml";
-	public final String SITZPLATZAUSWAHL = "SitzplatzAuswahl.fxml";
-
-	private File f = new File("filme.kos");
-
-	public ArrayList<Filmstart> filme = new ArrayList<Filmstart>();
+	public ArrayList<Film> filme = new ArrayList<Film>(); // Speichert die Filme
+	public ArrayList<Filmstart> film1 = new ArrayList<Filmstart>(); // Speichert einen Film mit Uhrzeiten
+	public ArrayList<Filmstart> film2 = new ArrayList<Filmstart>();
+	public ArrayList<Filmstart> film3 = new ArrayList<Filmstart>();
+	public ArrayList<Filmstart> film4 = new ArrayList<Filmstart>();
+	public ArrayList<Filmstart> film5 = new ArrayList<Filmstart>();
 
 	@FXML
-	private Controller1 tab1Controller;
+	private Controller1 tab1Controller; // Verknüpfter Controller für einen Bildschirm
 	@FXML
 	private Controller2 tab2Controller;
 	@FXML
 	private Controller3 tab3Controller;
 
-	@FXML
-	AnchorPane test;
+	private Saal saal1 = new Saal(1, new Sitzplatz[12][22], 4, 4, 4, "../../../Saal1.jpg");
+	private Saal saal2 = new Saal(2, new Sitzplatz[12][22], 4, 4, 4, "../../../Saal1.jpg");
+	private Saal saal3 = new Saal(3, new Sitzplatz[12][22], 5, 5, 2, "../../../Saal2.jpg");
+	private Saal saal4 = new Saal(4, new Sitzplatz[12][22], 5, 5, 4, "../../../Saal2.jpg");
 
 	@FXML
-	public void initialize() {
+	public void initialize() { // Start der Oberflächeninitialisierung
 
 		System.out.println("App gestartet");
 
-		safeFilme();
+		filmeAbrufen("filme.kos", filme); // Filme werden geladen
 
-		initFilme();
+		for (int i = 0; i < 5; i++) {
+			getStartzeiten(filme.get(i)); // Aktuelle Daten werden für alle Filme geladen
+		}
 
-		tab1Controller.init(this);
+		tab1Controller.init(this); // Controller werden initialisiert
 		tab2Controller.init(this);
 		tab3Controller.init(this);
-		loadStartBildschirm();
+		loadStartBildschirm(); // StartBildschirm wird geladen
 
 	}
 
-	public void loadFilmInfo(Node n, Filmstart film) {
-		tab1Controller.StartBildschirmPane.setVisible(false);
+	void loadFilmInfo(Node n, Film film) { // Lädt den Bildschirm mit näheren Informationen zu einem Film
+		tab1Controller.getStartBildschirmPane().setVisible(false);
 		tab2Controller.FilmInfoPane.setVisible(true);
 		tab3Controller.SitzplatzAuswahlPane.setVisible(false);
 		Stage stage = (Stage) n.getScene().getWindow();
 		stage.setWidth(tab2Controller.FilmInfoPane.getWidth() + 20);
 		stage.setHeight(tab2Controller.FilmInfoPane.getHeight() + 40);
-		tab2Controller.initData(film);
+		tab2Controller.initData(film, getArrayList(film));
 	}
 
-	public void loadStartBildschirm() {
-		tab1Controller.StartBildschirmPane.setVisible(true);
+	void loadStartBildschirm() { // Lädt beim Start den Startbildschirm (keine Node notwendig)
+		tab1Controller.getStartBildschirmPane().setVisible(true);
 		tab2Controller.FilmInfoPane.setVisible(false);
 		tab3Controller.SitzplatzAuswahlPane.setVisible(false);
-		tab1Controller.loadData();
+		tab1Controller.initData();
 	}
 
-	public void loadStartBildschirm(Node n) {
-		tab1Controller.StartBildschirmPane.setVisible(true);
+	void loadStartBildschirm(Node n) { // Lädt den StartBildschirm von anderen Bildschirmen aus
+		tab1Controller.getStartBildschirmPane().setVisible(true);
 		tab2Controller.FilmInfoPane.setVisible(false);
 		tab3Controller.SitzplatzAuswahlPane.setVisible(false);
-		tab1Controller.loadData();
+		tab1Controller.initData();
 
 		Stage stage = (Stage) n.getScene().getWindow();
-		stage.setWidth(tab1Controller.StartBildschirmPane.getWidth() + 20);
-		stage.setHeight(tab1Controller.StartBildschirmPane.getHeight() + 40);
+		stage.setWidth(tab1Controller.getStartBildschirmPane().getWidth() + 20);
+		stage.setHeight(tab1Controller.getStartBildschirmPane().getHeight() + 40);
 	}
 
-	public void loadSitzplatzAuswahl(Node n, Filmstart film, String uhrzeit, String tag) {
-		tab1Controller.StartBildschirmPane.setVisible(false);
+	void loadSitzplatzAuswahl(Node n, Filmstart film) { // Lädt die Sitzplatzauswahl von anderen Bildschirmen aus
+		tab1Controller.getStartBildschirmPane().setVisible(false);
 		tab2Controller.FilmInfoPane.setVisible(false);
 		tab3Controller.SitzplatzAuswahlPane.setVisible(true);
-		tab3Controller.initData(film, uhrzeit, tag);
-		//tab3Controller.generiereSitzplaetze(12, 22);
+		tab3Controller.initData(film);
 		Stage stage = (Stage) n.getScene().getWindow();
 		stage.setWidth(tab3Controller.SitzplatzAuswahlPane.getWidth() + 20);
 		stage.setHeight(tab3Controller.SitzplatzAuswahlPane.getHeight() + 40);
 	}
 
-	public void initFilme() {
-		try {
-			FileInputStream fis = new FileInputStream(f);
-			ObjectInputStream in = new ObjectInputStream(fis);
-			Filmstart film = (Filmstart) in.readObject();
-			filme.add(film);
-			Filmstart film1 = (Filmstart) in.readObject();
-			filme.add(film1);
-			Filmstart film2 = (Filmstart) in.readObject();
-			filme.add(film2);
-			Filmstart film3 = (Filmstart) in.readObject();
-			filme.add(film3);
-			Filmstart film4 = (Filmstart) in.readObject();
-			filme.add(film4);
-			in.close();
-			fis.close();
-		} catch (IOException | ClassNotFoundException e1) {
-
-			e1.printStackTrace();
+	ArrayList<Filmstart> getArrayList(Film film) { // Gibt die korrespondierende ArrayList<Filmstart> des übergebenen Films zurück
+		for (int i = 0; i < filme.size(); i++) {
+			if (filme.get(i).getTitel().equals(film1.get(0).getTitel())) {
+				return film1;
+			} else if (filme.get(i).getTitel().equals(film2.get(0).getTitel())) {
+				return film2;
+			} else if (filme.get(i).getTitel().equals(film3.get(0).getTitel())) {
+				return film3;
+			} else if (filme.get(i).getTitel().equals(film4.get(0).getTitel())) {
+				return film4;
+			} else if (filme.get(i).getTitel().equals(film5.get(0).getTitel())) {
+				return film5;
+			}
 		}
+		return null;
 	}
-	
-	public void safeFilme() {
+
+	@SuppressWarnings("unused")
+	private void alleFilmdatenSpeichern() { // Speichert manuell alle Filme in einer Datei ab
+		Film avatar = new Film(2.42, "Avatar - Aufbruch nach Pandorra", 12, "Action und Fantasy", "https://www.youtube.com/watch?v=EzETGqZN6dU", "../../../avatar_thumb.jpg", 10);
+		Film jurassic = new Film(2.10, "Jurassic World", 12, "Action und Science-Fiction", "https://www.youtube.com/watch?v=QvGzqDgkJQc", "../../../jurassic-world.jpg", 7.50);
+		Film shades = new Film(2.05, "Fifty Shades of Grey - Geheimes Verlangen", 16, "Liebesfilm und Drama", "https://www.youtube.com/watch?v=H1r_SFh8in0", "../../../fifty-shades-of-grey_thumb.jpg",
+				9);
+		Film nemo = new Film(1.40, "Findet Nemo", 0, "Animation und Kinder/Familie", "https://www.youtube.com/watch?v=9F-TxJt0HMA", "../../../findet-nemo_thumb.jpg", 8.50);
+		Film freunde = new Film(1.53, "Ziemlich beste Freunde", 6, "Komödie und Drama", "https://www.youtube.com/watch?v=MYqzxrqY98E", "../../../ziemlich-beste-freunde_thumb.jpg", 8);
+
+		File f = new File("filme.kos");
+
 		if (!f.exists()) {
 			try {
 				f.createNewFile();
@@ -126,35 +133,216 @@ public class Controller {
 				e.printStackTrace();
 			}
 			FileOutputStream fs;
-			
-			Saal saal1 = new Saal(1, new Sitzplatz[12][22], 0, 0);
-			Saal saal2 = new Saal(2, new Sitzplatz[12][22], 0, 0);
-			
-			Filmstart avatar = new Filmstart(2.42, "Avatar - Aufbruch nach Pandorra", 12, "Action und Fantasy", "https://www.youtube.com/watch?v=EzETGqZN6dU", "../../../avatar_thumb.jpg", 10, new Heute(
-					new Uhrzeit("13.00", saal1), new Uhrzeit("15.00", saal2), new Uhrzeit("17.00", saal1)), new Morgen(new Uhrzeit("14.00", saal1), new Uhrzeit("16.00", saal2), new Uhrzeit("18.00",
-							saal1)), new Uebermorgen(new Uhrzeit("15.00", saal1), new Uhrzeit("17.00", saal2), new Uhrzeit("19.00", saal1)));
-			Filmstart jurassic = new Filmstart(2.10, "Jurassic World", 12, "Action und Science-Fiction", "https://www.youtube.com/watch?v=QvGzqDgkJQc", "../../../jurassic-world.jpg", 7.50, new Heute(
-					new Uhrzeit("13.00", saal1), new Uhrzeit("15.00", saal2), new Uhrzeit("17.00", saal1)), new Morgen(new Uhrzeit("14.00", saal1), new Uhrzeit("16.00", saal2), new Uhrzeit("18.00",
-							saal1)), new Uebermorgen(new Uhrzeit("15.00", saal1), new Uhrzeit("17.00", saal2), new Uhrzeit("19.00", saal1)));
-			Filmstart fiftyShades = new Filmstart(2.05, "Fifty Shades of Grey - Geheimes Verlangen", 16, "Liebesfilm und Drama", "https://www.youtube.com/watch?v=H1r_SFh8in0",
-					"../../../fifty-shades-of-grey_thumb.jpg", 9, new Heute(new Uhrzeit("13.00", saal1), new Uhrzeit("15.00", saal2), new Uhrzeit("17.00", saal1)), new Morgen(new Uhrzeit("14.00", saal1),
-							new Uhrzeit("16.00", saal2), new Uhrzeit("18.00", saal1)), new Uebermorgen(new Uhrzeit("15.00", saal1), new Uhrzeit("17.00", saal2), new Uhrzeit("19.00", saal1)));
-			Filmstart nemo = new Filmstart(1.40, "Findet Nemo", 0, "Animation und Kinder/Familie", "https://www.youtube.com/watch?v=9F-TxJt0HMA", "../../../findet-nemo_thumb.jpg", 8.50, new Heute(
-					new Uhrzeit("13.00", saal1), new Uhrzeit("15.00", saal2), new Uhrzeit("17.00", saal1)), new Morgen(new Uhrzeit("14.00", saal1), new Uhrzeit("16.00", saal2), new Uhrzeit("18.00",
-							saal1)), new Uebermorgen(new Uhrzeit("15.00", saal1), new Uhrzeit("17.00", saal2), new Uhrzeit("19.00", saal1)));
-			Filmstart freunde = new Filmstart(1.53, "Ziemlich beste Freunde", 6, "Komödie und Drama", "https://www.youtube.com/watch?v=MYqzxrqY98E", "../../../ziemlich-beste-freunde_thumb.jpg", 8,
-					new Heute(new Uhrzeit("13.00", saal1), new Uhrzeit("15.00", saal2), new Uhrzeit("17.00", saal1)), new Morgen(new Uhrzeit("14.00", saal1), new Uhrzeit("16.00", saal2), new Uhrzeit(
-							"18.00", saal1)), new Uebermorgen(new Uhrzeit("15.00", saal1), new Uhrzeit("17.00", saal2), new Uhrzeit("19.00", saal1)));
-			
+
 			try {
 				fs = new FileOutputStream(f, true);
 				ObjectOutputStream out = new ObjectOutputStream(fs);
-				avatar.writeFilm(f, out);
-				jurassic.writeFilm(f, out);
-				fiftyShades.writeFilm(f, out);
-				nemo.writeFilm(f, out);
-				freunde.writeFilm(f, out);
+				out.writeObject(avatar);
+				out.writeObject(jurassic);
+				out.writeObject(shades);
+				out.writeObject(nemo);
+				out.writeObject(freunde);
 				out.close();
+				fs.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
+
+	private void filmeAbrufen(String fileURL, ArrayList<Film> list) { // Ruft alle Filme aus einer Datei ab
+		try {
+			FileInputStream fis = new FileInputStream(new File(fileURL));
+			ObjectInputStream in = new ObjectInputStream(fis);
+			for (int i = 0; i < 5; i++) {
+				Film film = (Film) in.readObject();
+				list.add(film);
+			}
+			in.close();
+			fis.close();
+		} catch (IOException | ClassNotFoundException e1) {
+			System.out.println("Datei nicht gefunden.");
+			e1.printStackTrace();
+		}
+	}
+
+	private void readCorrectDays(ArrayList<Datum> list, Film film, ArrayList<Filmstart> filme) { // Der heutige Tag wird gesucht und ausgewählt
+		String heute = LocalDate.now().getDayOfWeek().getDisplayName(TextStyle.FULL_STANDALONE, Locale.GERMANY);
+		switch (heute) {
+		case "Montag":
+			readSpecificDays(list, film, filme, 0);
+			break;
+		case "Dienstag":
+			readSpecificDays(list, film, filme, 3);
+			break;
+		case "Mittwoch":
+			readSpecificDays(list, film, filme, 6);
+			break;
+		case "Donnerstag":
+			readSpecificDays(list, film, filme, 9);
+			break;
+		case "Freitag":
+			readSpecificDays(list, film, filme, 12);
+			break;
+		case "Samstag":
+			readSpecificDays(list, film, filme, 15);
+			break;
+		case "Sonntag":
+			readSpecificDays(list, film, filme, 18);
+			break;
+		}
+	}
+
+	private void readSpecificDays(ArrayList<Datum> list, Film film, ArrayList<Filmstart> filme, int start) { // Daten werden für den spezifischen Film und Tag geladen
+		for (int i = start; i < start + 3; i++) {
+			Filmstart filmstart = new Filmstart(film, list.get(i), list.get(i).getSaal());
+			filmstart.getDate().setTag("Heute");
+			filmstart.getDate().setDate(LocalDate.now());
+			filme.add(filmstart);
+		}
+		if (start < 18) {
+			for (int i = start + 3; i < start + 6; i++) {
+				Filmstart filmstart = new Filmstart(film, list.get(i), list.get(i).getSaal());
+				filmstart.getDate().setTag("Morgen");
+				filmstart.getDate().setDate(LocalDate.now().plusDays(1));
+				filme.add(filmstart);
+			}
+		} else {
+			for (int i = 3; i < 6; i++) {
+				Filmstart filmstart = new Filmstart(film, list.get(i), list.get(i).getSaal());
+				filmstart.getDate().setTag("Uebermorgen");
+				filmstart.getDate().setDate(LocalDate.now().plusDays(2));
+				filme.add(filmstart);
+			}
+		}
+		if (start < 15) {
+			for (int i = start + 6; i < start + 9; i++) {
+				Filmstart filmstart = new Filmstart(film, list.get(i), list.get(i).getSaal());
+				filmstart.getDate().setTag("Uebermorgen");
+				filmstart.getDate().setDate(LocalDate.now().plusDays(2));
+				filme.add(filmstart);
+			}
+		} else {
+			for (int i = 0; i < 3; i++) {
+				Filmstart filmstart = new Filmstart(film, list.get(i), list.get(i).getSaal());
+				if (start < 18) {
+					filmstart.getDate().setTag("Uebermorgen");
+					filmstart.getDate().setDate(LocalDate.now().plusDays(2));
+				} else {
+					filmstart.getDate().setTag("Morgen");
+					filmstart.getDate().setDate(LocalDate.now().plusDays(1));
+				}
+				filme.add(filmstart);
+			}
+		}
+
+	}
+
+	private void getStartzeiten(Film film) { // Für jeden Film werden seine Datensätze gesucht
+		switch (film.getTitel()) {
+		case "Avatar - Aufbruch nach Pandorra":
+			readCorrectDays(readStartzeiten("avatar-zeiten.kos"), film, film1);
+			break;
+		case "Jurassic World":
+			readCorrectDays(readStartzeiten("jurassic-zeiten.kos"), film, film2);
+			break;
+		case "Fifty Shades of Grey - Geheimes Verlangen":
+			readCorrectDays(readStartzeiten("shades-zeiten.kos"), film, film3);
+			break;
+		case "Findet Nemo":
+			readCorrectDays(readStartzeiten("nemo-zeiten.kos"), film, film4);
+			break;
+		case "Ziemlich beste Freunde":
+			readCorrectDays(readStartzeiten("freunde-zeiten.kos"), film, film5);
+			break;
+		}
+	}
+
+	private ArrayList<Datum> readStartzeiten(String fileURL) { // Daten für einen Film einlesen
+		File f = new File(fileURL);
+		ArrayList<Datum> list = new ArrayList<Datum>();
+		if (f.exists()) {
+			try {
+				FileInputStream fis = new FileInputStream(f);
+				ObjectInputStream ois = new ObjectInputStream(fis);
+				for (int i = 0; i < 21; i++) {
+					list.add((Datum) ois.readObject());
+				}
+				ois.close();
+				fis.close();
+			} catch (IOException | ClassNotFoundException e) {
+				// TODO: handle exception
+			}
+		}
+		return list;
+	}
+
+	@SuppressWarnings("unused")
+	private void writeStartzeiten() { // Funktion zur manuellen Verarbeitung der Uhrzeiten für einen Film (muss je
+										// nach Film geändert werden)
+		File f = new File("freunde-zeiten.kos");
+		if (!f.exists()) {
+			try {
+				f.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			FileOutputStream fs;
+
+			try {
+				fs = new FileOutputStream(f);
+				ObjectOutputStream out = new ObjectOutputStream(fs);
+				Datum m1 = new Datum("10:00", "Montag", saal2);
+				out.writeObject(m1);
+				Datum m2 = new Datum("13:00", "Montag", saal3);
+				out.writeObject(m2);
+				Datum m3 = new Datum("16:00", "Montag", saal4);
+				out.writeObject(m3);
+
+				Datum m4 = new Datum("10:00", "Dienstag", saal3);
+				out.writeObject(m4);
+				Datum m5 = new Datum("13:00", "Dienstag", saal4);
+				out.writeObject(m5);
+				Datum m6 = new Datum("16:00", "Dienstag", saal1);
+				out.writeObject(m6);
+
+				Datum m7 = new Datum("10:00", "Mittwoch", saal4);
+				out.writeObject(m7);
+				Datum m8 = new Datum("13:00", "Mittwoch", saal1);
+				out.writeObject(m8);
+				Datum m9 = new Datum("16:00", "Mittwoch", saal2);
+				out.writeObject(m9);
+
+				Datum m10 = new Datum("13:00", "Donnerstag", saal2);
+				out.writeObject(m10);
+				Datum m11 = new Datum("16:00", "Donnerstag", saal3);
+				out.writeObject(m11);
+				Datum m12 = new Datum("19:00", "Donnerstag", saal4);
+				out.writeObject(m12);
+
+				Datum m13 = new Datum("13:00", "Freitag", saal2);
+				out.writeObject(m13);
+				Datum m14 = new Datum("16:00", "Freitag", saal3);
+				out.writeObject(m14);
+				Datum m15 = new Datum("19:00", "Freitag", saal4);
+				out.writeObject(m15);
+
+				Datum m16 = new Datum("13:00", "Samstag", saal3);
+				out.writeObject(m16);
+				Datum m17 = new Datum("16:00", "Samstag", saal4);
+				out.writeObject(m17);
+				Datum m18 = new Datum("19:00", "Samstag", saal1);
+				out.writeObject(m18);
+
+				Datum m19 = new Datum("13:00", "Sonntag", saal4);
+				out.writeObject(m19);
+				Datum m20 = new Datum("16:00", "Sonntag", saal1);
+				out.writeObject(m20);
+				Datum m21 = new Datum("19:00", "Sonntag", saal2);
+				out.writeObject(m21);
+				out.close();
+				fs.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

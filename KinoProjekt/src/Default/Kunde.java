@@ -1,7 +1,5 @@
 package Default;
 
-import java.io.Serializable;
-
 import Platztypen.Sitzplatz;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListCell;
@@ -44,7 +42,6 @@ public class Kunde {
 				}
 			}
  		});
- //		listener.kundeErstellt();
  		this.comboBox = box;
 		return box;
 	}

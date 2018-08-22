@@ -145,7 +145,7 @@
                   <content>
                     <AnchorPane>
                            <children>
-                              <StackPane prefWidth="800.0">
+                              <StackPane prefWidth="900.0">
                                  <children>
                                     <Button fx:id="uhrzeit5" mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="15:00 Uhr">
                                        <font>
@@ -181,7 +181,7 @@
                   <content>
                     <AnchorPane>
                            <children>
-                              <StackPane prefWidth="800.0">
+                              <StackPane prefWidth="900.0">
                                  <children>
                                     <Button fx:id="uhrzeit8" mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="14:00 Uhr">
                                        <font>
