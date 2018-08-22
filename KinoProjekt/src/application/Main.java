@@ -12,17 +12,19 @@ import javafx.scene.image.Image;
 public class Main extends Application {
 
 	private final String DESIGN = "design.css";
+	private final String ROOT = "Rahmen.fxml";
 	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/GUI/" + "Rahmen.fxml"));	
+			Parent root = FXMLLoader.load(getClass().getResource("/GUI/" + ROOT));	
 			Scene startBildschirm = new Scene(root);
 			startBildschirm.getStylesheets().add(getClass().getResource("/GUI/" + DESIGN).toExternalForm());
 			primaryStage.setScene(startBildschirm);
 			File file = new File("@../../../Logo_v3.PNG");
 			primaryStage.getIcons().add(new Image(file.toURI().toString()));
 			primaryStage.setTitle("KiTOS - Kino Ticket Offline Service");
+			primaryStage.setResizable(false);
 			
 			primaryStage.setX(50);
 			primaryStage.setY(0);
@@ -33,8 +35,6 @@ public class Main extends Application {
 	}
 	
 	public static void main(String[] args) {
-		Tests.testen();
-		//Tests.starten();
 		launch(args);
 	}
 }

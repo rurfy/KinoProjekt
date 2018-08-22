@@ -19,12 +19,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
-public class Controller2 {
+public class Controller2 { // Controller zum Handling der Elemente der Scene2
 
 	private Controller main;
 
 	@FXML
-	public AnchorPane FilmInfoPane;
+	private AnchorPane FilmInfoPane;
 
 	// Elemente der Scene
 	@FXML
@@ -77,7 +77,7 @@ public class Controller2 {
 		File file = new File("@" + film.getBildURL());
 		bild.setImage(new Image(file.toURI().toString()));
 		genre.setText("Genre: " + film.getGenre());
-		grundpreis.setText("Grundpreis: "+df.format(film.getPreis())+" €");
+		grundpreis.setText("Grundpreis: " + df.format(film.getPreis()) + " €");
 		trailer.getStyleClass().removeAll("label");
 		trailer.getStyleClass().add("label2");
 		trailer.setText(film.getTrailer());
@@ -125,5 +125,13 @@ public class Controller2 {
 				}
 			}
 		}
+	}
+	
+	AnchorPane getFilmInfoPane() {
+		return FilmInfoPane;
+	}
+
+	void setFilmInfoPane(AnchorPane filmInfoPane) {
+		FilmInfoPane = filmInfoPane;
 	}
 }

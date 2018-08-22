@@ -54,7 +54,7 @@ public class Reservierung {
 			preis= preis+"--------------------------\nGesamtpreis:       "+df.format(gesamtpreis);
 			String info = film.getTitel() + "\n"
 					+ film.getDate().getDate().getDayOfWeek().getDisplayName(TextStyle.FULL_STANDALONE, Locale.GERMANY) + " "+ film.getDate().getDate()
-					+ " " + film.getDate().getTime() + "\n" + "Saal " + film.getSaal().getSaalnummer() + "\n" + plaetze
+					+ " " + film.getDate().getTime() + "\n" + "Saal " + film.getDate().getSaal().getSaalnummer() + "\n" + plaetze
 					+ "\n" + preis + " €";
 			System.out.println(info);
 			byte[] b = info.getBytes();

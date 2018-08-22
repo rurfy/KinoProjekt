@@ -21,7 +21,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.stage.Stage;
 
-public class Controller {
+public class Controller { // MainController zur Kommunikation zwischen den SubControllern
 
 	public ArrayList<Film> filme = new ArrayList<Film>(); // Speichert die Filme
 	public ArrayList<Filmstart> film1 = new ArrayList<Filmstart>(); // Speichert einen Film mit Uhrzeiten
@@ -48,7 +48,7 @@ public class Controller {
 		System.out.println("App gestartet");
 
 		filmeAbrufen("filme.kos", filme); // Filme werden geladen
-
+		
 		for (int i = 0; i < 5; i++) {
 			getStartzeiten(filme.get(i)); // Aktuelle Daten werden für alle Filme geladen
 		}
@@ -62,25 +62,25 @@ public class Controller {
 
 	void loadFilmInfo(Node n, Film film) { // Lädt den Bildschirm mit näheren Informationen zu einem Film
 		tab1Controller.getStartBildschirmPane().setVisible(false);
-		tab2Controller.FilmInfoPane.setVisible(true);
-		tab3Controller.SitzplatzAuswahlPane.setVisible(false);
+		tab2Controller.getFilmInfoPane().setVisible(true);
+		tab3Controller.getSitzplatzAuswahlPane().setVisible(false);
 		Stage stage = (Stage) n.getScene().getWindow();
-		stage.setWidth(tab2Controller.FilmInfoPane.getWidth() + 20);
-		stage.setHeight(tab2Controller.FilmInfoPane.getHeight() + 40);
+		stage.setWidth(tab2Controller.getFilmInfoPane().getWidth() + 20);
+		stage.setHeight(tab2Controller.getFilmInfoPane().getHeight() + 40);
 		tab2Controller.initData(film, getArrayList(film));
 	}
 
 	void loadStartBildschirm() { // Lädt beim Start den Startbildschirm (keine Node notwendig)
 		tab1Controller.getStartBildschirmPane().setVisible(true);
-		tab2Controller.FilmInfoPane.setVisible(false);
-		tab3Controller.SitzplatzAuswahlPane.setVisible(false);
+		tab2Controller.getFilmInfoPane().setVisible(false);
+		tab3Controller.getSitzplatzAuswahlPane().setVisible(false);
 		tab1Controller.initData();
 	}
 
 	void loadStartBildschirm(Node n) { // Lädt den StartBildschirm von anderen Bildschirmen aus
 		tab1Controller.getStartBildschirmPane().setVisible(true);
-		tab2Controller.FilmInfoPane.setVisible(false);
-		tab3Controller.SitzplatzAuswahlPane.setVisible(false);
+		tab2Controller.getFilmInfoPane().setVisible(false);
+		tab3Controller.getSitzplatzAuswahlPane().setVisible(false);
 		tab1Controller.initData();
 
 		Stage stage = (Stage) n.getScene().getWindow();
@@ -90,12 +90,12 @@ public class Controller {
 
 	void loadSitzplatzAuswahl(Node n, Filmstart film) { // Lädt die Sitzplatzauswahl von anderen Bildschirmen aus
 		tab1Controller.getStartBildschirmPane().setVisible(false);
-		tab2Controller.FilmInfoPane.setVisible(false);
-		tab3Controller.SitzplatzAuswahlPane.setVisible(true);
+		tab2Controller.getFilmInfoPane().setVisible(false);
+		tab3Controller.getSitzplatzAuswahlPane().setVisible(true);
 		tab3Controller.initData(film);
 		Stage stage = (Stage) n.getScene().getWindow();
-		stage.setWidth(tab3Controller.SitzplatzAuswahlPane.getWidth() + 20);
-		stage.setHeight(tab3Controller.SitzplatzAuswahlPane.getHeight() + 40);
+		stage.setWidth(tab3Controller.getSitzplatzAuswahlPane().getWidth() + 20);
+		stage.setHeight(tab3Controller.getSitzplatzAuswahlPane().getHeight() + 40);
 	}
 
 	ArrayList<Filmstart> getArrayList(Film film) { // Gibt die korrespondierende ArrayList<Filmstart> des übergebenen Films zurück
@@ -196,21 +196,21 @@ public class Controller {
 
 	private void readSpecificDays(ArrayList<Datum> list, Film film, ArrayList<Filmstart> filme, int start) { // Daten werden für den spezifischen Film und Tag geladen
 		for (int i = start; i < start + 3; i++) {
-			Filmstart filmstart = new Filmstart(film, list.get(i), list.get(i).getSaal());
+			Filmstart filmstart = new Filmstart(film, list.get(i));
 			filmstart.getDate().setTag("Heute");
 			filmstart.getDate().setDate(LocalDate.now());
 			filme.add(filmstart);
 		}
 		if (start < 18) {
 			for (int i = start + 3; i < start + 6; i++) {
-				Filmstart filmstart = new Filmstart(film, list.get(i), list.get(i).getSaal());
+				Filmstart filmstart = new Filmstart(film, list.get(i));
 				filmstart.getDate().setTag("Morgen");
 				filmstart.getDate().setDate(LocalDate.now().plusDays(1));
 				filme.add(filmstart);
 			}
 		} else {
 			for (int i = 3; i < 6; i++) {
-				Filmstart filmstart = new Filmstart(film, list.get(i), list.get(i).getSaal());
+				Filmstart filmstart = new Filmstart(film, list.get(i));
 				filmstart.getDate().setTag("Uebermorgen");
 				filmstart.getDate().setDate(LocalDate.now().plusDays(2));
 				filme.add(filmstart);
@@ -218,14 +218,14 @@ public class Controller {
 		}
 		if (start < 15) {
 			for (int i = start + 6; i < start + 9; i++) {
-				Filmstart filmstart = new Filmstart(film, list.get(i), list.get(i).getSaal());
+				Filmstart filmstart = new Filmstart(film, list.get(i));
 				filmstart.getDate().setTag("Uebermorgen");
 				filmstart.getDate().setDate(LocalDate.now().plusDays(2));
 				filme.add(filmstart);
 			}
 		} else {
 			for (int i = 0; i < 3; i++) {
-				Filmstart filmstart = new Filmstart(film, list.get(i), list.get(i).getSaal());
+				Filmstart filmstart = new Filmstart(film, list.get(i));
 				if (start < 18) {
 					filmstart.getDate().setTag("Uebermorgen");
 					filmstart.getDate().setDate(LocalDate.now().plusDays(2));
@@ -281,7 +281,7 @@ public class Controller {
 	@SuppressWarnings("unused")
 	private void writeStartzeiten() { // Funktion zur manuellen Verarbeitung der Uhrzeiten für einen Film (muss je
 										// nach Film geändert werden)
-		File f = new File("freunde-zeiten.kos");
+		File f = new File("avatar-zeiten.kos");
 		if (!f.exists()) {
 			try {
 				f.createNewFile();
@@ -293,53 +293,53 @@ public class Controller {
 			try {
 				fs = new FileOutputStream(f);
 				ObjectOutputStream out = new ObjectOutputStream(fs);
-				Datum m1 = new Datum("10:00", "Montag", saal2);
+				Datum m1 = new Datum("13:00", "Montag", saal1);
 				out.writeObject(m1);
-				Datum m2 = new Datum("13:00", "Montag", saal3);
+				Datum m2 = new Datum("16:00", "Montag", saal2);
 				out.writeObject(m2);
-				Datum m3 = new Datum("16:00", "Montag", saal4);
+				Datum m3 = new Datum("19:00", "Montag", saal3);
 				out.writeObject(m3);
 
-				Datum m4 = new Datum("10:00", "Dienstag", saal3);
+				Datum m4 = new Datum("10:00", "Dienstag", saal1);
 				out.writeObject(m4);
-				Datum m5 = new Datum("13:00", "Dienstag", saal4);
+				Datum m5 = new Datum("13:00", "Dienstag", saal2);
 				out.writeObject(m5);
-				Datum m6 = new Datum("16:00", "Dienstag", saal1);
+				Datum m6 = new Datum("16:00", "Dienstag", saal3);
 				out.writeObject(m6);
 
-				Datum m7 = new Datum("10:00", "Mittwoch", saal4);
+				Datum m7 = new Datum("10:00", "Mittwoch", saal2);
 				out.writeObject(m7);
-				Datum m8 = new Datum("13:00", "Mittwoch", saal1);
+				Datum m8 = new Datum("13:00", "Mittwoch", saal3);
 				out.writeObject(m8);
-				Datum m9 = new Datum("16:00", "Mittwoch", saal2);
+				Datum m9 = new Datum("19:00", "Mittwoch", saal4);
 				out.writeObject(m9);
 
-				Datum m10 = new Datum("13:00", "Donnerstag", saal2);
+				Datum m10 = new Datum("13:00", "Donnerstag", saal3);
 				out.writeObject(m10);
-				Datum m11 = new Datum("16:00", "Donnerstag", saal3);
+				Datum m11 = new Datum("16:00", "Donnerstag", saal4);
 				out.writeObject(m11);
-				Datum m12 = new Datum("19:00", "Donnerstag", saal4);
+				Datum m12 = new Datum("19:00", "Donnerstag", saal1);
 				out.writeObject(m12);
 
-				Datum m13 = new Datum("13:00", "Freitag", saal2);
+				Datum m13 = new Datum("13:00", "Freitag", saal3);
 				out.writeObject(m13);
-				Datum m14 = new Datum("16:00", "Freitag", saal3);
+				Datum m14 = new Datum("16:00", "Freitag", saal4);
 				out.writeObject(m14);
-				Datum m15 = new Datum("19:00", "Freitag", saal4);
+				Datum m15 = new Datum("22:00", "Freitag", saal1);
 				out.writeObject(m15);
 
-				Datum m16 = new Datum("13:00", "Samstag", saal3);
+				Datum m16 = new Datum("13:00", "Samstag", saal4);
 				out.writeObject(m16);
-				Datum m17 = new Datum("16:00", "Samstag", saal4);
+				Datum m17 = new Datum("19:00", "Samstag", saal2);
 				out.writeObject(m17);
-				Datum m18 = new Datum("19:00", "Samstag", saal1);
+				Datum m18 = new Datum("22:00", "Samstag", saal3);
 				out.writeObject(m18);
 
-				Datum m19 = new Datum("13:00", "Sonntag", saal4);
+				Datum m19 = new Datum("13:00", "Sonntag", saal1);
 				out.writeObject(m19);
-				Datum m20 = new Datum("16:00", "Sonntag", saal1);
+				Datum m20 = new Datum("16:00", "Sonntag", saal3);
 				out.writeObject(m20);
-				Datum m21 = new Datum("19:00", "Sonntag", saal2);
+				Datum m21 = new Datum("22:00", "Sonntag", saal3);
 				out.writeObject(m21);
 				out.close();
 				fs.close();

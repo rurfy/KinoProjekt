@@ -16,7 +16,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
-public class Controller1 {
+public class Controller1 { // Controller zum Handling der Elemente der Scene1
 
 	private Controller main;
 
@@ -268,11 +268,11 @@ public class Controller1 {
 		return null;
 	}
 
-	public AnchorPane getStartBildschirmPane() {
+	AnchorPane getStartBildschirmPane() {
 		return StartBildschirmPane;
 	}
 
-	public void setStartBildschirmPane(AnchorPane startBildschirmPane) {
+	void setStartBildschirmPane(AnchorPane startBildschirmPane) {
 		StartBildschirmPane = startBildschirmPane;
 	}
 
