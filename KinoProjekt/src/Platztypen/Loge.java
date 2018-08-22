@@ -2,7 +2,7 @@ package Platztypen;
 
 import java.io.Serializable;
 
-public class Loge extends Sitzplatz implements Serializable{
+public class Loge extends Sitzplatz implements Serializable { // Spezifische Ableitung von Sitzplatz
 	/**
 	 * 
 	 */
@@ -18,10 +18,9 @@ public class Loge extends Sitzplatz implements Serializable{
 	}
 
 	@Override
-	public void setPosition(int i, int j) {
-		// TODO Auto-generated method stub
+	void setPosition(int i, int j) { // Setzt die Positiog spezifisch für Loge
 		setLayoutX(130 + j * 30);
-		setLayoutY(107 + i *30);
+		setLayoutY(107 + i * 30);
 	}
-	
+
 }

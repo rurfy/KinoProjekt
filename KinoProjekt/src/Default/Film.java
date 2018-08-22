@@ -1,13 +1,8 @@
 package Default;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-public class Film implements Serializable {
+public class Film implements Serializable { // Speichert alle Eckdaten eines Films
 	/**
 	 * 
 	 */
@@ -30,10 +25,6 @@ public class Film implements Serializable {
 		this.bildURL = bildURL;
 		this.preis = preis;
 
-	}
-	
-	public Film() {
-		
 	}
 
 	public double getDauer() {
@@ -91,36 +82,6 @@ public class Film implements Serializable {
 
 	public void setPreis(double preis) {
 		this.preis = preis;
-	}
-
-	public String titelVon(File files) {
-		try {
-			FileInputStream in = new FileInputStream(files);
-			int a = 0;
-			int b = 0;
-			titel = "";
-			String vergleich = "";
-			while (a != -1) {
-				a = in.read();
-				vergleich = vergleich + (char) a;
-				b++;
-
-				if (vergleich.regionMatches(b - 7, "Titel: ", 0, 7)) {
-					vergleich = "";
-					b = 0;
-					a = in.read();
-					while (a != -1 && a != 13) {
-						titel = titel + (char) a;
-						a = in.read();
-					}
-				}
-			}
-			in.close();
-		} catch (IOException e) {
-			System.out.println("Fehler!");
-		}
-		return titel;
-
 	}
 
 }

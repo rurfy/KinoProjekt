@@ -2,7 +2,7 @@ package Platztypen;
 
 import java.io.Serializable;
 
-public class Komfort extends Sitzplatz implements Serializable{
+public class Komfort extends Sitzplatz implements Serializable { // Spezifische Ableitung von Sitzplatz
 	/**
 	 * 
 	 */
@@ -18,9 +18,8 @@ public class Komfort extends Sitzplatz implements Serializable{
 	}
 
 	@Override
-	public void setPosition(int i, int j) {
-		// TODO Auto-generated method stub
+	void setPosition(int i, int j) { // Setzt die Positiog spezifisch für Komfort
 		setLayoutX(130 + j * 30);
-		setLayoutY(137 + i *30);
+		setLayoutY(137 + i * 30);
 	}
 }

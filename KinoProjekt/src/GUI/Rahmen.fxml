@@ -10,4 +10,5 @@
 	<fx:include fx:id="tab1" source="StartBildschirm.fxml" />
 	<fx:include fx:id="tab2" source="FilmInfo.fxml" />
 	<fx:include fx:id="tab3" source="SitzplatzAuswahl.fxml" />
+	<fx:include fx:id="tab4" source="Reservierung.fxml" />
 </AnchorPane>

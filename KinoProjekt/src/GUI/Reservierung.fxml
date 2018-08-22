@@ -1,28 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="ReservierungPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller4">
    <children>
-      <VBox prefHeight="400.0" prefWidth="600.0">
+      <VBox>
          <children>
-            <StackPane prefHeight="100.0" prefWidth="200.0">
+            <StackPane prefHeight="100.0">
                <children>
-                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT" />
-                  <Label prefHeight="81.0" prefWidth="230.0" text="Label" StackPane.alignment="CENTER_LEFT" />
+                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
+                     <image>
+                        <Image url="@../../../Logo_v3.png" />
+                     </image></ImageView>
+                  <Label prefHeight="81.0" prefWidth="230.0" text="Reservierung" StackPane.alignment="CENTER_LEFT">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <StackPane.margin>
+                        <Insets left="10.0" />
+                     </StackPane.margin></Label>
                </children>
             </StackPane>
-            <AnchorPane prefHeight="200.0" prefWidth="600.0">
+            <AnchorPane prefHeight="200.0">
                <children>
-                  <ScrollPane prefHeight="200.0" prefWidth="600.0">
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="500.0">
                      <content>
-                        <Pane prefHeight="200.0" prefWidth="598.0">
+                        <Pane prefWidth="500.0">
                            <children>
-                              <Label layoutX="150.0" prefHeight="200.0" prefWidth="300.0" text="Label" />
+                              <Label fx:id="reservierung" layoutX="10.0" prefWidth="300.0" text="Reservierungstext" />
                            </children>
                         </Pane>
                      </content>
@@ -31,8 +41,9 @@
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Button layoutX="88.0" layoutY="38.0" mnemonicParsing="false" text="Button" />
-                  <Button layoutX="384.0" layoutY="38.0" mnemonicParsing="false" text="Button" />
+                  <Button fx:id="back" layoutX="31.0" layoutY="38.0" mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="Zurück" />
+                  <Button fx:id="end" layoutX="26.0" layoutY="38.0" mnemonicParsing="false" onAction="#beenden" text="Beenden" visible="false" />
+                  <Button layoutX="212.0" layoutY="38.0" mnemonicParsing="false" onAction="#speicherPDF" text="Reservierung speichern" />
                </children>
             </AnchorPane>
          </children>

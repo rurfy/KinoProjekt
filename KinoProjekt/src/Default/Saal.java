@@ -4,8 +4,12 @@ import java.io.Serializable;
 
 import Platztypen.Sitzplatz;
 
-public class Saal implements Serializable{
+public class Saal implements Serializable{ // Speichert die Eckdaten eines Saals
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int saalnummer;
 	private int reihenPakett, reihenLoge, reihenKomfort;
 	private Filmstart[] start;

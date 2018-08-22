@@ -9,43 +9,46 @@ import java.io.Serializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 
-public abstract class Sitzplatz extends Button implements Serializable{
+public abstract class Sitzplatz extends Button implements Serializable { // Abstrakte Darstellung aller Sitzplatztypen
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private boolean belegt;
 	private Point platzierung;
-	
+
 	public Point getPlatzierung() {
 		return platzierung;
 	}
+
 	public void setPlatzierung(Point platzierung) {
 		this.platzierung = platzierung;
 	}
+
 	public boolean isBelegt() {
 		return belegt;
 	}
+
 	public void setBelegt(boolean belegt) {
 		this.belegt = belegt;
 	}
-	
-	public void erstelleSitzplatz(int i, int j, Pane sitzplaetze) {
+
+	public void erstelleSitzplatz(int i, int j, Pane sitzplaetze) { // Erstellt einen Sitzplatz an einer bestimmten Position
 		setPrefSize(25, 25);
 		setMinSize(25, 25);
 		setMaxSize(25, 25);
 		setPosition(i, j);
-		setPlatzierung(new Point(i,j));
-		setId("Reihe: "+i+", Platz: "+j);
+		setPlatzierung(new Point(i, j));
+		setId("Reihe: " + i + ", Platz: " + j);
 		getStyleClass().removeAll("button");
 		getStyleClass().add("onClick");
 		sitzplaetze.getChildren().add(this);
 	}
-	
+
 	public void removeSitzplatz(Pane p) {
 		p.getChildren().remove(this);
 	}
-	
+
 	public void writePlatz(File f, ObjectOutputStream out) {
 		try {
 			out.writeObject(this);
@@ -53,8 +56,8 @@ public abstract class Sitzplatz extends Button implements Serializable{
 			System.out.println("Datei konnte nicht gefunden werden.");
 		}
 	}
-	
+
 	public abstract int getAufpreis();
-	
-	public abstract void setPosition(int i, int j);
+
+	abstract void setPosition(int i, int j);
 }

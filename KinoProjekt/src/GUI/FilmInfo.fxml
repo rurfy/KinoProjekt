@@ -12,14 +12,14 @@
   <children>
       <VBox prefWidth="900.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
          <children>
-            <StackPane fx:id="headStackPane">
+            <StackPane>
                <children>
                   <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_RIGHT">
                      <StackPane.margin>
                         <Insets />
                      </StackPane.margin>
                      <image>
-                        <Image url="@../../../Logo_v3.PNG" />
+                        <Image url="@../../../Logos/Logo_v3.PNG" />
                      </image>
                   </ImageView>
                   <HBox prefHeight="100.0" prefWidth="200.0">
@@ -218,7 +218,7 @@
                   <Insets />
                </VBox.margin>
             </TabPane>
-            <Button fx:id="filmInfoZurueck" mnemonicParsing="false" onAction="#zumStartBildschirm" text="Zurück">
+            <Button mnemonicParsing="false" onAction="#zumStartBildschirm" text="Zurück">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
