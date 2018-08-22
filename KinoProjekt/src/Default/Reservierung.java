@@ -1,8 +1,5 @@
 package Default;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.text.DecimalFormat;
 import java.time.format.TextStyle;
 import java.util.ArrayList;
@@ -14,8 +11,9 @@ import javafx.scene.layout.VBox;
 public class Reservierung {
 	@FXML
 	private VBox comboContainer;
-
-	Filmstart film;
+	
+	private String info;
+	private Filmstart film;
 	private ArrayList<Kunde> kundenListe;
 
 	public Reservierung(Filmstart film, ArrayList<Kunde> kundenListe) {
@@ -24,16 +22,7 @@ public class Reservierung {
 	}
 
 	public void speicherReservierung() {
-		File f = new File("reservierung.txt");
-		if (!f.exists()) {
-			try {
-				f.createNewFile();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		try {
-			FileOutputStream fos = new FileOutputStream(f);
+
 			String plaetze = "";
 			String preis = "";
 			DecimalFormat df = new DecimalFormat("#.00");
@@ -52,22 +41,14 @@ public class Reservierung {
 				}
 			}
 			preis= preis+"--------------------------\nGesamtpreis:       "+df.format(gesamtpreis);
-			String info = film.getTitel() + "\n"
+			info = film.getTitel() + "\n"
 					+ film.getDate().getDate().getDayOfWeek().getDisplayName(TextStyle.FULL_STANDALONE, Locale.GERMANY) + " "+ film.getDate().getDate()
 					+ " " + film.getDate().getTime() + "\n" + "Saal " + film.getDate().getSaal().getSaalnummer() + "\n" + plaetze
 					+ "\n" + preis + " €";
-			System.out.println(info);
-			byte[] b = info.getBytes();
-			fos.write(b);
-			fos.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		gibReservierungAus(film, kundenListe);
 	}
 
-	private void gibReservierungAus(Filmstart film, ArrayList<Kunde> kundenListe) {
-		// TODO Auto-generated method stub
+	public String getReservierungsInformationen() {
+		return info;
 	}
 
 }

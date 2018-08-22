@@ -5,8 +5,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="GUI.Controller">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="GUI.Controller" fx:id="test">
+	<!-- TODO Add Nodes -->
 	<fx:include fx:id="tab1" source="StartBildschirm.fxml" />
 	<fx:include fx:id="tab2" source="FilmInfo.fxml" />
 	<fx:include fx:id="tab3" source="SitzplatzAuswahl.fxml" />
+	<fx:include fx:id="tab4" source="Reservierung.fxml" />
 </AnchorPane>

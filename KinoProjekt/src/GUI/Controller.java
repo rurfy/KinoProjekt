@@ -13,6 +13,7 @@ import java.util.Locale;
 
 import Default.Film;
 import Default.Filmstart;
+import Default.Kunde;
 import Default.Saal;
 import Platztypen.Sitzplatz;
 import Tage.Datum;
@@ -36,6 +37,8 @@ public class Controller { // MainController zur Kommunikation zwischen den SubCo
 	private Controller2 tab2Controller;
 	@FXML
 	private Controller3 tab3Controller;
+	@FXML
+	private Controller4 tab4Controller;
 
 	@FXML
 	public void initialize() { // Start der Oberflächeninitialisierung
@@ -51,6 +54,7 @@ public class Controller { // MainController zur Kommunikation zwischen den SubCo
 		tab1Controller.init(this); // Controller werden initialisiert
 		tab2Controller.init(this);
 		tab3Controller.init(this);
+		tab4Controller.init(this);
 		loadStartBildschirm(); // StartBildschirm wird geladen
 
 	}
@@ -59,6 +63,7 @@ public class Controller { // MainController zur Kommunikation zwischen den SubCo
 		tab1Controller.getStartBildschirmPane().setVisible(false);
 		tab2Controller.getFilmInfoPane().setVisible(true);
 		tab3Controller.getSitzplatzAuswahlPane().setVisible(false);
+		tab4Controller.ReservierungPane.setVisible(false);
 		Stage stage = (Stage) n.getScene().getWindow();
 		stage.setWidth(tab2Controller.getFilmInfoPane().getWidth() + 20);
 		stage.setHeight(tab2Controller.getFilmInfoPane().getHeight() + 40);
@@ -69,6 +74,7 @@ public class Controller { // MainController zur Kommunikation zwischen den SubCo
 		tab1Controller.getStartBildschirmPane().setVisible(true);
 		tab2Controller.getFilmInfoPane().setVisible(false);
 		tab3Controller.getSitzplatzAuswahlPane().setVisible(false);
+		tab4Controller.ReservierungPane.setVisible(false);
 		tab1Controller.initData();
 	}
 
@@ -76,6 +82,7 @@ public class Controller { // MainController zur Kommunikation zwischen den SubCo
 		tab1Controller.getStartBildschirmPane().setVisible(true);
 		tab2Controller.getFilmInfoPane().setVisible(false);
 		tab3Controller.getSitzplatzAuswahlPane().setVisible(false);
+		tab4Controller.ReservierungPane.setVisible(false);
 		tab1Controller.initData();
 
 		Stage stage = (Stage) n.getScene().getWindow();
@@ -88,9 +95,22 @@ public class Controller { // MainController zur Kommunikation zwischen den SubCo
 		tab2Controller.getFilmInfoPane().setVisible(false);
 		tab3Controller.getSitzplatzAuswahlPane().setVisible(true);
 		tab3Controller.initData(film);
+		tab4Controller.ReservierungPane.setVisible(false);
 		Stage stage = (Stage) n.getScene().getWindow();
 		stage.setWidth(tab3Controller.getSitzplatzAuswahlPane().getWidth() + 20);
 		stage.setHeight(tab3Controller.getSitzplatzAuswahlPane().getHeight() + 40);
+	}
+	
+	void loadReservierung(Node n, Filmstart film, ArrayList<Kunde> kundenListe) { // Lädt die Sitzplatzauswahl von anderen Bildschirmen aus
+		tab1Controller.getStartBildschirmPane().setVisible(false);
+		tab2Controller.getFilmInfoPane().setVisible(false);
+		tab3Controller.getSitzplatzAuswahlPane().setVisible(false);
+		tab4Controller.ReservierungPane.setVisible(true);
+		tab4Controller.initData(film, kundenListe);
+		
+		Stage stage = (Stage) n.getScene().getWindow();
+		stage.setWidth(tab4Controller.ReservierungPane.getWidth() + 20);
+		stage.setHeight(tab4Controller.ReservierungPane.getWidth() + 40);
 	}
 
 	ArrayList<Filmstart> getArrayList(Film film) { // Gibt die korrespondierende ArrayList<Filmstart> des übergebenen Films zurück

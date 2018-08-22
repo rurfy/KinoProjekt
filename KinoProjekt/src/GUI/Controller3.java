@@ -253,9 +253,9 @@ public class Controller3 {
 
 		if (!kundenListe.isEmpty()) {
 			if (setComboBoxValues()) {
-				Reservierung res = new Reservierung(film, kundenListe);
+				main.loadReservierung((Button) e.getSource(), film, kundenListe);
 				speichereSitzplatzDaten();
-				res.speicherReservierung();
+				removeAllItems();
 			}
 		} else {
 			Alert alert = new Alert(AlertType.WARNING, "Sie haben keine Sitzplätze ausgewählt");
