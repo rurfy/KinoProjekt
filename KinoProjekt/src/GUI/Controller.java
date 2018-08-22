@@ -23,12 +23,12 @@ import javafx.stage.Stage;
 
 public class Controller { // MainController zur Kommunikation zwischen den SubControllern
 
-	public ArrayList<Film> filme = new ArrayList<Film>(); // Speichert die Filme
-	public ArrayList<Filmstart> film1 = new ArrayList<Filmstart>(); // Speichert einen Film mit Uhrzeiten
-	public ArrayList<Filmstart> film2 = new ArrayList<Filmstart>();
-	public ArrayList<Filmstart> film3 = new ArrayList<Filmstart>();
-	public ArrayList<Filmstart> film4 = new ArrayList<Filmstart>();
-	public ArrayList<Filmstart> film5 = new ArrayList<Filmstart>();
+	ArrayList<Film> filme = new ArrayList<Film>(); // Speichert die Filme
+	ArrayList<Filmstart> film1 = new ArrayList<Filmstart>(); // Speichert einen Film mit Uhrzeiten
+	ArrayList<Filmstart> film2 = new ArrayList<Filmstart>();
+	ArrayList<Filmstart> film3 = new ArrayList<Filmstart>();
+	ArrayList<Filmstart> film4 = new ArrayList<Filmstart>();
+	ArrayList<Filmstart> film5 = new ArrayList<Filmstart>();
 
 	@FXML
 	private Controller1 tab1Controller; // Verknüpfter Controller für einen Bildschirm
@@ -37,17 +37,12 @@ public class Controller { // MainController zur Kommunikation zwischen den SubCo
 	@FXML
 	private Controller3 tab3Controller;
 
-	private Saal saal1 = new Saal(1, new Sitzplatz[12][22], 4, 4, 4, "../../../Saal1.jpg");
-	private Saal saal2 = new Saal(2, new Sitzplatz[12][22], 4, 4, 4, "../../../Saal1.jpg");
-	private Saal saal3 = new Saal(3, new Sitzplatz[12][22], 5, 5, 2, "../../../Saal2.jpg");
-	private Saal saal4 = new Saal(4, new Sitzplatz[12][22], 5, 5, 4, "../../../Saal2.jpg");
-
 	@FXML
 	public void initialize() { // Start der Oberflächeninitialisierung
 
 		System.out.println("App gestartet");
-
-		filmeAbrufen("filme.kos", filme); // Filme werden geladen
+		
+		filmeAbrufen("../filme.kos", filme); // Filme werden geladen
 		
 		for (int i = 0; i < 5; i++) {
 			getStartzeiten(filme.get(i)); // Aktuelle Daten werden für alle Filme geladen
@@ -117,12 +112,12 @@ public class Controller { // MainController zur Kommunikation zwischen den SubCo
 
 	@SuppressWarnings("unused")
 	private void alleFilmdatenSpeichern() { // Speichert manuell alle Filme in einer Datei ab
-		Film avatar = new Film(2.42, "Avatar - Aufbruch nach Pandorra", 12, "Action und Fantasy", "https://www.youtube.com/watch?v=EzETGqZN6dU", "../../../avatar_thumb.jpg", 10);
-		Film jurassic = new Film(2.10, "Jurassic World", 12, "Action und Science-Fiction", "https://www.youtube.com/watch?v=QvGzqDgkJQc", "../../../jurassic-world.jpg", 7.50);
-		Film shades = new Film(2.05, "Fifty Shades of Grey - Geheimes Verlangen", 16, "Liebesfilm und Drama", "https://www.youtube.com/watch?v=H1r_SFh8in0", "../../../fifty-shades-of-grey_thumb.jpg",
+		Film avatar = new Film(2.42, "Avatar - Aufbruch nach Pandorra", 12, "Action und Fantasy", "https://www.youtube.com/watch?v=EzETGqZN6dU", "../../../Thumbnails/avatar_thumb.jpg", 10);
+		Film jurassic = new Film(2.10, "Jurassic World", 12, "Action und Science-Fiction", "https://www.youtube.com/watch?v=QvGzqDgkJQc", "../../../Thumbnails/jurassic-world_thumb.jpg", 7.50);
+		Film shades = new Film(2.05, "Fifty Shades of Grey - Geheimes Verlangen", 16, "Liebesfilm und Drama", "https://www.youtube.com/watch?v=H1r_SFh8in0", "../../../Thumbnails/fifty-shades-of-grey_thumb.jpg",
 				9);
-		Film nemo = new Film(1.40, "Findet Nemo", 0, "Animation und Kinder/Familie", "https://www.youtube.com/watch?v=9F-TxJt0HMA", "../../../findet-nemo_thumb.jpg", 8.50);
-		Film freunde = new Film(1.53, "Ziemlich beste Freunde", 6, "Komödie und Drama", "https://www.youtube.com/watch?v=MYqzxrqY98E", "../../../ziemlich-beste-freunde_thumb.jpg", 8);
+		Film nemo = new Film(1.40, "Findet Nemo", 0, "Animation und Kinder/Familie", "https://www.youtube.com/watch?v=9F-TxJt0HMA", "../../../Thumbnails/findet-nemo_thumb.jpg", 8.50);
+		Film freunde = new Film(1.53, "Ziemlich beste Freunde", 6, "Komödie und Drama", "https://www.youtube.com/watch?v=MYqzxrqY98E", "../../../Thumbnails/ziemlich-beste-freunde_thumb.jpg", 8);
 
 		File f = new File("filme.kos");
 
@@ -135,7 +130,7 @@ public class Controller { // MainController zur Kommunikation zwischen den SubCo
 			FileOutputStream fs;
 
 			try {
-				fs = new FileOutputStream(f, true);
+				fs = new FileOutputStream(f);
 				ObjectOutputStream out = new ObjectOutputStream(fs);
 				out.writeObject(avatar);
 				out.writeObject(jurassic);
@@ -242,19 +237,19 @@ public class Controller { // MainController zur Kommunikation zwischen den SubCo
 	private void getStartzeiten(Film film) { // Für jeden Film werden seine Datensätze gesucht
 		switch (film.getTitel()) {
 		case "Avatar - Aufbruch nach Pandorra":
-			readCorrectDays(readStartzeiten("avatar-zeiten.kos"), film, film1);
+			readCorrectDays(readStartzeiten("../FilmZeiten/avatar-zeiten.kos"), film, film1);
 			break;
 		case "Jurassic World":
-			readCorrectDays(readStartzeiten("jurassic-zeiten.kos"), film, film2);
+			readCorrectDays(readStartzeiten("../FilmZeiten/jurassic-zeiten.kos"), film, film2);
 			break;
 		case "Fifty Shades of Grey - Geheimes Verlangen":
-			readCorrectDays(readStartzeiten("shades-zeiten.kos"), film, film3);
+			readCorrectDays(readStartzeiten("../FilmZeiten/shades-zeiten.kos"), film, film3);
 			break;
 		case "Findet Nemo":
-			readCorrectDays(readStartzeiten("nemo-zeiten.kos"), film, film4);
+			readCorrectDays(readStartzeiten("../FilmZeiten/nemo-zeiten.kos"), film, film4);
 			break;
 		case "Ziemlich beste Freunde":
-			readCorrectDays(readStartzeiten("freunde-zeiten.kos"), film, film5);
+			readCorrectDays(readStartzeiten("../FilmZeiten/freunde-zeiten.kos"), film, film5);
 			break;
 		}
 	}
@@ -281,6 +276,11 @@ public class Controller { // MainController zur Kommunikation zwischen den SubCo
 	@SuppressWarnings("unused")
 	private void writeStartzeiten() { // Funktion zur manuellen Verarbeitung der Uhrzeiten für einen Film (muss je
 										// nach Film geändert werden)
+		Saal saal1 = new Saal(1, new Sitzplatz[12][22], 4, 4, 4, "../../../Saal1.jpg");
+		Saal saal2 = new Saal(2, new Sitzplatz[12][22], 4, 4, 4, "../../../Saal1.jpg");
+		Saal saal3 = new Saal(3, new Sitzplatz[12][22], 5, 5, 2, "../../../Saal2.jpg");
+		Saal saal4 = new Saal(4, new Sitzplatz[12][22], 5, 5, 4, "../../../Saal2.jpg");
+		
 		File f = new File("avatar-zeiten.kos");
 		if (!f.exists()) {
 			try {

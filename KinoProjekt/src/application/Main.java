@@ -21,7 +21,8 @@ public class Main extends Application {
 			Scene startBildschirm = new Scene(root);
 			startBildschirm.getStylesheets().add(getClass().getResource("/GUI/" + DESIGN).toExternalForm());
 			primaryStage.setScene(startBildschirm);
-			File file = new File("@../../../Logo_v3.PNG");
+			
+			File file = new File("@../../../Logos/Logo_v2.PNG");
 			primaryStage.getIcons().add(new Image(file.toURI().toString()));
 			primaryStage.setTitle("KiTOS - Kino Ticket Offline Service");
 			primaryStage.setResizable(false);

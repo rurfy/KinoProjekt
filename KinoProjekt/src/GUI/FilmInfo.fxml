@@ -19,7 +19,7 @@
                         <Insets />
                      </StackPane.margin>
                      <image>
-                        <Image url="@../../../Logo_v3.PNG" />
+                        <Image url="@../../../Logos/Logo_v3.PNG" />
                      </image>
                   </ImageView>
                   <HBox prefHeight="100.0" prefWidth="200.0">

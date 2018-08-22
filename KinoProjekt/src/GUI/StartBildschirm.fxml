@@ -21,7 +21,7 @@
 						</Label>
 						<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
 							<image>
-								<Image url="@../../../Logo_v3.PNG" />
+								<Image url="@../../../Logos/Logo_v3.PNG" />
 							</image>
 						</ImageView>
 					</children>

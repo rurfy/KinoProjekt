@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,7 +75,7 @@ public class Controller3 {
 		File file = new File("@" + film.getDate().getSaal().getBackgroundURL());
 		saalBackground.setImage(new Image(file.toURI().toString()));
 		sitzplaetze.getChildren().add(saalBackground);
-		belegung = new File("belegung" + film.getTitel() + film.getDate().getTime() + film.getDate().getWochenTag() + ".kos");
+		belegung = new File("../SitzplatzBelegungen/belegung" + film.getTitel() + film.getDate().getWochenTag() + film.getDate().getTime() + ".kos");
 		belegtePlaetze = getBelegtePlaetze();
 		generiereSitzplaetze(12, 22);
 	}
@@ -156,6 +157,13 @@ public class Controller3 {
 			try {
 				FileInputStream fis = new FileInputStream(belegung);
 				ObjectInputStream ois = new ObjectInputStream(fis);
+				LocalDate date = (LocalDate) ois.readObject();
+				if (date.isBefore(LocalDate.now()) ) {
+					belegung.delete();
+					ois.close();
+					fis.close();
+					return null;
+				}
 				int size = ois.readInt();
 				List<Point> list = new ArrayList<Point>();
 				for (int i = 0; i < size; i++) {
@@ -165,7 +173,6 @@ public class Controller3 {
 				fis.close();
 				return list;
 			} catch (IOException | ClassNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 				return null;
 			}
@@ -191,13 +198,13 @@ public class Controller3 {
 			try {
 				belegung.createNewFile();
 			} catch (IOException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		}
 		try {
 			fos = new FileOutputStream(belegung, false);
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(film.getDate().getDate());
 			if (belegtePlaetze != null) {
 				int size = kundenListe.size() + belegtePlaetze.size();
 				oos.writeInt(size);
