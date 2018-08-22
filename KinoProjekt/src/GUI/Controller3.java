@@ -13,7 +13,6 @@ import java.util.List;
 
 import Default.Filmstart;
 import Default.Kunde;
-import Default.Reservierung;
 import Platztypen.Komfort;
 import Platztypen.Loge;
 import Platztypen.Parkett;
@@ -34,7 +33,7 @@ import javafx.scene.layout.VBox;
 public class Controller3 {
 
 	private Controller main;
-
+	// Elemente der Scene
 	@FXML
 	private AnchorPane SitzplatzAuswahlPane;
 

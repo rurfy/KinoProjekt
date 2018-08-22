@@ -8,7 +8,7 @@ import java.util.Locale;
 import javafx.fxml.FXML;
 import javafx.scene.layout.VBox;
 
-public class Reservierung {
+public class Reservierung { // Speichert die wichtigsten Daten für die Reservierung
 	@FXML
 	private VBox comboContainer;
 	
@@ -21,7 +21,7 @@ public class Reservierung {
 		this.kundenListe = kundenListe;
 	}
 
-	public void speicherReservierung() {
+	public void speicherReservierung() { // Fügt alle wichtigen Daten zu einem String zusammen
 
 			String plaetze = "";
 			String preis = "";
