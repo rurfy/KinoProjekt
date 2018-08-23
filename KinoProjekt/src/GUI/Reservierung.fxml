@@ -42,7 +42,7 @@
             <AnchorPane prefHeight="100.0" prefWidth="500.0">
                <children>
                   <Button fx:id="back" layoutX="31.0" layoutY="38.0" mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="Zurück" />
-                  <Button fx:id="end" layoutX="26.0" layoutY="38.0" mnemonicParsing="false" onAction="#beenden" text="Beenden" visible="false" />
+                  <Button fx:id="end" layoutX="26.0" layoutY="38.0" mnemonicParsing="false" onMouseClicked="#beenden" text="Beenden" visible="false" />
                   <Button layoutX="204.0" layoutY="38.0" mnemonicParsing="false" onAction="#speicherPDF" text="Reservierung speichern" />
                </children>
             </AnchorPane>

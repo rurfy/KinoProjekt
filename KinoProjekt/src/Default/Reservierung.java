@@ -56,11 +56,12 @@ public class Reservierung { // Speichert die wichtigsten Daten für die Reservier
 					+ "\n" + preis + " €";
 	}
 
+
 	public String getReservierungsInformationen() {
 		return info;
 	}
 	
-	public void speichereInPDF(File file) {
+	public void speichereInPDF(File file) { // Schreibt Rechnung in eine PDF
 		PDPage myPage = new PDPage(PDRectangle.A4);
 		PDDocument mainDocument = new PDDocument();
 		PDImageXObject pdImage;
@@ -85,7 +86,7 @@ public class Reservierung { // Speichert die wichtigsten Daten für die Reservier
 			contentStream.setFont(PDType1Font.HELVETICA_BOLD, 16);
 			contentStream.beginText();
 			contentStream.newLineAtOffset(50, 650);
-			contentStream.showText("Reservierungscode:" + Integer.toString(info.hashCode()));
+			contentStream.showText("Reservierungscode: " + Integer.toString(info.hashCode()));
 			contentStream.endText();
 
 			contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);

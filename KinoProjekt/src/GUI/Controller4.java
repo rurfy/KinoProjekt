@@ -31,18 +31,18 @@ public class Controller4 {
 	@FXML
 	private Button end;
 	
-	public void init(Controller controller) {// Initialisiert den Controller
+	void init(Controller controller) {// Initialisiert den Controller
 		main = controller;
 	}
 	
-	public void initData(Filmstart film, ArrayList<Kunde>kundenListe) {// Initialisiert die Scene durch ‹bergabe der Daten
+	void initData(Filmstart film, ArrayList<Kunde>kundenListe) {// Initialisiert die Scene durch ‹bergabe der Daten
 		this.film = film;
 		res = new Reservierung(film, kundenListe);
 		res.speicherReservierung();
 		reservierung.setText(res.getReservierungsInformationen());
 	}
 	
-	public void zurSitzplatzAuswahl(ActionEvent e) { // Bei Auswahl wird die Sitzplatzauswahl aufgerufen
+	void zurSitzplatzAuswahl(ActionEvent e) { // Bei Auswahl wird die Sitzplatzauswahl aufgerufen
 		main.loadSitzplatzAuswahl((Button) e.getSource(), film);
 		main.removeAllItems();
 	}
@@ -60,7 +60,7 @@ public class Controller4 {
 		fc.setInitialFileName("Rechnung");
 		fc.getExtensionFilters().addAll(
 				new FileChooser.ExtensionFilter("PDF","*.pdf" ));
-		fc.setInitialDirectory(new File(System.getProperty("user.home")+"\\Documents"));
+		fc.setInitialDirectory(new File(System.getProperty("user.home")));
 		File file = fc.showSaveDialog(ReservierungPane.getScene().getWindow());
 		System.out.println(file.getAbsolutePath());
         if (file != null) {
@@ -69,7 +69,8 @@ public class Controller4 {
         }
 	}
 	
-	public void beenden() { // Schlieﬂt das Programm
+	@FXML
+	private void beenden(ActionEvent e) { // Schlieﬂt das Programm
 		System.exit(0);
 	}
 
