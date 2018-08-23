@@ -191,7 +191,7 @@ public class Controller3 {
 		return false;
 	}
 
-	private void speichereSitzplatzDaten() { // Speichert die ausgewählten Plätze und bereits belegte ab
+	void speichereSitzplatzDaten() { // Speichert die ausgewählten Plätze und bereits belegte ab
 		FileOutputStream fos;
 		if (!belegung.exists()) {
 			try {
@@ -253,8 +253,6 @@ public class Controller3 {
 		if (!kundenListe.isEmpty()) {
 			if (setComboBoxValues()) {
 				main.loadReservierung((Button) e.getSource(), film, kundenListe);
-				speichereSitzplatzDaten();
-				removeAllItems();
 			}
 		} else {
 			Alert alert = new Alert(AlertType.WARNING, "Sie haben keine Sitzplätze ausgewählt");
@@ -262,7 +260,7 @@ public class Controller3 {
 		}
 	}
 
-	private void removeAllItems() { // Entfernt alle ausgewählten Elemente aus der Liste
+	void removeAllItems() { // Entfernt alle ausgewählten Elemente aus der Liste
 		for (int i = kundenListe.size() - 1; i >= 0; i--) {
 			kundenListe.get(i).getPlatz().getStyleClass().removeAll("clicked");
 			kundenListe.get(i).getPlatz().getStyleClass().add("onClick");
