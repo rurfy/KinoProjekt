@@ -81,25 +81,30 @@ public class Reservierung { // Speichert die wichtigsten Daten für die Reservier
 			contentStream.newLineAtOffset(50, 700);
 			contentStream.showText("Reservierungsübersicht");
 			contentStream.endText();
-
-			contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);
-
+			
+			contentStream.setFont(PDType1Font.HELVETICA_BOLD, 16);
 			contentStream.beginText();
 			contentStream.newLineAtOffset(50, 650);
+			contentStream.showText("Reservierungscode:" + Integer.toString(info.hashCode()));
+			contentStream.endText();
+
+			contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);
+			contentStream.beginText();
+			contentStream.newLineAtOffset(50, 620);
 			contentStream.showText(film.getTitel());
 			contentStream.endText();
 
 			contentStream.beginText();
-			contentStream.newLineAtOffset(50, 630);
+			contentStream.newLineAtOffset(50, 600);
 			contentStream.showText(film.getDate().getDate().getDayOfWeek().getDisplayName(TextStyle.FULL_STANDALONE, Locale.GERMANY) + " " + film.getDate().getDate() + " " + film.getDate().getTime());
 			contentStream.endText();
 
 			contentStream.beginText();
-			contentStream.newLineAtOffset(50, 610);
+			contentStream.newLineAtOffset(50, 580);
 			contentStream.showText("Saal " + film.getDate().getSaal().getSaalnummer());
 			contentStream.endText();
 
-			int x = 590;
+			int x = 560;
 			for (int i = 0; i < kundenListe.size(); i++) {
 				contentStream.beginText();
 				x = x - 20;
