@@ -112,6 +112,10 @@ public class Controller { // MainController zur Kommunikation zwischen den SubCo
 		stage.setWidth(tab4Controller.ReservierungPane.getWidth() + 20);
 		stage.setHeight(tab4Controller.ReservierungPane.getWidth() + 40);
 	}
+	
+	void speichereAlleSitzplaetze() {
+		tab3Controller.speichereSitzplatzDaten();
+	}
 
 	ArrayList<Filmstart> getArrayList(Film film) { // Gibt die korrespondierende ArrayList<Filmstart> des übergebenen Films zurück
 		for (int i = 0; i < filme.size(); i++) {
@@ -367,6 +371,11 @@ public class Controller { // MainController zur Kommunikation zwischen den SubCo
 				e.printStackTrace();
 			}
 		}
+	}
+
+	
+	void removeAllItems() {
+		tab3Controller.removeAllItems();	
 	}
 
 }

@@ -15,7 +15,7 @@
                <children>
                   <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
                      <image>
-                        <Image url="@../../../Logo_v3.png" />
+                        <Image url="@../../../Logos/Logo_v3.png" />
                      </image></ImageView>
                   <Label prefHeight="81.0" prefWidth="230.0" text="Reservierung" StackPane.alignment="CENTER_LEFT">
                      <font>
@@ -26,24 +26,24 @@
                      </StackPane.margin></Label>
                </children>
             </StackPane>
-            <AnchorPane prefHeight="200.0">
+            <AnchorPane prefHeight="300.0">
                <children>
-                  <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="500.0">
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="300.0" prefWidth="500.0">
                      <content>
                         <Pane prefWidth="500.0">
                            <children>
-                              <Label fx:id="reservierung" layoutX="10.0" prefWidth="300.0" text="Reservierungstext" />
+                              <Label fx:id="reservierung" layoutX="10.0" text="Reservierungstext" />
                            </children>
                         </Pane>
                      </content>
                   </ScrollPane>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+            <AnchorPane prefHeight="100.0" prefWidth="500.0">
                <children>
                   <Button fx:id="back" layoutX="31.0" layoutY="38.0" mnemonicParsing="false" onAction="#zurSitzplatzAuswahl" text="Zurück" />
                   <Button fx:id="end" layoutX="26.0" layoutY="38.0" mnemonicParsing="false" onAction="#beenden" text="Beenden" visible="false" />
-                  <Button layoutX="212.0" layoutY="38.0" mnemonicParsing="false" onAction="#speicherPDF" text="Reservierung speichern" />
+                  <Button layoutX="204.0" layoutY="38.0" mnemonicParsing="false" onAction="#speicherPDF" text="Reservierung speichern" />
                </children>
             </AnchorPane>
          </children>
