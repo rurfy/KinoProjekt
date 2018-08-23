@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 public class Controller4 {
 	
@@ -23,7 +24,8 @@ public class Controller4 {
 	
 	// Elemente der Scene
 	@FXML
-	public AnchorPane ReservierungPane;
+	private AnchorPane ReservierungPane;
+
 	@FXML
 	private Label reservierung;
 	@FXML
@@ -36,6 +38,9 @@ public class Controller4 {
 	}
 	
 	public void initData(Filmstart film, ArrayList<Kunde>kundenListe) {// Initialisiert die Scene durch ‹bergabe der Daten
+		Stage stage = (Stage) getReservierungPane().getScene().getWindow();
+		stage.setWidth(getReservierungPane().getWidth() + 20);
+		stage.setHeight(getReservierungPane().getWidth() + 40);
 		this.film = film;
 		res = new Reservierung(film, kundenListe);
 		res.speicherReservierung();
@@ -43,7 +48,7 @@ public class Controller4 {
 	}
 	
 	public void zurSitzplatzAuswahl(ActionEvent e) { // Bei Auswahl wird die Sitzplatzauswahl aufgerufen
-		main.loadSitzplatzAuswahl((Button) e.getSource(), film);
+		main.loadSitzplatzAuswahl(film);
 		main.removeAllItems();
 	}
 	
@@ -71,6 +76,14 @@ public class Controller4 {
 	
 	public void beenden() { // Schlieﬂt das Programm
 		System.exit(0);
+	}
+	
+	public AnchorPane getReservierungPane() {
+		return ReservierungPane;
+	}
+
+	public void setReservierungPane(AnchorPane reservierungPane) {
+		ReservierungPane = reservierungPane;
 	}
 
 }

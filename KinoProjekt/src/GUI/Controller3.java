@@ -29,6 +29,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class Controller3 {
 
@@ -65,6 +66,9 @@ public class Controller3 {
 
 	void initData(Filmstart film) { // Initialisiert die Scene durch Übergabe der Daten
 
+		Stage stage = (Stage) getSitzplatzAuswahlPane().getScene().getWindow();
+		stage.setWidth(getSitzplatzAuswahlPane().getWidth() + 20);
+		stage.setHeight(getSitzplatzAuswahlPane().getHeight() + 40);
 		sitzplaetze.getChildren().clear();
 		this.film = film;
 		filmName.setText(film.getTitel());
@@ -82,7 +86,7 @@ public class Controller3 {
 	@FXML
 	private void zumStartBildschirm(ActionEvent e) { // Bei Auswahl wird der StartBildschirm aufgerufen
 		removeAllItems();
-		main.loadStartBildschirm((Button) e.getSource());
+		main.loadStartBildschirm();
 	}
 
 	private EventHandler<ActionEvent> buttonClick = new EventHandler<ActionEvent>() { // Handlet die Auswahl eines Sitzplatzes
@@ -252,7 +256,7 @@ public class Controller3 {
 
 		if (!kundenListe.isEmpty()) {
 			if (setComboBoxValues()) {
-				main.loadReservierung((Button) e.getSource(), film, kundenListe);
+				main.loadReservierung(film, kundenListe);
 			}
 		} else {
 			Alert alert = new Alert(AlertType.WARNING, "Sie haben keine Sitzplätze ausgewählt");

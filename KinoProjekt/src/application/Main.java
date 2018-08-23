@@ -27,6 +27,8 @@ public class Main extends Application {
 			primaryStage.setTitle("KiTOS - Kino Ticket Offline Service");
 			primaryStage.setResizable(false);
 			
+			primaryStage.setHeight(739);
+			primaryStage.setWidth(1040);
 			primaryStage.setX(50);
 			primaryStage.setY(0);
 			primaryStage.show();

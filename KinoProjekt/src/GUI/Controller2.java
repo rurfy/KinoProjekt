@@ -18,6 +18,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class Controller2 { // Controller zum Handling der Elemente der Scene2
 
@@ -69,6 +70,10 @@ public class Controller2 { // Controller zum Handling der Elemente der Scene2
 	}
 
 	void initData(Film film, ArrayList<Filmstart> filme) { // Lädt alle Daten in die Scene
+		Stage stage = (Stage) getFilmInfoPane().getScene().getWindow();
+		stage.setWidth(getFilmInfoPane().getWidth() + 20);
+		stage.setHeight(getFilmInfoPane().getHeight() + 40);
+		
 		this.film = film;
 		DecimalFormat df = new DecimalFormat("#.00");
 		dauer.setText("Dauer: " + df.format(film.getDauer()) + " h");
@@ -104,12 +109,12 @@ public class Controller2 { // Controller zum Handling der Elemente der Scene2
 	@FXML
 	private void zurSitzplatzAuswahl(ActionEvent e) { // Bei Auswahl einer Uhrzeit zum nächsten Bildschirm weiterleiten
 		Button b = (Button) e.getSource();
-		main.loadSitzplatzAuswahl(b, (Filmstart) b.getUserData());
+		main.loadSitzplatzAuswahl((Filmstart) b.getUserData());
 	}
 
 	@FXML
 	private void zumStartBildschirm(ActionEvent e) { // Bei Auswahl des "Zurück" Buttons zum vorherigen Bildschirm weiterleiten
-		main.loadStartBildschirm((Button) e.getSource());
+		main.loadStartBildschirm();
 	}
 
 	@FXML

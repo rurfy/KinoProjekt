@@ -183,6 +183,7 @@ public class Controller1 { // Controller zum Handling der Elemente der Scene1
 	}
 
 	void initData() { // Initialisiert alle Daten der 5 Filme
+		
 		Components film1Comp = new Components(image1heute, image1morgen, image1uebermorgen, filmTitel1heute, filmTitel1morgen, filmTitel1uebermorgen, film1heute1, film1heute2, film1heute3,
 				film1morgen1, film1morgen2, film1morgen3, film1uebermorgen1, film1uebermorgen2, film1uebermorgen3);
 		Components film2Comp = new Components(image2heute, image2morgen, image2uebermorgen, filmTitel2heute, filmTitel2morgen, filmTitel2uebermorgen, film2heute1, film2heute2, film2heute3,
@@ -233,13 +234,13 @@ public class Controller1 { // Controller zum Handling der Elemente der Scene1
 	private void zurSitzplatzAuswahl(ActionEvent e) { // Bei Auswahl einer Uhrzeit zum nächsten Bildschirm weiterleiten
 		Button b = (Button) e.getSource();
 
-		main.loadSitzplatzAuswahl((Button) e.getSource(), (Filmstart) b.getUserData());
+		main.loadSitzplatzAuswahl((Filmstart) b.getUserData());
 	}
 
 	@FXML
 	private void zurFilmInfo(MouseEvent e) { // Bei Auswahl eines Films zum nächsten Bildschirm weiterleiten
 
-		main.loadFilmInfo((Pane) e.getSource(), getClickedFilm(e));
+		main.loadFilmInfo(getClickedFilm(e));
 
 	}
 

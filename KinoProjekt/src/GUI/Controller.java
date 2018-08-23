@@ -19,7 +19,6 @@ import Platztypen.Sitzplatz;
 import Tage.Datum;
 
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.stage.Stage;
 
 public class Controller { // MainController zur Kommunikation zwischen den SubControllern
@@ -55,62 +54,52 @@ public class Controller { // MainController zur Kommunikation zwischen den SubCo
 		tab2Controller.init(this);
 		tab3Controller.init(this);
 		tab4Controller.init(this);
-		loadStartBildschirm(); // StartBildschirm wird geladen
+		initStartBildschirm(); // StartBildschirm wird geladen
 
 	}
 
-	void loadFilmInfo(Node n, Film film) { // Lädt den Bildschirm mit näheren Informationen zu einem Film
+	void loadFilmInfo(Film film) { // Lädt den Bildschirm mit näheren Informationen zu einem Film
 		tab1Controller.getStartBildschirmPane().setVisible(false);
 		tab2Controller.getFilmInfoPane().setVisible(true);
 		tab3Controller.getSitzplatzAuswahlPane().setVisible(false);
-		tab4Controller.ReservierungPane.setVisible(false);
-		Stage stage = (Stage) n.getScene().getWindow();
-		stage.setWidth(tab2Controller.getFilmInfoPane().getWidth() + 20);
-		stage.setHeight(tab2Controller.getFilmInfoPane().getHeight() + 40);
+		tab4Controller.getReservierungPane().setVisible(false);
 		tab2Controller.initData(film, getArrayList(film));
 	}
 
-	void loadStartBildschirm() { // Lädt beim Start den Startbildschirm (keine Node notwendig)
+	void initStartBildschirm() { // Lädt beim Start den Startbildschirm (keine Node notwendig)
 		tab1Controller.getStartBildschirmPane().setVisible(true);
 		tab2Controller.getFilmInfoPane().setVisible(false);
 		tab3Controller.getSitzplatzAuswahlPane().setVisible(false);
-		tab4Controller.ReservierungPane.setVisible(false);
+		tab4Controller.getReservierungPane().setVisible(false);
 		tab1Controller.initData();
 	}
 
-	void loadStartBildschirm(Node n) { // Lädt den StartBildschirm von anderen Bildschirmen aus
+	void loadStartBildschirm() { // Lädt den StartBildschirm von anderen Bildschirmen aus
 		tab1Controller.getStartBildschirmPane().setVisible(true);
 		tab2Controller.getFilmInfoPane().setVisible(false);
 		tab3Controller.getSitzplatzAuswahlPane().setVisible(false);
-		tab4Controller.ReservierungPane.setVisible(false);
+		tab4Controller.getReservierungPane().setVisible(false);
 		tab1Controller.initData();
-
-		Stage stage = (Stage) n.getScene().getWindow();
+		
+		Stage stage = (Stage) tab1Controller.getStartBildschirmPane().getScene().getWindow();
 		stage.setWidth(tab1Controller.getStartBildschirmPane().getWidth() + 20);
 		stage.setHeight(tab1Controller.getStartBildschirmPane().getHeight() + 40);
 	}
 
-	void loadSitzplatzAuswahl(Node n, Filmstart film) { // Lädt die Sitzplatzauswahl von anderen Bildschirmen aus
+	void loadSitzplatzAuswahl(Filmstart film) { // Lädt die Sitzplatzauswahl von anderen Bildschirmen aus
 		tab1Controller.getStartBildschirmPane().setVisible(false);
 		tab2Controller.getFilmInfoPane().setVisible(false);
 		tab3Controller.getSitzplatzAuswahlPane().setVisible(true);
 		tab3Controller.initData(film);
-		tab4Controller.ReservierungPane.setVisible(false);
-		Stage stage = (Stage) n.getScene().getWindow();
-		stage.setWidth(tab3Controller.getSitzplatzAuswahlPane().getWidth() + 20);
-		stage.setHeight(tab3Controller.getSitzplatzAuswahlPane().getHeight() + 40);
+		tab4Controller.getReservierungPane().setVisible(false);
 	}
 	
-	void loadReservierung(Node n, Filmstart film, ArrayList<Kunde> kundenListe) { // Lädt die Sitzplatzauswahl von anderen Bildschirmen aus
+	void loadReservierung(Filmstart film, ArrayList<Kunde> kundenListe) { // Lädt die Sitzplatzauswahl von anderen Bildschirmen aus
 		tab1Controller.getStartBildschirmPane().setVisible(false);
 		tab2Controller.getFilmInfoPane().setVisible(false);
 		tab3Controller.getSitzplatzAuswahlPane().setVisible(false);
-		tab4Controller.ReservierungPane.setVisible(true);
+		tab4Controller.getReservierungPane().setVisible(true);
 		tab4Controller.initData(film, kundenListe);
-		
-		Stage stage = (Stage) n.getScene().getWindow();
-		stage.setWidth(tab4Controller.ReservierungPane.getWidth() + 20);
-		stage.setHeight(tab4Controller.ReservierungPane.getWidth() + 40);
 	}
 	
 	void speichereAlleSitzplaetze() {
