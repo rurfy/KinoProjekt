@@ -55,8 +55,6 @@ public class Controller4 {
 	@FXML
 	private void speicherPDF(ActionEvent e) { // Speichert Rechnung als PDF an gewünschten Ort ab
 
-		Alert alert = new Alert (AlertType.INFORMATION, "Sie können nun das Programm beenden. Bitte drücken Sie Ihre Reservierung aus und zeigen Sie diese an Kasse vor.");
-		alert.showAndWait();
 		back.setVisible(false);
 		end.setVisible(true);
 		
