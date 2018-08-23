@@ -85,7 +85,7 @@ public class Reservierung { // Speichert die wichtigsten Daten für die Reservier
 			contentStream.setFont(PDType1Font.HELVETICA_BOLD, 16);
 			contentStream.beginText();
 			contentStream.newLineAtOffset(50, 650);
-			contentStream.showText("Reservierungscode:" + Integer.toString(info.hashCode()));
+			contentStream.showText("Reservierungscode: " + Integer.toString(info.hashCode()));
 			contentStream.endText();
 
 			contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);
