@@ -124,7 +124,7 @@ public class Controller3 {
 						pakettplatz.addEventHandler(ActionEvent.ACTION, buttonClick);
 					} else {
 						pakettplatz.getStyleClass().removeAll("onClick");
-						pakettplatz.getStyleClass().add("clicked");
+						pakettplatz.getStyleClass().add("belegt");
 						pakettplatz.setBelegt(true);
 					}
 					pakettplatz.erstelleSitzplatz(i, j, sitzplaetze);
@@ -134,7 +134,7 @@ public class Controller3 {
 						logenplatz.addEventHandler(ActionEvent.ACTION, buttonClick);
 					} else {
 						logenplatz.getStyleClass().removeAll("onClick");
-						logenplatz.getStyleClass().add("clicked");
+						logenplatz.getStyleClass().add("belegt");
 						logenplatz.setBelegt(true);
 					}
 					logenplatz.erstelleSitzplatz(i, j, sitzplaetze);
@@ -144,7 +144,7 @@ public class Controller3 {
 						komfortplatz.addEventHandler(ActionEvent.ACTION, buttonClick);
 					} else {
 						komfortplatz.getStyleClass().removeAll("onClick");
-						komfortplatz.getStyleClass().add("clicked");
+						komfortplatz.getStyleClass().add("belegt");
 						komfortplatz.setBelegt(true);
 					}
 					komfortplatz.erstelleSitzplatz(i, j, sitzplaetze);

@@ -361,7 +361,6 @@ public class Controller { // MainController zur Kommunikation zwischen den SubCo
 			}
 		}
 	}
-
 	
 	void removeAllItems() {
 		tab3Controller.removeAllItems();	

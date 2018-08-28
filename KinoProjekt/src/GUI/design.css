@@ -139,6 +139,14 @@
 	-fx-border-color: #e2e2e2;
 	-fx-border-width: 1;
 	-fx-background-radius: 0;
+	-fx-background-color: rgb(10,200,10);
+	-fx-background-insets: 0 0 0 0, 0, 1, 2;
+}
+
+.belegt {
+		-fx-border-color: #e2e2e2;
+	-fx-border-width: 1;
+	-fx-background-radius: 0;
 	-fx-background-color: #a01010;
 	-fx-background-insets: 0 0 0 0, 0, 1, 2;
 }
