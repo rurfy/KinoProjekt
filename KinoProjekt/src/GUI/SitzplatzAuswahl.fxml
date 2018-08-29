@@ -19,7 +19,7 @@
 								<Insets />
 							</StackPane.margin>
 							<image>
-								<Image url="@../../../Logos/Logo_v3.png" />
+								<Image url="@../../../Logos/Logo_v3.PNG" />
 							</image>
 						</ImageView>
                   <VBox>

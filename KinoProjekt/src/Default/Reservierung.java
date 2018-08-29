@@ -67,7 +67,7 @@ public class Reservierung { // Speichert die wichtigsten Daten für die Reservier
 		PDPageContentStream contentStream;
 		try {
 			
-			pdImage = PDImageXObject.createFromFile("@../../../Logos/Logo_v2.PNG", mainDocument);
+			pdImage = PDImageXObject.createFromFile("@../../../Logos/Logo_v2.jpg", mainDocument);
 			DecimalFormat df = new DecimalFormat("#.00");
 			double gesamtpreis = film.getPreis() * kundenListe.size();
 

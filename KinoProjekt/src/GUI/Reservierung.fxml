@@ -15,7 +15,7 @@
                <children>
                   <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
                      <image>
-                        <Image url="@../../../Logos/Logo_v3.png" />
+                        <Image url="@../../../Logos/Logo_v3.PNG" />
                      </image></ImageView>
                   <Label prefHeight="81.0" prefWidth="230.0" text="Reservierung" StackPane.alignment="CENTER_LEFT">
                      <font>

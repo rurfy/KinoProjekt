@@ -61,7 +61,7 @@ public class Controller4 {
 		fc.setInitialFileName("Rechnung");
 		fc.getExtensionFilters().addAll(
 				new FileChooser.ExtensionFilter("PDF","*.pdf" ));
-		fc.setInitialDirectory(new File(System.getProperty("user.home")+"\\Documents"));
+		fc.setInitialDirectory(new File(System.getProperty("user.home")));
 		File file = fc.showSaveDialog(ReservierungPane.getScene().getWindow());
 		System.out.println(file.getAbsolutePath());
         if (file != null) {
