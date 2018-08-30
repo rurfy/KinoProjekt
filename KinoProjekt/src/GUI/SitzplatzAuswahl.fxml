@@ -80,7 +80,7 @@
 								</ImageView>
 							</children>
 						</Pane>
-						<ScrollPane hbarPolicy="NEVER" maxWidth="-Infinity" vbarPolicy="ALWAYS" StackPane.alignment="CENTER_RIGHT">
+						<ScrollPane hbarPolicy="NEVER" maxHeight="507.0" maxWidth="-Infinity" vbarPolicy="ALWAYS" StackPane.alignment="CENTER_RIGHT">
 							<content>
 								<VBox fx:id="comboContainer" prefWidth="265.0" />
 							</content>

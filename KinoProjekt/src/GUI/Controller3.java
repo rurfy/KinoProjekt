@@ -78,7 +78,7 @@ public class Controller3 {
 		File file = new File("@" + film.getDate().getSaal().getBackgroundURL());
 		saalBackground.setImage(new Image(file.toURI().toString()));
 		sitzplaetze.getChildren().add(saalBackground);
-		belegung = new File("../SitzplatzBelegungen/belegung" + film.getTitel() + film.getDate().getWochenTag() + film.getDate().getTime() + ".kos");
+		belegung = new File("../SitzplatzBelegungen/belegung" + film.getTitel() + film.getDate().getWochenTag() + film.getDate().getTime().getHour() + ".kos");
 		belegtePlaetze = getBelegtePlaetze();
 		generiereSitzplaetze(12, 22);
 	}
@@ -205,7 +205,7 @@ public class Controller3 {
 			}
 		}
 		try {
-			fos = new FileOutputStream(belegung, false);
+			fos = new FileOutputStream(belegung);
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			oos.writeObject(film.getDate().getDate());
 			if (belegtePlaetze != null) {
