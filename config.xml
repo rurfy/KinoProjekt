@@ -10,8 +10,8 @@
   <priority>normal</priority>
   <downloadUrl>http://java.com/download</downloadUrl>
   <supportUrl></supportUrl>
-  <stayAlive>true</stayAlive>
-  <restartOnCrash>true</restartOnCrash>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
   <manifest></manifest>
   <icon>C:\Users\chris\Desktop\Logo.ico</icon>
   <jre>
